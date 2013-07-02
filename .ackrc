@@ -1,0 +1,16 @@
+--type-set=coffee=.coffee
+
+# add markdown, textile, and reStructuredText
+--type-set=plaintext=.md,.mdown,.markdown,.mkdn,.textile,.rst,.txt
+
+# plain text CSV files
+--type-set=csv=.txt,.csv,.tsv
+
+--type-set=rb=.rb,.rabl
+
+# ignore node_modules
+--ignore-dir=node_modules
+
+# haml and sass
+--type-set=haml=.haml
+--type-set=sass=.sass,.scss
