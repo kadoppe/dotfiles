@@ -6,16 +6,27 @@ if has('vim_starting')
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
-
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" My Bundles here:
+" Bundles
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'kien/ctrlp.vim'
+
+NeoBundle 'airblade/vim-gitgutter'
+
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-bundler'
+
+NeoBundle 'altercation/vim-colors-solarized'
 
 " NERDTree:
-map <C-t> :NERDTreeToggle<CR>
+map <C-e> :NERDTreeToggle<CR>
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 filetype plugin indent on
 NeoBundleCheck

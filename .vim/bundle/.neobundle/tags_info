@@ -1,4 +1,9 @@
+ctrlp.vim
 neobundle.vim
 nerdtree
 unite.vim
+vim-bundler
+vim-colors-solarized
+vim-gitgutter
+vim-rails
 vimproc
