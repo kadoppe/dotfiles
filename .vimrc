@@ -10,6 +10,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'git://github.com/Shougo/unite.vim.git'
 
 filetype plugin indent on
 NeoBundleCheck
