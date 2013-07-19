@@ -1,6 +1,11 @@
 set nocompatible
 set noswapfile
 
+set tabstop=2
+set autoindent
+set expandtab
+set shiftwidth=2
+
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
