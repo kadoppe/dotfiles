@@ -1,6 +1,7 @@
 ctrlp.vim
 neobundle.vim
 nerdtree
+powerline
 unite.vim
 vim-bundler
 vim-colors-solarized

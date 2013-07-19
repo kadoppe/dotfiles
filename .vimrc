@@ -15,6 +15,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
