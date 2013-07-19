@@ -28,6 +28,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 
 NeoBundle 'tpope/vim-rails'
@@ -35,8 +36,17 @@ NeoBundle 'tpope/vim-bundler'
 
 NeoBundle 'altercation/vim-colors-solarized'
 
-" NERDTree:
+" NERDTree
 map <C-e> :NERDTreeToggle<CR>
+
+" unite.vim
+let g:unite_enable_start_insert=0
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 syntax enable
 set background=dark
