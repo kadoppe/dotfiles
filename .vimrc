@@ -30,6 +30,9 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'thinca/vim-quickrun'
+
+NeoBundle 'Markdown'
 
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
