@@ -28,6 +28,8 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'thinca/vim-quickrun'
@@ -50,6 +52,9 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+" gitv
+autocmd FileType git :setlocal foldlevel=99
 
 syntax enable
 set background=dark
