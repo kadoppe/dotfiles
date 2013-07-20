@@ -104,6 +104,7 @@
 'syntastic_style_error_symbol'	syntastic.txt	/*'syntastic_style_error_symbol'*
 'syntastic_style_warning_symbol'	syntastic.txt	/*'syntastic_style_warning_symbol'*
 'syntastic_warning_symbol'	syntastic.txt	/*'syntastic_warning_symbol'*
+:AirlineTheme	airline.txt	/*:AirlineTheme*
 :CtrlP	ctrlp.txt	/*:CtrlP*
 :CtrlPBookmarkDir	ctrlp.txt	/*:CtrlPBookmarkDir*
 :CtrlPBookmarkDirAdd	ctrlp.txt	/*:CtrlPBookmarkDirAdd*
@@ -285,6 +286,14 @@ NERDTreeRender()	NERD_tree.txt	/*NERDTreeRender()*
 NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
 ResetCtrlP	ctrlp.txt	/*ResetCtrlP*
 Unite	unite.txt	/*Unite*
+airline	airline.txt	/*airline*
+airline-commands	airline.txt	/*airline-commands*
+airline-configuration	airline.txt	/*airline-configuration*
+airline-contributions	airline.txt	/*airline-contributions*
+airline-customization	airline.txt	/*airline-customization*
+airline-license	airline.txt	/*airline-license*
+airline-name	airline.txt	/*airline-name*
+airline.txt	airline.txt	/*airline.txt*
 before	solarized.txt	/*before*
 bundler	bundler.txt	/*bundler*
 bundler-:Bedit	bundler.txt	/*bundler-:Bedit*

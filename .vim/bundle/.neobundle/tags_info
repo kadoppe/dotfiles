@@ -1,9 +1,9 @@
 ctrlp.vim
 neobundle.vim
 nerdtree
-powerline
 syntastic
 unite.vim
+vim-airline
 vim-bundler
 vim-colors-solarized
 vim-gitgutter
