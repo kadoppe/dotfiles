@@ -59,6 +59,9 @@ NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-lastpat'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'mattn/webapi-vim'
 
 NeoBundle 'Markdown'
 
@@ -96,6 +99,10 @@ let g:yankring_window_height = 13
 " indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
+
+" gist-vim
+let g:gist_detect_filetype = 1
+let g:gist_show_privates = 1
 
 " 選択した範囲のインデントサイズを連続変更
 vnoremap < <gv
