@@ -47,6 +47,7 @@ NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'ShowMarks'
 NeoBundle 'YankRing.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 NeoBundle 'Markdown'
 
@@ -80,6 +81,10 @@ let g:yankring_history_dir = expand('$HOME')
 let g:yankring_history_file = '.yankring_history'
 let g:yankring_max_history = 10
 let g:yankring_window_height = 13
+
+" indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
