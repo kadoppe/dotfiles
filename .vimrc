@@ -17,6 +17,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
 let mapleader=","
 
 if has('vim_starting')
