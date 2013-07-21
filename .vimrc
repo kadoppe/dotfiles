@@ -69,11 +69,14 @@ let g:vimfiler_safe_mode_by_default=0
 let g:vimfiler_as_default_explorer=1
 
 " gundo.vim
-:nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :GundoToggle<CR>
 
 " YankRing
+nnoremap <silent> <F7> :YRShow<CR>
 let g:yankring_history_dir = expand('$HOME')
 let g:yankring_history_file = '.yankring_history'
+let g:yankring_max_history = 10
+let g:yankring_window_height = 13
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
