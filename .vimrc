@@ -58,6 +58,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-lastpat'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'thinca/vim-ref'
 
 NeoBundle 'Markdown'
 
