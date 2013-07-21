@@ -90,6 +90,10 @@ let g:yankring_window_height = 13
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 
+" 選択した範囲のインデントサイズを連続変更
+vnoremap < <gv
+vnoremap > >gv
+
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
   autocmd!
