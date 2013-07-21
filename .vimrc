@@ -15,7 +15,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -55,8 +54,17 @@ nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
-" gitv
-autocmd FileType git :setlocal foldlevel=99
+" :vimgrepでの検索後QuickFixウインドウを自動的に開く
+augroup grepopen
+  autocmd!
+  autocmd QuickfixCmdPost vimgrep cw
+augroup END
+
+" gitvでDiffが折りたたまれて表示される問題の対策
+augroup git
+  autocmd!
+  autocmd FileType git :setlocal foldlevel=99
+augroup END
 
 syntax enable
 set background=dark
