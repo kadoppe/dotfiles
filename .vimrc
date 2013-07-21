@@ -51,6 +51,7 @@ NeoBundle 'ShowMarks'
 NeoBundle 'YankRing.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'tpope/vim-abolish'
 
 NeoBundle 'Markdown'
 
