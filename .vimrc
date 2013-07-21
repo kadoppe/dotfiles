@@ -52,6 +52,7 @@ NeoBundle 'YankRing.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-abolish'
+NeoBundle 'Align'
 
 NeoBundle 'Markdown'
 
