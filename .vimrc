@@ -104,6 +104,9 @@ let g:indent_guides_guide_size = 1
 let g:gist_detect_filetype = 1
 let g:gist_show_privates = 1
 
+" align
+let g:Align_xstrlen = 3
+
 " 選択した範囲のインデントサイズを連続変更
 vnoremap < <gv
 vnoremap > >gv
