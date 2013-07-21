@@ -1,6 +1,8 @@
 set nocompatible
 set noswapfile
 
+set modeline
+
 set tabstop=2
 set autoindent
 set expandtab
