@@ -25,6 +25,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Bundles
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 
@@ -34,6 +35,7 @@ NeoBundle 'gregsexton/gitv'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'sudo.vim'
 
 NeoBundle 'Markdown'
 
@@ -53,6 +55,10 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+" vimfiler
+let g:vimfiler_safe_mode_by_default=0
+let g:vimfiler_as_default_explorer=1
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
