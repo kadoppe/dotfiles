@@ -43,6 +43,7 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'adie/BlockDiff'
 NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'ShowMarks'
+NeoBundle 'YankRing.vim'
 
 NeoBundle 'Markdown'
 
@@ -69,6 +70,10 @@ let g:vimfiler_as_default_explorer=1
 
 " gundo.vim
 :nnoremap <F5> :GundoToggle<CR>
+
+" YankRing
+let g:yankring_history_dir = expand('$HOME')
+let g:yankring_history_file = '.yankring_history'
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
