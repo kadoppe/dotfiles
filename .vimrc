@@ -17,6 +17,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+let mapleader=","
+
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -44,6 +46,7 @@ NeoBundle 'adie/BlockDiff'
 NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'ShowMarks'
 NeoBundle 'YankRing.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
 
 NeoBundle 'Markdown'
 
