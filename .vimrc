@@ -66,6 +66,12 @@ augroup grepopen
   autocmd QuickfixCmdPost vimgrep cw
 augroup END
 
+" ファイルを開いた時にカーソルを前回編集時の位置に移動
+augroup previousline
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
 " gitvでDiffが折りたたまれて表示される問題の対策
 augroup git
   autocmd!
