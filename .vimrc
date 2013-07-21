@@ -40,6 +40,7 @@ NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'adie/BlockDiff'
 NeoBundle 'thinca/vim-visualstar'
+NeoBundle 'ShowMarks'
 
 NeoBundle 'Markdown'
 
