@@ -11,6 +11,7 @@ set shiftwidth=2
 set laststatus=2
 
 set clipboard=unnamed,autoselect
+set nrformats=
 
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
