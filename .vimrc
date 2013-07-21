@@ -36,6 +36,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sudo.vim'
+NeoBundle 'sjl/gundo.vim'
 
 NeoBundle 'Markdown'
 
@@ -59,6 +60,9 @@ nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mr
 " vimfiler
 let g:vimfiler_safe_mode_by_default=0
 let g:vimfiler_as_default_explorer=1
+
+" gundo.vim
+:nnoremap <F5> :GundoToggle<CR>
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
