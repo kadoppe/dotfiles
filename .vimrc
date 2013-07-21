@@ -39,6 +39,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'adie/BlockDiff'
+NeoBundle 'thinca/vim-visualstar'
 
 NeoBundle 'Markdown'
 
