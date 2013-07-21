@@ -38,6 +38,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim'
+NeoBundle 'adie/BlockDiff'
 
 NeoBundle 'Markdown'
 
