@@ -74,13 +74,13 @@ NeoBundle 'altercation/vim-colors-solarized'
 map <C-e> :NERDTreeToggle<CR>
 
 " unite.vim
+nnoremap [unite] <Nop>
+nmap <Leader>u [unite]
+
 let g:unite_enable_start_insert=0
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<space>buffer<CR>
+nnoremap <silent> [unite]bm :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
 
 " vimfiler
 let g:vimfiler_safe_mode_by_default=0
