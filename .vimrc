@@ -72,6 +72,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'yaymukund/vim-rabl'
+NeoBundle 'kchmck/vim-coffee-script'
 
 NeoBundle 'Markdown'
 
