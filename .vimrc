@@ -71,6 +71,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
+NeoBundle 'yaymukund/vim-rabl'
 
 NeoBundle 'Markdown'
 
