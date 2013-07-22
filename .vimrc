@@ -22,6 +22,9 @@ set laststatus=2
 set clipboard=unnamed,autoselect
 set nrformats=
 
+set list
+set listchars=tab:^\ ,trail:~
+
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
@@ -73,6 +76,7 @@ NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'yaymukund/vim-rabl'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'fuenor/JpFormat.vim'
 
 NeoBundle 'Markdown'
 
@@ -117,6 +121,11 @@ let g:gist_show_privates = 1
 
 " align
 let g:Align_xstrlen = 3
+
+" JpFormat
+let JpCountChars = 38
+let JpCountLines = 34
+noremap <silent> gl :JpFormat<CR>
 
 " 選択した範囲のインデントサイズを連続変更
 vnoremap < <gv
