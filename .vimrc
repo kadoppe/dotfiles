@@ -1,5 +1,14 @@
 set nocompatible
-set noswapfile
+
+set backup
+set swapfile
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
+
+if has('persistent_undo')
+  set undofile
+  set undodir=./.vimundo,~/.vim/undo
+endif
 
 set modeline
 
