@@ -127,6 +127,9 @@ let JpCountChars = 38
 let JpCountLines = 34
 noremap <silent> gl :JpFormat<CR>
 
+" ctrlp
+let g:ctrlp_map = '<Leader>p'
+
 " 選択した範囲のインデントサイズを連続変更
 vnoremap < <gv
 vnoremap > >gv
