@@ -77,6 +77,7 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'yaymukund/vim-rabl'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'fuenor/JpFormat.vim'
+NeoBundle 'briancollins/vim-jst'
 
 NeoBundle 'Markdown'
 
