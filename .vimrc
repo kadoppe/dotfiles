@@ -59,7 +59,6 @@ NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'adie/BlockDiff'
 NeoBundle 'thinca/vim-visualstar'
-NeoBundle 'YankRing.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tpope/vim-abolish'
@@ -104,13 +103,6 @@ let g:vimfiler_as_default_explorer=1
 " gundo.vim
 nnoremap <F5> :GundoToggle<CR>
 
-" YankRing
-nnoremap <silent> <F7> :YRShow<CR>
-let g:yankring_history_dir = expand('$HOME')
-let g:yankring_history_file = '.yankring_history'
-let g:yankring_max_history = 10
-let g:yankring_window_height = 13
-
 " indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
@@ -126,9 +118,6 @@ let g:Align_xstrlen = 3
 let JpCountChars = 38
 let JpCountLines = 34
 noremap <silent> gl :JpFormat<CR>
-
-" ctrlp
-let g:ctrlp_map = '<Leader>p'
 
 " 選択した範囲のインデントサイズを連続変更
 vnoremap < <gv
