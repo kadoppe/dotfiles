@@ -77,6 +77,8 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'fuenor/JpFormat.vim'
 NeoBundle 'briancollins/vim-jst'
 NeoBundle 'thinca/vim-qfreplace'
+NeoBundle 'fuenor/qfixhowm'
+NeoBundle 'tpope/vim-speeddating'
 
 NeoBundle 'Markdown'
 
@@ -125,6 +127,15 @@ let g:Align_xstrlen = 3
 let JpCountChars = 38
 let JpCountLines = 34
 noremap <silent> gl :JpFormat<CR>
+
+" qfixhowm
+let QFixHowm_Key = 'g'
+let howm_dir = '~/Dropbox/howm'
+let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
+let howm_fileencoding = 'utf-8'
+let howm_fileformat = 'unix'
+let QFixHowm_FileType = 'markdown'
+let QFixHowm_Title = '#'
 
 " 選択した範囲のインデントサイズを連続変更
 vnoremap < <gv
