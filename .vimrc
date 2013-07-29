@@ -11,6 +11,7 @@ if has('persistent_undo')
 endif
 
 set modeline
+set number
 
 set tabstop=2
 set autoindent
@@ -96,10 +97,10 @@ map <C-e> :NERDTreeToggle<CR>
 nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
 
-nnoremap <silent> [unite]b :<C-u>Unite<space>buffer<CR>
+nnoremap <silent> [unite]f :<C-u>Unite<space>-buffer-name=files<space>buffer_tab<space>file_rec<space>file<space>file_mru<CR>
 nnoremap <silent> [unite]bm :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
-nnoremap <silent> [unite]g :<C-u>Unite<space>grep<CR>
+nnoremap <silent> [unite]g :<C-u>Unite<space>grep -no-quit<CR>
 nnoremap <silent> [unite]o :<C-u>Unite<space>outline<CR>
 nnoremap <silent> [unite]l :<C-u>Unite<space>line<CR>
 
