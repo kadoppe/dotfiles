@@ -45,6 +45,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'fuenor/qfixgrep'
@@ -79,6 +80,7 @@ NeoBundle 'briancollins/vim-jst'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'Shougo/neocomplcache'
 
 NeoBundle 'Markdown'
 
@@ -98,6 +100,8 @@ nnoremap <silent> [unite]b :<C-u>Unite<space>buffer<CR>
 nnoremap <silent> [unite]bm :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<space>grep<CR>
+nnoremap <silent> [unite]o :<C-u>Unite<space>outline<CR>
+nnoremap <silent> [unite]l :<C-u>Unite<space>line<CR>
 
 let g:unite_enable_start_insert=0
 let g:unite_source_grep_command = 'ag'
@@ -136,6 +140,9 @@ let howm_fileencoding = 'utf-8'
 let howm_fileformat = 'unix'
 let QFixHowm_FileType = 'markdown'
 let QFixHowm_Title = '#'
+
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
 
 " 選択した範囲のインデントサイズを連続変更
 vnoremap < <gv
