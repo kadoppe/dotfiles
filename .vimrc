@@ -92,10 +92,16 @@ map <C-e> :NERDTreeToggle<CR>
 nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
 
-let g:unite_enable_start_insert=0
 nnoremap <silent> [unite]b :<C-u>Unite<space>buffer<CR>
 nnoremap <silent> [unite]bm :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
+nnoremap <silent> [unite]g :<C-u>Unite<space>grep<CR>
+
+let g:unite_enable_start_insert=0
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--nocolor --nogroup'
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_max_candidates = 200
 
 " vimfiler
 let g:vimfiler_safe_mode_by_default=0
