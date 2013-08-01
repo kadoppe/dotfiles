@@ -12,6 +12,7 @@ endif
 
 set modeline
 set number
+set cursorline
 
 set tabstop=2
 set autoindent
@@ -79,8 +80,10 @@ NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'osyo-manga/unite-qfixhowm'
+NeoBundle 'bling/vim-airline'
 
-NeoBundle 'Markdown'
+NeoBundle 'tpope/vim-markdown'
 
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-bundler'
@@ -100,6 +103,7 @@ nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<space>grep -no-quit<CR>
 nnoremap <silent> [unite]o :<C-u>Unite<space>outline<CR>
 nnoremap <silent> [unite]l :<C-u>Unite<space>line<CR>
+nnoremap <silent> [unite]h :<C-u>Unite<space>qfixhowm<CR>
 
 let g:unite_enable_start_insert=0
 let g:unite_source_grep_command = 'ag'
