@@ -118,6 +118,7 @@ nnoremap <silent> [unite]l :<C-u>Unite<space>line<CR>
 nnoremap <silent> [unite]h :<C-u>Unite<space>qfixhowm<CR>
 
 let g:unite_enable_start_insert=0
+" Uniteが使うgrepコマンドとして`ag`を指定
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--nocolor --nogroup'
 let g:unite_source_grep_recursive_opt = ''
