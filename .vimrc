@@ -1,94 +1,106 @@
 set nocompatible
 
+" スワップファイルとバックアップファイルの出力先を指定
 set backup
 set swapfile
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
 
-if has('persistent_undo')
-  set undofile
-  set undodir=./.vimundo,~/.vim/undo
-endif
-
+" モードラインを有効化
 set modeline
+
+" 行番号を表示
 set number
+
+" カレント行をハイライト
 set cursorline
 
+" 常にステータスラインを表示
+set laststatus=2
+
+" タブ幅とインデント幅を設定
 set tabstop=2
 set autoindent
 set expandtab
 set shiftwidth=2
 
-set laststatus=2
-
+" OSのクリップボードを利用
 set clipboard=unnamed,autoselect
+
+" 10進数として数値をインクリメント
 set nrformats=
 
+" タブと行末スペースを可視化
 set list
 set listchars=tab:^\ ,trail:~
 
+" Vimを終了してもUndo
+if has('persistent_undo')
+  set undofile
+  set undodir=./.vimundo,~/.vim/undo
+endif
+
+" Ctrl + j, k, h, lでウインドウを移動できるように
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" ESCを2回入力で検索時のハイライトを解除
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
+" leaderをカンマに割り当て
 let mapleader=","
 
+" NeoBundleの設定
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Bundles
-NeoBundle 'Shougo/vimproc'
+" Bundle
+NeoBundle 'Align'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'fuenor/qfixgrep'
-
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'gregsexton/gitv'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'sudo.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'adie/BlockDiff'
-NeoBundle 'thinca/vim-visualstar'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'Align'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'briancollins/vim-jst'
+NeoBundle 'fuenor/JpFormat.vim'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'fuenor/qfixhowm'
+NeoBundle 'gregsexton/gitv'
+NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-lastpat'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'Shougo/vimshell'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'yaymukund/vim-rabl'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'fuenor/JpFormat.vim'
-NeoBundle 'briancollins/vim-jst'
-NeoBundle 'thinca/vim-qfreplace'
-NeoBundle 'fuenor/qfixhowm'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'osyo-manga/unite-qfixhowm'
-NeoBundle 'bling/vim-airline'
-
-NeoBundle 'tpope/vim-markdown'
-
-NeoBundle 'tpope/vim-rails'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'thinca/vim-qfreplace'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-visualstar'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-bundler'
-
-NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'yaymukund/vim-rabl'
 
 " NERDTree
 map <C-e> :NERDTreeToggle<CR>
@@ -165,11 +177,10 @@ augroup git
   autocmd FileType git :setlocal foldlevel=99
 augroup END
 
+" カラースキームをsolarized(dark)に設定
 syntax enable
 set background=dark
 colorscheme solarized
 
 filetype plugin indent on
 NeoBundleCheck
-
-
