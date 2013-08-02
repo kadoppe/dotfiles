@@ -24,6 +24,9 @@ set autoindent
 set expandtab
 set shiftwidth=2
 
+" カーソル移動が行頭・行末で止まらないように
+set whichwrap=b,s,h,l
+
 " OSのクリップボードを利用
 set clipboard=unnamed,autoselect
 
