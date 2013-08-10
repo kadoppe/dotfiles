@@ -6,6 +6,10 @@ set swapfile
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
 
+" ビープを無効に
+set visualbell t_vb=
+set noerrorbells
+
 " 編集中の内容を保ったままバッファを切り替える
 set hidden
 
