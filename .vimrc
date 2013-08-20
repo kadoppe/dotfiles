@@ -110,6 +110,7 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'yaymukund/vim-rabl'
 
