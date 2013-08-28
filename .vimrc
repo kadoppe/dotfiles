@@ -170,6 +170,11 @@ let QFixHowm_Title = '#'
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 
+" lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'solarized'
+      \ }
+
 " 選択した範囲のインデントサイズを連続変更
 vnoremap < <gv
 vnoremap > >gv
