@@ -22,6 +22,9 @@ set number
 " カレント行をハイライト
 set cursorline
 
+set scrolloff=5
+set autoread
+
 " 常にステータスラインを表示
 set laststatus=2
 
