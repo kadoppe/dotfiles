@@ -1,5 +1,5 @@
 let g:plugin_loader_roots = "~/dotfiles/.vimperator/vimperator-plugins"
-let g:plugin_loader_plugins = "_libly,lookupDictionary"
+let g:plugin_loader_plugins = "_libly,lookupDictionary,copy"
 
 " スクロールの端などの際に出るbeepをoff
 set nobeep
@@ -48,13 +48,21 @@ cmap <C-p> <S-Tab>
 " コマンドライン時はIMEをオフ
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
-""
-"" はてなブックマーク拡張
-""____________________________________________________________
+"" plugins
+
+" はてなブックマーク拡張
 javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
 set complete+=H
 
-""
-"" lookupDictionary.js
-""____________________________________________________________
+" lookupDictionary.js
 map e :eijiro
+
+" copy.js
+javascript <<EOM
+  liberator.globalVariables.copy_templates = [
+    { label: 'title', value: '%TITLE%' },
+    { label: 'plain', value: '%TITLE% %URL%' },
+    { label: 'anchor', value: '<a href="%URL%">%TITLE%</a>' },
+    { label: 'markdown', value: '[%TITLE%](%URL%)' },
+  ];
+EOM
