@@ -1,6 +1,5 @@
-"=============================================
-" Vimp Config
-"=============================================
+let g:plugin_loader_roots = "~/dotfiles/.vimperator/vimperator-plugins"
+let g:plugin_loader_plugins = "_libly,lookupDictionary"
 
 " スクロールの端などの際に出るbeepをoff
 set nobeep
@@ -58,4 +57,4 @@ set complete+=H
 ""
 "" lookupDictionary.js
 ""____________________________________________________________
-map e :eijiro 
+map e :eijiro
