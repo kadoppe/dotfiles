@@ -30,6 +30,7 @@ qmark r javascript:(function(){var%20e=function(t,n,r,i,s){var%20o=[1411827,4218
 qmark o javascript:(function()%7Bwindow.open('https%3A%2F%2F1topi.jp%2Fdashboard%2Fcuration%3Furl%3D'%2BencodeURIComponent(location.href))%7D)()%3B
 
 "" キーマップ
+let mapleader=","
 
 "j/kの移動量を3倍に
 noremap j 3j
@@ -40,6 +41,24 @@ map l <C-n>
 
 cmap <C-n> <Tab>
 cmap <C-p> <S-Tab>
+
+" http://jagua.hatenablog.jp/entry/2012/12/08/001014
+" :panorama のサブコマンドを入力待ち
+nnoremap <Leader>pc :<C-u>panorama<Space>
+" タブグループを移動
+nnoremap <Leader>ps :<C-u>panorama switch<Space>
+" タブグループを新規作成
+nnoremap <Leader>pa :<C-u>panorama add<Space>
+" タブグループリストを表示
+nnoremap <Leader>pl :<C-u>panorama list<CR>
+" 現在のタブをタブグループに追加
+nnoremap <Leader>pp :<C-u>panorama pushtab<Space>
+" 現在のタブグループにタブを追加
+nnoremap <Leader>pu :<C-u>panorama pulltab<Space>
+" タブグループを削除
+nnoremap <Leader>pr :<C-u>panorama remove<Space>
+" タブグループビューを開く
+nnoremap <Leader>po <C-S-e>
 
 " コマンドライン時はIMEをオフ
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
