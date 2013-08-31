@@ -87,6 +87,9 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'yaymukund/vim-rabl'
 
 let mapleader=","
+noremap ;  :
+noremap :  ;
+
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
