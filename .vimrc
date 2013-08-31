@@ -100,10 +100,11 @@ vnoremap > >gv
 
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
-map <leader>l :Align
-nmap <leader>d :NERDTreeToggle<CR>
-nmap <leader>t :CtrlP<CR>
-nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR><CR>
+nnoremap <leader>h :<C-u>help<space>
+noremap <leader>l :Align
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>t :CtrlP<CR>
+nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR><CR>
 
 nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
@@ -117,7 +118,7 @@ nnoremap <silent> [unite]h :<C-u>Unite<space>qfixhowm<CR>
 
 noremap <silent> gl :JpFormat<CR>
 
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " unite.vim
 let g:unite_enable_start_insert=0
