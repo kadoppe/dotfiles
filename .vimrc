@@ -32,26 +32,13 @@ if has('persistent_undo')
   set undodir=./.vimundo,~/.vim/undo
 endif
 
-" Ctrl + j, k, h, lでウインドウを移動できるように
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-" ESCを2回入力で検索時のハイライトを解除
-nnoremap <ESC><ESC> :nohlsearch<CR>
-
-" leaderをカンマに割り当て
-let mapleader=","
-
-" NeoBundleの設定
+" NeoBundle
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Bundle
 NeoBundle 'Align'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Shougo/neocomplcache'
@@ -98,14 +85,25 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'yaymukund/vim-rabl'
 
-" NERDTree
-map <C-e> :NERDTreeToggle<CR>
+let mapleader=","
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
-" unite.vim
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
+map <leader>l :Align
+nmap <leader>d :NERDTreeToggle<CR>
+nmap <leader>t :CtrlP<CR>
+nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR><CR>
+
 nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
-
-nnoremap <silent> [unite]f :<C-u>Unite<space>-buffer-name=files<space>buffer_tab<space>file_rec<space>file<space>file_mru<CR>
+nnoremap <silent> [unite]f :<C-u>Unite<space>-buffer-name=files<space>buffer_tab<space>file_mru<space>file_rec<space>file<CR>
 nnoremap <silent> [unite]bm :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<space>grep -no-quit<CR>
@@ -113,8 +111,12 @@ nnoremap <silent> [unite]o :<C-u>Unite<space>outline<CR>
 nnoremap <silent> [unite]l :<C-u>Unite<space>line<CR>
 nnoremap <silent> [unite]h :<C-u>Unite<space>qfixhowm<CR>
 
+noremap <silent> gl :JpFormat<CR>
+
+map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" unite.vim
 let g:unite_enable_start_insert=0
-" Uniteが使うgrepコマンドとして`ag`を指定
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--nocolor --nogroup'
 let g:unite_source_grep_recursive_opt = ''
@@ -138,7 +140,6 @@ let g:Align_xstrlen = 3
 " JpFormat
 let JpCountChars = 38
 let JpCountLines = 34
-noremap <silent> gl :JpFormat<CR>
 
 " qfixhowm
 let QFixHowm_Key = 'g'
@@ -156,10 +157,6 @@ let g:neocomplcache_enable_at_startup = 1
 let g:lightline = {
       \ 'colorscheme': 'solarized'
       \ }
-
-" 選択した範囲のインデントサイズを連続変更
-vnoremap < <gv
-vnoremap > >gv
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
