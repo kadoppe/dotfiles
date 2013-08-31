@@ -1,51 +1,30 @@
 set nocompatible
 
-" スワップファイルとバックアップファイルの出力先を指定
-set backup
-set swapfile
-set backupdir=~/.vim/backup
-set directory=~/.vim/swap
+" enable syntax highlighting
+syntax enable
 
-" ビープを無効に
-set visualbell t_vb=
-set noerrorbells
-
-" 編集中の内容を保ったままバッファを切り替える
-set hidden
-
-" モードラインを有効化
-set modeline
-
-" 行番号を表示
-set number
-
-" カレント行をハイライト
-set cursorline
-
-set scrolloff=5
-set autoread
-
-" 常にステータスラインを表示
-set laststatus=2
-
-" タブ幅とインデント幅を設定
-set tabstop=2
 set autoindent
-set expandtab
-set shiftwidth=2
-
-" カーソル移動が行頭・行末で止まらないように
-set whichwrap=b,s,h,l
-
-" OSのクリップボードを利用
+set autoread
+set backup
+set backupdir=~/.vim/backup
 set clipboard=unnamed,autoselect
-
-" 10進数として数値をインクリメント
-set nrformats=
-
-" タブと行末スペースを可視化
+set cursorline
+set directory=~/.vim/swap
+set expandtab
+set hidden
+set laststatus=2
 set list
 set listchars=tab:^\ ,trail:~
+set modeline
+set noerrorbells
+set nrformats=
+set number
+set scrolloff=5
+set shiftwidth=2
+set swapfile
+set tabstop=2
+set visualbell t_vb=
+set whichwrap=b,s,h,l
 
 " Vimを終了してもUndo
 if has('persistent_undo')
@@ -201,7 +180,6 @@ augroup git
 augroup END
 
 " カラースキームをsolarized(dark)に設定
-syntax enable
 set background=dark
 colorscheme solarized
 
