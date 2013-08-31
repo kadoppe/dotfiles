@@ -14,6 +14,7 @@ set expandtab
 set helplang=en
 set hidden
 set laststatus=2
+set lazyredraw
 set list
 set listchars=tab:^\ ,trail:~
 set modeline
@@ -24,6 +25,7 @@ set scrolloff=5
 set shiftwidth=2
 set swapfile
 set tabstop=2
+set ttyfast
 set visualbell t_vb=
 set whichwrap=b,s,h,l
 
@@ -127,7 +129,6 @@ let g:unite_source_grep_default_opts = '--nocolor --nogroup'
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_grep_max_candidates = 200
 
-" vimfiler
 let g:vimfiler_safe_mode_by_default=0
 let g:vimfiler_as_default_explorer=1
 
