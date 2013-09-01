@@ -1,6 +1,5 @@
 set nocompatible
 
-" enable syntax highlighting
 syntax enable
 
 set autoindent
