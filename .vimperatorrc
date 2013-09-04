@@ -1,7 +1,6 @@
 let g:plugin_loader_roots = "~/dotfiles/.vimperator/vimperator-plugins"
 let g:plugin_loader_plugins = "_libly,lookupDictionary,copy"
 
-" スクロールの端などの際に出るbeepをoff
 set nobeep
 " 検索で大文字小文字を無視
 set ignorecase
@@ -31,6 +30,8 @@ qmark o javascript:(function()%7Bwindow.open('https%3A%2F%2F1topi.jp%2Fdashboard
 
 "" キーマップ
 let mapleader=","
+noremap ;  :
+noremap :  ;
 
 "j/kの移動量を3倍に
 noremap j 3j
@@ -70,7 +71,7 @@ javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://h
 set complete+=H
 
 " lookupDictionary.js
-map e :eijiro
+map e :eijiro<space>
 
 " copy.js
 javascript <<EOM
