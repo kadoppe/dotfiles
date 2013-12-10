@@ -32,24 +32,22 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler cap gem git-extras macports mysql-macports osx rails ruby rvm hub)
+plugins=(git bundler cap gem git-extras osx rails ruby rvm hub)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/opt/local/bin:/opt/local/sbin/:/Users/kadoppe/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/:/Users/kadoppe/local/bin:/usr/local/git/bin:/Users/kadoppe/dotfiles/bin:/sbin:usr/local/bin:/Users/kadoppe/.rvm/bin:/opt/ec2-api-tools/bin:/opt/RDSCli/bin:/Users/kadoppe/bin/eb
+export PATH=/Users/kadoppe/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources:/Users/kadoppe/local/bin:/usr/local/git/bin:/Users/kadoppe/dotfiles/bin:/sbin:usr/local/bin:/Users/kadoppe/.rvm/bin:/opt/ec2-api-tools/bin:/opt/RDSCli/bin:/Users/kadoppe/bin/eb
+
+# node
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+nodebrew use v0.10.22
 
 # go
 export GOPATH=~/.go
 
 # 移動した後は 'ls' する
 function chpwd() { ls -F }
-
-# autojump
-export FPATH="$FPATH:/opt/local/share/zsh/site-functions/"
-if [ -f /opt/local/etc/profile.d/autojump.sh ]; then
-    . /opt/local/etc/profile.d/autojump.sh
-fi
 
 # macvim
 alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
