@@ -214,7 +214,7 @@ augroup trailingwhitespace
 augroup END
 
 " カラースキームをsolarized(dark)に設定
-set background=light
+set background=dark
 colorscheme solarized
 
 filetype plugin indent on
