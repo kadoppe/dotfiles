@@ -42,6 +42,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Align'
+NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
@@ -55,7 +57,6 @@ NeoBundle 'briancollins/vim-jst'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fuenor/JpFormat.vim'
 NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'itchyny/lightline.vim'
@@ -69,8 +70,8 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/livestyle-vim'
 NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mhinz/vim-startify'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'osyo-manga/unite-qfixhowm'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
@@ -121,6 +122,8 @@ nnoremap <silent> [unite]h :<C-u>Unite<space>qfixhowm<CR>
 noremap <silent> gl :JpFormat<CR>
 
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+nnoremap <leader>m :<C-u>Switch<CR>
 
 " unite.vim
 let g:unite_enable_start_insert=0
