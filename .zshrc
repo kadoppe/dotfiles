@@ -32,12 +32,12 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler cap gem git-extras osx rails ruby hub)
+plugins=(git bundler cap gem git-extras osx rails ruby hub autojump brew vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
 
@@ -73,5 +73,6 @@ setopt hist_save_no_dups
 setopt hist_no_store
 setopt hist_expand
 
+# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
