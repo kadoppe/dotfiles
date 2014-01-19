@@ -76,6 +76,7 @@ NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-visualstar'
@@ -164,8 +165,23 @@ let g:neocomplcache_enable_at_startup = 1
 
 " lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'solarized'
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ ['mode', 'paste'], ['fugitive', 'filename'] ]
+      \ },
+      \ 'component_function' : {
+      \   'fugitive': 'MyFugitive'
       \ }
+      \ }
+function! MyFugitive()
+  try
+    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head())
+      return ' ' . fugitive#head()
+    endif
+  catch
+  endtry
+  return ''
+endfunction
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
