@@ -74,5 +74,4 @@ setopt hist_no_store
 setopt hist_expand
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
