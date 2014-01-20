@@ -37,7 +37,7 @@ plugins=(git bundler cap gem git-extras osx rails ruby hub autojump brew vagrant
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
 
@@ -54,7 +54,7 @@ function chpwd() { ls -F }
 # macvim
 alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi=vim
-PATH="/Applications/MacVim.app/Contents/MacOS:$PATH"
+export PATH="/Applications/MacVim.app/Contents/MacOS:$PATH"
 
 # hub
 alias git='nocorrect hub'
@@ -75,3 +75,9 @@ setopt hist_expand
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# tex
+export PATH=/usr/texbin:$PATH
+
+# cabal
+export PATH=$HOME/.cabal/bin:$PATH
