@@ -81,3 +81,6 @@ export PATH=/usr/texbin:$PATH
 
 # cabal
 export PATH=$HOME/.cabal/bin:$PATH
+
+# added by travis gem
+[ -f /Users/kadoppe/.travis/travis.sh ] && source /Users/kadoppe/.travis/travis.sh
