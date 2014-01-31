@@ -32,7 +32,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler cap gem git-extras osx rails ruby hub autojump brew vagrant)
+plugins=(git bundler cap gem git-extras osx rails ruby hub autojump brew vagrant tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,3 +84,11 @@ export PATH=$HOME/.cabal/bin:$PATH
 
 # added by travis gem
 [ -f /Users/kadoppe/.travis/travis.sh ] && source /Users/kadoppe/.travis/travis.sh
+
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+
+# byobu
+export BYOBU_PREFIX=$(brew --prefix)
+
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
