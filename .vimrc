@@ -54,15 +54,17 @@ NeoBundle 'adie/BlockDiff'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'briancollins/vim-jst'
+NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fuenor/JpFormat.vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-lastpat'
 NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'kana/vim-textobj-underscore'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/ctrlp.vim'
@@ -79,6 +81,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-textobj-function-javascript'
 NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-abolish'
@@ -162,6 +165,10 @@ let QFixHowm_Title = '#'
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_force_overwrite_completefunc = 1
+
+" smartinput_endwise
+call smartinput_endwise#define_default_rules()
 
 " lightline.vim
 let g:lightline = {
