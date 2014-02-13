@@ -174,6 +174,11 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
+" open-browser
+let g:netrw_nogx = 1
+nmap <Leader>o <Plug>(openbrowser-smart-search)
+vmap <Leader>o <Plug>(openbrowser-smart-search)
+
 " lightline.vim
 let g:lightline = {
       \ 'colorscheme': 'solarized',
