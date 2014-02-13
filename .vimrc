@@ -80,7 +80,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'thinca/vim-qfreplace'
-NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-textobj-function-javascript'
 NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'tomtom/tcomment_vim'
@@ -169,6 +168,11 @@ let g:neocomplcache_force_overwrite_completefunc = 1
 
 " smartinput_endwise
 call smartinput_endwise#define_default_rules()
+
+" syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+      \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
 
 " lightline.vim
 let g:lightline = {
