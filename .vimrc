@@ -174,6 +174,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
+" NERDTree
+let g:NERDTreeMapOpenRecursively = ''
+
 " open-browser
 let g:netrw_nogx = 1
 nmap <Leader>o <Plug>(openbrowser-smart-search)
