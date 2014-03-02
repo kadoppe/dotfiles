@@ -8,6 +8,10 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
 
+# dircolors
+eval $(gdircolors ~/.dir_colors)
+alias ls='gls --color=auto'
+
 # node
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 nodebrew use v0.10.22
