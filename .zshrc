@@ -32,7 +32,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler cap gem git-extras osx rails ruby hub autojump brew vagrant tmuxinator)
+plugins=(git bundler cap gem git-extras osx rails ruby hub autojump brew vagrant tmuxinator nyan)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,9 +60,9 @@ export PATH="/Applications/MacVim.app/Contents/MacOS:$PATH"
 alias git='nocorrect hub'
 compdef hub=git
 function mkcd(){mkdir -p $1 && cd $1}
-source /Users/kadoppe/.zsh_plugin/zaw/zaw.zsh
 
 # zaw
+source $HOME/.zsh_plugin/zaw/zaw.zsh
 bindkey '^h' zaw-history
 
 # history
