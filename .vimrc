@@ -224,7 +224,7 @@ augroup END
 
 augroup indent
   autocmd!
-  autocmd FileType html setlocal shiftwidth=4 tabstop=2 softtabstop=2
+  "autocmd FileType html setlocal shiftwidth=4 tabstop=2 softtabstop=2
 augroup END
 
 augroup complete
