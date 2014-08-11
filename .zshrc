@@ -66,3 +66,9 @@ export BYOBU_PREFIX=$(brew --prefix)
 
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# boot2docker
+export DOCKER_HOST=tcp://localhost:4243
+
+# php
+export PATH="$(brew --prefix homebrew/php/php53)/bin:$PATH"
