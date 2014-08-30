@@ -59,6 +59,7 @@ NeoBundle 'cohama/vim-smartinput-endwise'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fuenor/JpFormat.vim'
 NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'h1mesuke/unite-outline'
@@ -155,8 +156,9 @@ let JpCountChars = 38
 let JpCountLines = 34
 
 " qfixhowm
+let howm_dir = '~/ownCloud/Howm'
+let QFixHowm_RootDir = '~/ownCloud/Howm'
 let QFixHowm_Key = 'g'
-let howm_dir = '~/ownCloud/howm'
 let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
 let howm_fileencoding = 'utf-8'
 let howm_fileformat = 'unix'
