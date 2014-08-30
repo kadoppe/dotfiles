@@ -8,6 +8,9 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
 
+# editor
+export EDITOR='vim'
+
 # dircolors
 eval $(gdircolors ~/.dir_colors)
 alias ls='gls --color=auto'
@@ -63,3 +66,9 @@ export BYOBU_PREFIX=$(brew --prefix)
 
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# boot2docker
+export DOCKER_HOST=tcp://localhost:4243
+
+# php
+export PATH="$(brew --prefix homebrew/php/php53)/bin:$PATH"

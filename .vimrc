@@ -60,6 +60,7 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fuenor/JpFormat.vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'gregsexton/gitv'
+NeoBundle 'groenewege/vim-less'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'kana/vim-smartinput'
@@ -73,7 +74,6 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/livestyle-vim'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mhinz/vim-startify'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
@@ -156,7 +156,7 @@ let JpCountLines = 34
 
 " qfixhowm
 let QFixHowm_Key = 'g'
-let howm_dir = '~/Dropbox/howm'
+let howm_dir = '~/ownCloud/howm'
 let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
 let howm_fileencoding = 'utf-8'
 let howm_fileformat = 'unix'
@@ -223,7 +223,7 @@ augroup END
 
 augroup indent
   autocmd!
-  autocmd FileType html setlocal shiftwidth=4 tabstop=2 softtabstop=2
+  "autocmd FileType html setlocal shiftwidth=4 tabstop=2 softtabstop=2
 augroup END
 
 augroup complete
