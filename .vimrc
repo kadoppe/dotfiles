@@ -139,6 +139,7 @@ let g:unite_source_grep_max_candidates = 200
 
 let g:vimfiler_safe_mode_by_default=0
 let g:vimfiler_as_default_explorer=1
+autocmd FileType vimfiler call unite#custom_default_action('directory', 'lcd')
 
 " indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
