@@ -94,6 +94,7 @@ NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'yaymukund/vim-rabl'
 
 let mapleader=","
@@ -252,9 +253,8 @@ augroup trailingwhitespace
   autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 augroup END
 
-" カラースキームをsolarized(dark)に設定
-set background=dark
-colorscheme solarized
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
 
 filetype plugin indent on
 NeoBundleCheck
