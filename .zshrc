@@ -30,6 +30,9 @@ setopt hist_expand
 # anyenv
 eval "$(anyenv init -)"
 
+# go
+export GOPATH=$HOME/.goenv
+
 # settings for each OS
 [[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
 [[ -f ~/.zshrc.debian ]] && source ~/.zshrc.debian
