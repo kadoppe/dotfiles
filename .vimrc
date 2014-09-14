@@ -127,7 +127,7 @@ nnoremap <leader>P :CtrlPClearCache<CR>:CtrlP<CR><CR>
 
 nnoremap [unite] <Nop>
 nmap <Leader>u [unite]
-nnoremap <silent> [unite]f :<C-u>Unite<space>-buffer-name=files<space>buffer_tab<space>file_mru<space>file_rec<space>file<CR>
+nnoremap <silent> [unite]f :<C-u>Unite<space>-buffer-name=files<space>buffer_tab<space>file_mru<CR>
 nnoremap <silent> [unite]bm :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<space>grep -no-quit<CR>
@@ -140,6 +140,9 @@ noremap <silent> gl :JpFormat<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 nnoremap <leader>m :<C-u>Switch<CR>
+
+nnoremap <leader>vf :VimFiler<CR>
+nnoremap <leader>vs :VimShell<CR>
 
 " unite.vim
 let g:unite_enable_start_insert=0
