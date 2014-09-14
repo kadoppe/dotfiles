@@ -31,7 +31,9 @@ setopt hist_expand
 eval "$(anyenv init -)"
 
 # go
-export GOPATH=$HOME/.goenv
+export GOROOT="$GOENV_ROOT/versions/$(goenv version)"
+export GOPATH=$GOROOT/packages
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # settings for each OS
 [[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx

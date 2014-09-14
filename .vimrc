@@ -64,6 +64,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'briancollins/vim-jst'
 NeoBundle 'cohama/vim-smartinput-endwise'
+NeoBundle 'dgryski/vim-godef'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fuenor/JpFormat.vim'
 NeoBundle 'fuenor/qfixgrep'
@@ -79,6 +80,7 @@ NeoBundle 'kana/vim-textobj-underscore'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/livestyle-vim'
@@ -194,6 +196,15 @@ let g:NERDTreeMapOpenRecursively = ''
 let g:netrw_nogx = 1
 nmap <Leader>o <Plug>(openbrowser-smart-search)
 vmap <Leader>o <Plug>(openbrowser-smart-search)
+
+" Golang
+set rtp^=$GOROOT/misc/vim
+set rtp^=$GOPATH/src/github.com/nsf/gocode/vim
+set path+=$GOPATH/src/**
+let g:gofmt_command = 'goimports'
+au BufWritePre *.go Fmt
+au BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4 completeopt=menu,preview
+au FileType go compiler go
 
 " lightline.vim
 let g:lightline = {
