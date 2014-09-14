@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git bundler cap gem git-extras osx rails ruby hub autojump brew vagrant tmuxinator nyan)
+plugins=(git bundler cap gem git-extras osx rails ruby hub autojump brew vagrant tmuxinator)
 source $ZSH/oh-my-zsh.sh
 
 # PATH
