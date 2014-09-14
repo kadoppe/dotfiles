@@ -1,0 +1,48 @@
+
+# macvim
+alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+alias vi=vim
+export PATH="/Applications/MacVim.app/Contents/MacOS:$PATH"
+
+# php
+export PATH="$(brew --prefix homebrew/php/php53)/bin:$PATH"
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# node
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+nodebrew use v0.10.22
+
+# go
+export GOPATH=~/.go
+
+# tex
+export PATH=/usr/texbin:$PATH
+
+# cabal
+export PATH=$HOME/.cabal/bin:$PATH
+
+# added by travis gem
+[ -f /Users/kadoppe/.travis/travis.sh ] && source /Users/kadoppe/.travis/travis.sh
+
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+
+# byobu
+export BYOBU_PREFIX=$(brew --prefix)
+
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# boot2docker
+export DOCKER_HOST=tcp://localhost:4243
+
+# hub
+alias git='nocorrect hub'
+compdef hub=git
+function mkcd(){mkdir -p $1 && cd $1}
+
+# dircolors
+eval $(gdircolors ~/.dir_colors)
+alias ls='gls --color=auto'
+
