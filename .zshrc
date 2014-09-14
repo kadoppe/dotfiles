@@ -7,6 +7,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
+export PATH="$HOME/.anyenv/bin:$PATH"
 
 # editor
 export EDITOR='vim'
@@ -25,6 +26,9 @@ setopt hist_reduce_blanks
 setopt hist_save_no_dups
 setopt hist_no_store
 setopt hist_expand
+
+# anyenv
+eval "$(anyenv init -)"
 
 # settings for each OS
 [[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
