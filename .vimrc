@@ -304,6 +304,7 @@ augroup END
 
 let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
+autocmd ColorScheme * highlight Search ctermbg=3 ctermfg=0
 
 filetype plugin indent on
 NeoBundleCheck
