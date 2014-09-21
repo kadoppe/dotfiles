@@ -8,6 +8,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
 export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH=/opt/mono/bin:$PATH
 
 # editor
 export EDITOR='vim'
