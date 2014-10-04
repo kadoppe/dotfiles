@@ -45,4 +45,3 @@ function mkcd(){mkdir -p $1 && cd $1}
 # dircolors
 eval $(gdircolors ~/.dir_colors)
 alias ls='gls --color=auto'
-

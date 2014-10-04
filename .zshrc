@@ -35,6 +35,9 @@ eval "$(anyenv init -)"
 export GOROOT="$GOENV_ROOT/versions/$(goenv version)"
 export GOPATH=$GOROOT/packages
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+#
+# Pebble SDK
+export PATH=$HOME/dev/tools/PebbleSDK-2.6.1/bin:$PATH
 
 # settings for each OS
 [[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
