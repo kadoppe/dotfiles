@@ -180,7 +180,7 @@ let JpCountLines = 34
 " qfixhowm
 let howm_dir = '~/ownCloud/Howm'
 let QFixHowm_RootDir = '~/ownCloud/Howm'
-let QFixHowm_Key = 'g'
+let QFixHowm_Key = 'h'
 let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
 let howm_fileencoding = 'utf-8'
 let howm_fileformat = 'unix'
