@@ -147,6 +147,9 @@ nnoremap <leader>vs :VimShell<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gcm :Gcommit<CR>
+nnoremap <leader>gp :Gpush<CR>
 
 " unite.vim
 let g:unite_enable_start_insert=0
