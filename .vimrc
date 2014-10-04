@@ -144,6 +144,10 @@ nnoremap <leader>m :<C-u>Switch<CR>
 nnoremap <leader>vf :VimFiler<CR>
 nnoremap <leader>vs :VimShell<CR>
 
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gs :Gstatus<CR>
+
 " unite.vim
 let g:unite_enable_start_insert=0
 let g:unite_source_grep_command = 'ag'
@@ -256,7 +260,7 @@ function! MyFugitive()
   return ''
 endfunction
 
-" vmshell
+" vimshell
 let g:vimshell_prompt_expr = 'getcwd()." > "'
 let g:vimshell_prompt_pattern = '^\f\+ > '
 
