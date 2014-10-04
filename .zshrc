@@ -20,6 +20,19 @@ function chpwd() { ls -F }
 source $HOME/.zsh_plugin/zaw/zaw.zsh
 bindkey '^h' zaw-history
 
+# cdr
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+  add-zsh-hook chpwd chpwd_recent_dirs
+  zstyle ':completion:*:*:cdr:*:*' menu selection
+  zstyle ':completion:*' recent-dirs-insert both
+  zstyle ':chpwd:*' recent-dirs-max 500
+  zstyle ':chpwd:*' recent-dirs-default true
+  # mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/shell"
+  zstyle ':chpwd:*' recent-dirs-file "${XDG_CACHE_HOME:-$HOME/.cache}/shell/chpwd-recent-dirs"
+  zstyle ':chpwd:*' recent-dirs-pushd true
+fi
+
 # history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
@@ -35,7 +48,7 @@ eval "$(anyenv init -)"
 export GOROOT="$GOENV_ROOT/versions/$(goenv version)"
 export GOPATH=$GOROOT/packages
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-#
+
 # Pebble SDK
 export PATH=$HOME/dev/tools/PebbleSDK-2.6.1/bin:$PATH
 
