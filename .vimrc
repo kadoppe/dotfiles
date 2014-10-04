@@ -256,6 +256,10 @@ function! MyFugitive()
   return ''
 endfunction
 
+" vmshell
+let g:vimshell_prompt_expr = 'getcwd()." > "'
+let g:vimshell_prompt_pattern = '^\f\+ > '
+
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
   autocmd!
