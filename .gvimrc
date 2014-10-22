@@ -8,7 +8,7 @@ set guioptions-=b
 
 au GUIEnter * simalt ~x
 
-set background=dark
-colorscheme solarized
-
 set guifont=Ricty:h13
+
+colorscheme hybrid
+autocmd ColorScheme * highlight Search ctermbg=3 ctermfg=0
