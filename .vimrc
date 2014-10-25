@@ -10,6 +10,8 @@ set clipboard=unnamed,autoselect
 set cursorline
 set directory=~/.vim/swap
 set expandtab
+set fileencoding=utf-8
+set fileformat=dos
 set helplang=en
 set hidden
 set laststatus=2
@@ -27,6 +29,9 @@ set tabstop=2
 set ttyfast
 set visualbell t_vb=
 set whichwrap=b,s,h,l
+
+autocmd FileType markdown :set fileformat=dos
+autocmd FileType markdown :set fileencoding=utf-8
 
 " Vimを終了してもUndo
 if has('persistent_undo')
