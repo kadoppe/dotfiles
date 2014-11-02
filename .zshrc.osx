@@ -10,9 +10,9 @@ export PATH="$(brew --prefix homebrew/php/php53)/bin:$PATH"
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# node
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-nodebrew use v0.10.22
+# ndenv
+export PATH="$NDENV_ROOT/bin:$PATH"
+eval "$(ndenv init -)"
 
 # go
 export GOPATH=~/.go
