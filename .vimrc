@@ -75,7 +75,6 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fuenor/JpFormat.vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'fuenor/qfixhowm'
-NeoBundle 'gcmt/wildfire.vim'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'itchyny/lightline.vim'
@@ -94,7 +93,6 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'thinca/vim-qfreplace'
@@ -127,7 +125,6 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 
 nnoremap <leader>h :<C-u>help<space>
 noremap <leader>l :Align
-nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>P :CtrlPClearCache<CR>:CtrlP<CR><CR>
 
@@ -204,9 +201,6 @@ call smartinput_endwise#define_default_rules()
 let g:syntastic_mode_map = { 'mode': 'active',
       \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
-
-" NERDTree
-let g:NERDTreeMapOpenRecursively = ''
 
 " open-browser
 let g:netrw_nogx = 1
