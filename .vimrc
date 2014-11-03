@@ -74,7 +74,6 @@ NeoBundle 'dgryski/vim-godef'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fuenor/JpFormat.vim'
 NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'itchyny/lightline.vim'
@@ -179,16 +178,6 @@ let g:Align_xstrlen = 3
 " JpFormat
 let JpCountChars = 38
 let JpCountLines = 34
-
-" qfixhowm
-let howm_dir = '~/ownCloud/Howm'
-let QFixHowm_RootDir = '~/ownCloud/Howm'
-let QFixHowm_Key = 'h'
-let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.mkd'
-let howm_fileencoding = 'utf-8'
-let howm_fileformat = 'unix'
-let QFixHowm_FileType = 'markdown'
-let QFixHowm_Title = '#'
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
