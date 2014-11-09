@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git bundler cap gem git-extras osx rails ruby hub autojump brew vagrant tmuxinator)
+plugins=(git bundler gem git-extras osx brew tmuxinator)
 source $ZSH/oh-my-zsh.sh
 
 # PATH
@@ -51,6 +51,12 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # Pebble SDK
 export PATH=$HOME/dev/tools/PebbleSDK-2.6.1/bin:$PATH
+
+# zsh syntax highlighting
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# z
+. `brew --prefix`/etc/profile.d/z.sh
 
 # settings for each OS
 [[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
