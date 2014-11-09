@@ -257,6 +257,7 @@ let g:vimshell_prompt_pattern = '^\f\+ > '
 let g:memolist_path = "~/ownCloud/Memo"
 let g:memolist_qfixgrep = 1
 let g:memolist_prompt_categories = 1
+let g:memolist_prompt_tags = 1
 let g:memolist_unite        = 1
 let g:memolist_unite_source = "file_rec"
 let g:memolist_unite_option = "-start-insert"
