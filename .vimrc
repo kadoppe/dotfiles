@@ -70,6 +70,7 @@ NeoBundle 'dgryski/vim-godef'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'fuenor/JpFormat.vim'
 NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'itchyny/lightline.vim'
@@ -251,6 +252,16 @@ endfunction
 " vimshell
 let g:vimshell_prompt_expr = 'getcwd()." > "'
 let g:vimshell_prompt_pattern = '^\f\+ > '
+
+" memolist
+let g:memolist_path = "~/ownCloud/Memo"
+let g:memolist_qfixgrep = 1
+let g:memolist_unite        = 1
+let g:memolist_unite_source = "file_rec"
+let g:memolist_unite_option = "-auto-preview -start-insert"
+nnoremap <Leader>mn  :MemoNew<CR>
+nnoremap <Leader>ml  :MemoList<CR>
+nnoremap <Leader>mg  :MemoGrep<CR>
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
