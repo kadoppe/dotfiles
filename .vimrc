@@ -304,3 +304,8 @@ autocmd ColorScheme * highlight Search ctermbg=3 ctermfg=0
 
 filetype plugin indent on
 NeoBundleCheck
+
+" load local vimrc
+if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
+  source $HOME/.localsetting/vimrc_local
+endif
