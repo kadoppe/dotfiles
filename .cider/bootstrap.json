@@ -1,6 +1,8 @@
 {
     "formulas": [
         "brew-cask",
+        "coreutils",
+        "reattach-to-user-namespace",
         "tmux",
         "z",
         "zsh"
