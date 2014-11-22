@@ -6,18 +6,19 @@
       "alfred",
       "bartender",
       "caffeine",
+      "caskroom/homebrew-versions/macvim-kaoriya",
       "dropbox",
       "firefox",
       "google-chrome",
       "google-japanese-ime",
       "iterm2",
-      "caskroom/homebrew-versions/macvim-kaoriya",
       "minecraft",
       "onepassword",
       "owncloud",
       "skype",
       "slack",
-      "steam"
+      "steam",
+      "xtrafinder"
     ],
     "formulas": [
         "caskroom/cask/brew-cask",
