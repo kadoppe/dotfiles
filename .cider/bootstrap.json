@@ -1,0 +1,8 @@
+{
+    "formulas": [
+        "brew-cask",
+        "tmux",
+        "z",
+        "zsh"
+    ]
+}
