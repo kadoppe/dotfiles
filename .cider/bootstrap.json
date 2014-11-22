@@ -1,6 +1,26 @@
 {
+    "after-scripts": [
+      "brew cask alfred link"
+    ],
+    "casks": [
+      "alfred",
+      "bartender",
+      "caffeine",
+      "dropbox",
+      "firefox",
+      "google-chrome",
+      "google-japanese-ime",
+      "iterm2",
+      "caskroom/homebrew-versions/macvim-kaoriya",
+      "minecraft",
+      "onepassword",
+      "owncloud",
+      "skype",
+      "slack",
+      "steam"
+    ],
     "formulas": [
-        "brew-cask",
+        "caskroom/cask/brew-cask",
         "coreutils",
         "reattach-to-user-namespace",
         "tmux",

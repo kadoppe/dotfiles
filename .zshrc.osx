@@ -1,8 +1,7 @@
 
 # macvim
-alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+alias vim=~/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi=vim
-export PATH="/Applications/MacVim.app/Contents/MacOS:$PATH"
 
 # php
 export PATH="$(brew --prefix homebrew/php/php53)/bin:$PATH"
