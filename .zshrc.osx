@@ -37,11 +37,6 @@ export BYOBU_PREFIX=$(brew --prefix)
 # boot2docker
 export DOCKER_HOST=tcp://localhost:4243
 
-# hub
-alias git='nocorrect hub'
-compdef hub=git
-function mkcd(){mkdir -p $1 && cd $1}
-
 # dircolors
 eval $(gdircolors ~/.dir_colors)
 alias ls='gls --color=auto'
