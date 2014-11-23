@@ -23,6 +23,7 @@
     "formulas": [
         "caskroom/cask/brew-cask",
         "coreutils",
+        "htop",
         "reattach-to-user-namespace",
         "tmux",
         "z",
