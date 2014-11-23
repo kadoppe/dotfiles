@@ -3,9 +3,6 @@
 alias vim=~/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi=vim
 
-# php
-export PATH="$(brew --prefix homebrew/php/php53)/bin:$PATH"
-
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
