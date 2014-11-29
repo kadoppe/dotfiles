@@ -25,6 +25,7 @@
         "caskroom/cask/brew-cask",
         "coreutils",
         "htop",
+        "rbenv",
         "reattach-to-user-namespace",
         "tmux",
         "z",
