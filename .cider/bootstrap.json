@@ -1,5 +1,6 @@
 {
     "after-scripts": [
+      "./scripts/install_ruby.sh",
       "brew cask alfred link"
     ],
     "casks": [
@@ -27,6 +28,7 @@
         "htop",
         "rbenv",
         "reattach-to-user-namespace",
+        "ruby-build",
         "tmux",
         "z",
         "zsh"
