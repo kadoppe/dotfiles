@@ -1,6 +1,7 @@
 {
     "after-scripts": [
       "./scripts/install_ruby.sh",
+      "./scripts/install_node.sh",
       "brew cask alfred link"
     ],
     "casks": [
@@ -26,6 +27,7 @@
         "caskroom/cask/brew-cask",
         "coreutils",
         "htop",
+        "nodebrew",
         "rbenv",
         "reattach-to-user-namespace",
         "ruby-build",

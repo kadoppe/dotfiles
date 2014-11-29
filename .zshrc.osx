@@ -6,9 +6,8 @@ alias vi=vim
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# ndenv
-export PATH="$NDENV_ROOT/bin:$PATH"
-eval "$(ndenv init -)"
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # go
 export GOPATH=~/.go
