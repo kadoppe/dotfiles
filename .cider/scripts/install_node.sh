@@ -5,3 +5,5 @@ nodebrew use latest
 
 npm install -g hubot
 npm install -g coffee-script
+npm install -g yo
+npm install -g generator-hubot

@@ -139,8 +139,8 @@ noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo '
 
 nnoremap <leader>m :<C-u>Switch<CR>
 
-nnoremap <leader>vf :VimFiler -split<CR>
-nnoremap <leader>vb :VimFilerBufferDir -split<CR>
+nnoremap <leader>vf :VimFiler<CR>
+nnoremap <leader>vb :VimFilerBufferDir<CR>
 nnoremap <leader>vs :VimShell<CR>
 
 nnoremap <leader>gb :Gblame<CR>
