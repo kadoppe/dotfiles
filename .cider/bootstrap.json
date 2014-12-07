@@ -6,6 +6,7 @@
     ],
     "casks": [
       "alfred",
+      "adobe-creative-cloud",
       "bartender",
       "caffeine",
       "caskroom/homebrew-versions/macvim-kaoriya",
@@ -21,6 +22,8 @@
       "slack",
       "soundflower",
       "steam",
+      "virtualbox",
+      "vagrant",
       "xtrafinder"
     ],
     "formulas": [
