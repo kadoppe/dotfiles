@@ -1,8 +1,7 @@
 {
     "after-scripts": [
       "./scripts/install_ruby.sh",
-      "./scripts/install_node.sh",
-      "brew cask alfred link"
+      "./scripts/install_node.sh"
     ],
     "casks": [
       "alfred",
