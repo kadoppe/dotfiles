@@ -266,6 +266,9 @@ nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 
+" vim-json
+let g:vim_json_syntax_conceal = 0
+
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
   autocmd!
