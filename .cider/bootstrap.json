@@ -1,5 +1,6 @@
 {
   "after-scripts": [
+    "./scripts/default_settings.sh",
     "./scripts/install_ruby.sh",
     "./scripts/install_node.sh"
   ],
