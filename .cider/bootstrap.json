@@ -1,6 +1,7 @@
 {
   "after-scripts": [
     "./scripts/default_settings.sh",
+    "./scripts/launchctl.sh",
     "./scripts/install_ruby.sh",
     "./scripts/install_node.sh"
   ],
@@ -36,11 +37,14 @@
     "coreutils",
     "homebrew/dupes/apple-gcc42",
     "htop",
+    "homebrew/versions/maven2",
     "mysql",
     "nodebrew",
+    "postgresql",
     "rbenv",
     "reattach-to-user-namespace",
     "ruby-build",
+    "sonar",
     "the_silver_searcher",
     "tmux",
     "z",
