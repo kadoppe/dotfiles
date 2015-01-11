@@ -158,8 +158,6 @@ let g:unite_source_grep_default_opts = '--nocolor --nogroup'
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_grep_max_candidates = 200
 
-let g:vimfiler_safe_mode_by_default=0
-let g:vimfiler_as_default_explorer=1
 autocmd FileType vimfiler call unite#custom_default_action('directory', 'lcd')
 
 " indent-guides
@@ -253,6 +251,13 @@ endfunction
 " vimshell
 let g:vimshell_prompt_expr = 'getcwd()." > "'
 let g:vimshell_prompt_pattern = '^\f\+ > '
+
+" vimfiler
+let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_max_directory_histories = 100
+let g:vimfiler_quick_look_command = 'qlmanage -p'
+autocmd FileType vimfiler nmap <buffer> V <Plug>(vimfiler_quick_look)
 
 " memolist
 let g:memolist_path = "~/ownCloud/Memo"
