@@ -40,6 +40,11 @@ cmap <C-p> <S-Tab>
 " コマンドライン時はIMEをオフ
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
+"" ignorekeys
+ignorekeys clear
+ignorekeys add mail\\.google\\.com -except t,h,l,<C-n>,<C-p>,:
+ignorekeys add trello\\.com -except t,h,l,<C-n>,<C-p>,:
+
 "" plugins
 
 " はてなブックマーク拡張
@@ -59,3 +64,4 @@ javascript <<EOM
     { label: 'markdown', value: '[%TITLE%](%URL%)' },
   ];
 EOM
+
