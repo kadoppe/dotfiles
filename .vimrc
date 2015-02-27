@@ -105,6 +105,7 @@ NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'yaymukund/vim-rabl'
 
@@ -283,6 +284,14 @@ nnoremap <Leader>mg  :MemoGrep<CR>
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
+
+" taglist
+set tags=tags
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWiindow = 1
+let Tlist_Enable_Fold_Column = 1
+map <silent> <leader>tl :TlistToggle<CR>
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
