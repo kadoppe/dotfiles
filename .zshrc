@@ -44,11 +44,6 @@ setopt hist_expand
 # anyenv
 eval "$(anyenv init -)"
 
-# go
-export GOROOT="$GOENV_ROOT/versions/$(goenv version)"
-export GOPATH=$GOROOT/packages
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-
 # Pebble SDK
 export PATH=$HOME/dev/tools/PebbleSDK-2.6.1/bin:$PATH
 
