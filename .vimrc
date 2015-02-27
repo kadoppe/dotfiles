@@ -290,6 +290,7 @@ set tags=tags
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWiindow = 1
+let Tlist_Use_Right_Window = 1
 let Tlist_Enable_Fold_Column = 1
 map <silent> <leader>tl :TlistToggle<CR>
 
