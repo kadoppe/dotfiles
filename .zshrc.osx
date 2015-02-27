@@ -29,9 +29,6 @@ export PATH=$HOME/.cabal/bin:$PATH
 
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
-# byobu
-export BYOBU_PREFIX=$(brew --prefix)
-
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
