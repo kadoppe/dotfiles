@@ -43,12 +43,6 @@ setopt hist_expand
 # Pebble SDK
 export PATH=$HOME/dev/tools/PebbleSDK-2.6.1/bin:$PATH
 
-# zsh syntax highlighting
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# z
-. `brew --prefix`/etc/profile.d/z.sh
-
 # settings for each OS
 [[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
 [[ -f ~/.zshrc.debian ]] && source ~/.zshrc.debian

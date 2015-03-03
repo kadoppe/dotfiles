@@ -1,3 +1,9 @@
+# zsh syntax highlighting
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# z
+. `brew --prefix`/etc/profile.d/z.sh
+
 # brew cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
