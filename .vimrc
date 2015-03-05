@@ -341,9 +341,11 @@ augroup trailingwhitespace
   autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 augroup END
 
-let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
-autocmd ColorScheme * highlight Search ctermbg=3 ctermfg=0
+hi LineNr ctermbg=0 ctermfg=0
+hi CursorLineNr ctermbg=4 ctermfg=0
+set cursorline
+hi clear CursorLine
 
 filetype plugin indent on
 NeoBundleCheck
