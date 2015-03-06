@@ -89,7 +89,6 @@ NeoBundle 'mattn/livestyle-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/syntastic'
@@ -110,6 +109,8 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'yaymukund/vim-rabl'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'rizzatti/dash.vim'
 
 let mapleader=","
 
@@ -295,6 +296,9 @@ let Tlist_Exit_OnlyWiindow = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Enable_Fold_Column = 1
 map <silent> <leader>tl :TlistToggle<CR>
+
+" dash.vim
+:nmap <silent> <leader>d <Plug>DashSearch
 
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
