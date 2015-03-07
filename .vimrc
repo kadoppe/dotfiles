@@ -198,8 +198,9 @@ call smartinput_endwise#define_default_rules()
 
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
-      \ 'active_filetypes': ['ruby'] }
+      \ 'active_filetypes': ['ruby', 'javascript'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " open-browser
 let g:netrw_nogx = 1
