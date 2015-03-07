@@ -48,4 +48,3 @@ export PATH=$HOME/dev/tools/PebbleSDK-2.6.1/bin:$PATH
 
 # settings for each OS
 [[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
-[[ -f ~/.zshrc.debian ]] && source ~/.zshrc.debian
