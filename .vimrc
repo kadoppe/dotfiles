@@ -189,9 +189,6 @@ endif
 
 let g:neocomplcache#sources#rsense#home_directory = '/usr/local/Cellar/rsense/0.3/libexec'
 
-" smartinput_endwise
-call smartinput_endwise#define_default_rules()
-
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
       \ 'active_filetypes': ['ruby', 'javascript'] }
