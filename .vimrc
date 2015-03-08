@@ -329,10 +329,6 @@ augroup trailingwhitespace
 augroup END
 
 colorscheme hybrid
-hi LineNr ctermbg=0 ctermfg=0
-hi CursorLineNr ctermbg=4 ctermfg=0
-set cursorline
-hi clear CursorLine
 
 filetype plugin indent on
 NeoBundleCheck
