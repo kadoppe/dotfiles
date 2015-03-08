@@ -272,18 +272,6 @@ let g:vimfiler_max_directory_histories = 100
 let g:vimfiler_quick_look_command = 'qlmanage -p'
 autocmd FileType vimfiler nmap <buffer> V <Plug>(vimfiler_quick_look)
 
-" memolist
-let g:memolist_path = "~/ownCloud/Memo"
-let g:memolist_qfixgrep = 1
-let g:memolist_prompt_categories = 1
-let g:memolist_prompt_tags = 1
-let g:memolist_unite        = 1
-let g:memolist_unite_source = "file_rec"
-let g:memolist_unite_option = "-start-insert"
-nnoremap <Leader>mn  :MemoNew<CR>
-nnoremap <Leader>ml  :MemoList<CR>
-nnoremap <Leader>mg  :MemoGrep<CR>
-
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
