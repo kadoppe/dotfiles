@@ -1,1 +1,1 @@
-/Users/kadoppe/dotfiles/.vimperator/vimperator-plugins/plugin_loader.js
+/Users/kadoppe/.vimperator/vimperator-plugins/plugin_loader.js
