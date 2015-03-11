@@ -187,6 +187,7 @@ if !exists('g:neocomplcache_delimiter_patterns')
     let g:neocomplcache_delimiter_patterns = {}
 endif
 
+let g:rsenseUseOmniFunc = 1
 let g:neocomplcache#sources#rsense#home_directory = '/usr/local/Cellar/rsense/0.3/libexec'
 
 " syntastic
