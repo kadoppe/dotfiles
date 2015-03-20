@@ -190,6 +190,12 @@ endif
 let g:rsenseUseOmniFunc = 1
 let g:neocomplcache#sources#rsense#home_directory = '/usr/local/Cellar/rsense/0.3/libexec'
 
+" ctrlp
+if executable('ag')
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+endif
+
 " syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
       \ 'active_filetypes': ['ruby', 'javascript'] }
