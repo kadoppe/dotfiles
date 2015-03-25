@@ -10,6 +10,7 @@ set clipboard=unnamed,autoselect
 set cursorline
 set directory=~/.vim/swap
 set expandtab
+set exrc
 set helplang=en
 set hidden
 set laststatus=2
