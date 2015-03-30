@@ -27,13 +27,33 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
   zstyle ':chpwd:*' recent-dirs-pushd true
 fi
 
-# zaw
-source $HOME/.zsh_plugin/zaw/zaw.zsh
-zstyle ':filter-select' case-insensitive yes
-bindkey '^@' zaw-cdr
-bindkey '^R' zaw-history
-bindkey '^X^T' zaw-tmux
-bindkey '^X^S' zaw-ssh-hosts
+# peco
+function peco-cdr () {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cdr
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+
+bindkey '^@' peco-cdr
+bindkey '^R' peco-select-history
 
 # history
 setopt hist_ignore_all_dups
