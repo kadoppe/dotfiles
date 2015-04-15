@@ -1,8 +1,3 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-plugins=(git bundler gem git-extras osx brew tmuxinator)
-source $ZSH/oh-my-zsh.sh
-
 # PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/bin:$PATH
