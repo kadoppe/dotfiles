@@ -41,7 +41,6 @@ if has('vim_starting')
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
 
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
@@ -88,6 +87,8 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'yaymukund/vim-rabl'
 NeoBundle 'pangloss/vim-javascript'
+
+call neobundle#end()
 
 let mapleader=","
 
