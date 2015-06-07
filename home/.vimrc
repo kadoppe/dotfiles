@@ -120,6 +120,7 @@ noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo '
 
 nnoremap <leader>vf :VimFiler<CR>
 nnoremap <leader>vb :VimFilerBufferDir<CR>
+nnoremap <leader>e :VimFilerExplore -split -winwidth=30 -find -no-quit<Cr>
 nnoremap <leader>vs :VimShell<CR>
 
 nnoremap <leader>gb :Gblame<CR>
