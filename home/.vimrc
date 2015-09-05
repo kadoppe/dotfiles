@@ -72,7 +72,9 @@ NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-underscore'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/syntastic'
@@ -86,7 +88,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'yaymukund/vim-rabl'
-NeoBundle 'pangloss/vim-javascript'
 
 call neobundle#end()
 
