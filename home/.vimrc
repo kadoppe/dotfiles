@@ -219,6 +219,7 @@ augroup complete
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
+set background=dark
 colorscheme hybrid
 
 filetype plugin indent on
