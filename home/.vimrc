@@ -78,6 +78,7 @@ NeoBundle 'mxw/vim-jsx'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'thinca/vim-textobj-function-javascript'
@@ -132,6 +133,8 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gcm :Gcommit<CR>
 nnoremap <leader>gp :Gpush<CR>
+
+nnoremap <leader>nt :NERDTreeToggle<CR>
 
 " unite.vim
 let g:unite_enable_start_insert=0
