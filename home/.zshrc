@@ -71,3 +71,6 @@ unsetopt auto_cd
 
 # settings for each OS
 [[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
+
+# settings for local machine
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
