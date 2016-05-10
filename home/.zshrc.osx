@@ -8,6 +8,10 @@ alias vi=vim
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# phpenv
+export PATH=$HOME/.phpenv/bin:$PATH
+eval "$(phpenv init -)"
+
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
