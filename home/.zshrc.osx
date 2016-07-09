@@ -32,8 +32,5 @@ export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-# boot2docker
-export DOCKER_HOST=tcp://localhost:4243
-
 # dircolors
 eval $(gdircolors ~/.dir_colors) alias ls='gls'
