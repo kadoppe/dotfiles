@@ -3,6 +3,9 @@ alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -l"
 
+# docker compose
+alias fig="docker-compose"
+
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
   if [ -f $1 ] ; then
