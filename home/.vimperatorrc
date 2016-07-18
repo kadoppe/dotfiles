@@ -31,6 +31,7 @@ set ignorecase
 set nobeep
 set popups=tab
 set status=input,location,position
+set! browser.tabs.closeWindowWithLastTab=false
 
 " turn off ime on command line
 :style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
