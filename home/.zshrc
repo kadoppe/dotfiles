@@ -69,6 +69,9 @@ export PATH=$HOME/dev/tools/PebbleSDK-2.6.1/bin:$PATH
 # disable autocd
 unsetopt auto_cd
 
+# settings for alias
+[[ -f ~/.zshrc.alias ]] && source ~/.zshrc.alias
+
 # settings for each OS
 [[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
 
