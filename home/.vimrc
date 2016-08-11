@@ -52,6 +52,7 @@ NeoBundle 'Shougo/vimproc.vim', {
       \ }
 
 NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'KeitaNakamura/railscasts.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplcache-rsense'
@@ -88,7 +89,6 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'w0ng/vim-hybrid'
 
 call neobundle#end()
 
@@ -180,6 +180,7 @@ let g:lightline = {
       \   'fugitive': 'MyFugitive'
       \ }
       \ }
+let g:lightline.colorscheme = 'railscasts'
 function! MyFugitive()
   try
     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head())
@@ -221,8 +222,7 @@ augroup complete
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
-set background=dark
-colorscheme hybrid
+colorscheme railscasts
 
 filetype plugin indent on
 NeoBundleCheck
