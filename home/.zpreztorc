@@ -15,12 +15,13 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'git' \
   'autosuggestions' \
+  'history-substring-search' \
   'prompt'
 
 #
 # editor module
 #
-zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:editor' key-bindings 'emacs'
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 #
