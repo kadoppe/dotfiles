@@ -180,7 +180,6 @@ let g:lightline = {
       \   'fugitive': 'MyFugitive'
       \ }
       \ }
-let g:lightline.colorscheme = 'railscasts'
 function! MyFugitive()
   try
     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head())
