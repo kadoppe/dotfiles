@@ -130,8 +130,6 @@ let g:unite_source_grep_default_opts = '--nocolor --nogroup'
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_grep_max_candidates = 200
 
-autocmd FileType vimfiler call unite#custom_default_action('directory', 'lcd')
-
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_force_overwrite_completefunc = 1
