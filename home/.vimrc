@@ -169,7 +169,7 @@ let g:lightline = {
 function! MyFugitive()
   try
     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head())
-      return ' ' . fugitive#head()
+      return fugitive#head()
     endif
   catch
   endtry
