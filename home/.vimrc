@@ -25,13 +25,14 @@ set ttyfast
 set visualbell t_vb=
 set whichwrap=b,s,h,l
 
-" Vimを終了してもUndo
 if has('persistent_undo')
   set undofile
   set undodir=./.vimundo,~/.vim/undo
 endif
 
-" NeoBundle
+"
+" load plugins
+"
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
