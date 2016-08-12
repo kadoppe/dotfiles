@@ -10,12 +10,7 @@ set directory=~/.vim/swap
 set expandtab
 set exrc
 set helplang=en
-set hidden
-set laststatus=2
-set lazyredraw
-set list
 set listchars=tab:^\ ,trail:~
-set modeline
 set noerrorbells
 set nrformats=
 set number
