@@ -136,7 +136,8 @@ nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gcm :Gcommit<CR>
 nnoremap <leader>gp :Gpush<CR>
 
-nnoremap <leader>nt :NERDTreeToggle<CR>
+" NERDTree
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 " dash
 nmap <silent> <leader>d <Plug>DashSearch
