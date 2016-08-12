@@ -183,6 +183,15 @@ let g:vimshell_prompt_pattern = '^\f\+ > '
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
+"
+" color scheme
+"
+colorscheme railscasts
+
+"
+" misc
+"
+
 " :vimgrepでの検索後QuickFixウインドウを自動的に開く
 augroup grepopen
   autocmd!
@@ -195,22 +204,10 @@ augroup previousline
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
-augroup complete
-  autocmd!
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-augroup END
-
-colorscheme railscasts
-
-filetype plugin indent on
-NeoBundleCheck
-
-" python
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
-
 " load local vimrc
 if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
   source $HOME/.localsetting/vimrc_local
 endif
+
+filetype plugin indent on
+NeoBundleCheck
