@@ -48,15 +48,12 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
-NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'KeitaNakamura/railscasts.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplcache-rsense'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'briancollins/vim-jst'
@@ -80,7 +77,6 @@ NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'slim-template/vim-slim'
-NeoBundle 'thinca/vim-textobj-function-javascript'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-fugitive'
@@ -101,14 +97,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-vnoremap < <gv
-vnoremap > >gv
-
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
-nnoremap <leader>h :<C-u>help<space>
-noremap <leader>l :Align
-nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>P :CtrlPClearCache<CR>:CtrlP<CR><CR>
 
 nnoremap [unite] <Nop>
@@ -117,23 +107,11 @@ nnoremap <silent> [unite]f :<C-u>Unite<space>-buffer-name=files<space>buffer_tab
 nnoremap <silent> [unite]bm :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<space>grep -no-quit<CR>
-nnoremap <silent> [unite]o :<C-u>Unite<space>outline<CR>
 nnoremap <silent> [unite]l :<C-u>Unite<space>line<CR>
-nnoremap <silent> [unite]h :<C-u>Unite<space>qfixhowm<CR>
 
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-nnoremap <leader>vf :VimFiler<CR>
-nnoremap <leader>vb :VimFilerBufferDir<CR>
-nnoremap <leader>e :VimFilerExplore -split -winwidth=30 -find -no-quit<Cr>
 nnoremap <leader>vs :VimShell<CR>
-
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gcm :Gcommit<CR>
-nnoremap <leader>gp :Gpush<CR>
 
 " NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
@@ -203,13 +181,6 @@ endfunction
 " vimshell
 let g:vimshell_prompt_expr = 'getcwd()." > "'
 let g:vimshell_prompt_pattern = '^\f\+ > '
-
-" vimfiler
-let g:vimfiler_safe_mode_by_default = 0
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_max_directory_histories = 100
-let g:vimfiler_quick_look_command = 'qlmanage -p'
-autocmd FileType vimfiler nmap <buffer> V <Plug>(vimfiler_quick_look)
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
