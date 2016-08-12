@@ -2,8 +2,6 @@ set nocompatible
 
 syntax enable
 
-set autoindent
-set autoread
 set backup
 set backupdir=~/.vim/backup
 set clipboard=unnamed,autoselect
@@ -79,6 +77,7 @@ NeoBundle 'mxw/vim-jsx'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'slim-template/vim-slim'
@@ -93,6 +92,9 @@ NeoBundle 'vim-ruby/vim-ruby'
 
 call neobundle#end()
 
+"
+" key mapping
+"
 let mapleader=","
 
 nnoremap <C-j> <C-w>j
@@ -135,6 +137,13 @@ nnoremap <leader>gcm :Gcommit<CR>
 nnoremap <leader>gp :Gpush<CR>
 
 nnoremap <leader>nt :NERDTreeToggle<CR>
+
+" dash
+nmap <silent> <leader>d <Plug>DashSearch
+
+"
+" plugin settings
+"
 
 " unite.vim
 let g:unite_enable_start_insert=0
