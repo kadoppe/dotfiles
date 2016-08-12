@@ -2,6 +2,9 @@ set nocompatible
 
 syntax enable
 
+"
+" options
+"
 set backup
 set backupdir=~/.vim/backup
 set clipboard=unnamed,autoselect
