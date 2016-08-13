@@ -31,3 +31,6 @@ extract () {
   fi
 }
 alias ex='extract'
+
+# tmuxinator
+alias mux="tmuxinator"
