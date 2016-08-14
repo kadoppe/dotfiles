@@ -73,7 +73,7 @@ unsetopt auto_cd
 [[ -f ~/.zshrc.alias ]] && source ~/.zshrc.alias
 
 # settings for each OS
-[[ -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
+[[ `uname` == 'Darwin' && -f ~/.zshrc.osx ]] && source ~/.zshrc.osx
 
 # settings for local machine
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
