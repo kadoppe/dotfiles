@@ -63,9 +63,6 @@ setopt hist_save_no_dups
 setopt hist_no_store
 setopt hist_expand
 
-# Pebble SDK
-export PATH=$HOME/dev/tools/PebbleSDK-2.6.1/bin:$PATH
-
 # disable autocd
 unsetopt auto_cd
 
