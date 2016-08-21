@@ -75,7 +75,6 @@ NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'tomtom/tcomment_vim'
@@ -149,12 +148,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
 endif
-
-" syntastic
-let g:syntastic_mode_map = { 'mode': 'active',
-      \ 'active_filetypes': ['ruby', 'javascript'] }
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
 
 " lightline.vim
 let g:lightline = {
