@@ -33,58 +33,52 @@ endif
 "
 " load plugins
 "
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
+call dein#begin('~/.vim/bundle')
+
+call dein#add('Shougo/dein.vim')
+
+" Add or remove your plugins here:
+call dein#add('KeitaNakamura/railscasts.vim')
+call dein#add('Lokaltog/vim-easymotion')
+call dein#add('Shougo/neocomplcache')
+call dein#add('Shougo/neocomplcache-rsense')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/unite.vim')
+call dein#add('airblade/vim-gitgutter')
+call dein#add('briancollins/vim-jst')
+call dein#add('bronson/vim-trailing-whitespace')
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('digitaltoad/vim-jade')
+call dein#add('elzr/vim-json')
+call dein#add('groenewege/vim-less')
+call dein#add('itchyny/lightline.vim')
+call dein#add('kana/vim-textobj-indent')
+call dein#add('kana/vim-textobj-line')
+call dein#add('kana/vim-textobj-underscore')
+call dein#add('kana/vim-textobj-user')
+call dein#add('kchmck/vim-coffee-script')
+call dein#add('leafgarland/typescript-vim')
+call dein#add('mxw/vim-jsx')
+call dein#add('pangloss/vim-javascript')
+call dein#add('rhysd/vim-textobj-ruby')
+call dein#add('rking/ag.vim')
+call dein#add('rizzatti/dash.vim')
+call dein#add('scrooloose/nerdtree')
+call dein#add('slim-template/vim-slim')
+call dein#add('tmux-plugins/vim-tmux')
+call dein#add('tomtom/tcomment_vim')
+call dein#add('tpope/vim-fugitive')
+call dein#add('tpope/vim-markdown')
+call dein#add('tpope/vim-rails')
+call dein#add('tpope/vim-surround')
+call dein#add('vim-ruby/vim-ruby')
+
+call dein#end()
+
+if dein#check_install()
+  call dein#install()
 endif
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-
-NeoBundle 'KeitaNakamura/railscasts.vim'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplcache-rsense'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'briancollins/vim-jst'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'kana/vim-textobj-underscore'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'mxw/vim-jsx'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'rhysd/vim-textobj-ruby'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'rizzatti/dash.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'tmux-plugins/vim-tmux'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'vim-ruby/vim-ruby'
-
-call neobundle#end()
 
 "
 " key mapping
@@ -203,4 +197,3 @@ if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
 endif
 
 filetype plugin indent on
-NeoBundleCheck
