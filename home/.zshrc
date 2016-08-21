@@ -6,7 +6,6 @@ fi
 # PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/dotfiles/bin:$PATH
 
 # editor
 export EDITOR='vim'
