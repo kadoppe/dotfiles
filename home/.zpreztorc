@@ -27,4 +27,4 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 # prmopt module
 #
-zstyle ':prezto:module:prompt' theme 'steeef'
+zstyle ':prezto:module:prompt' theme 'minimal'
