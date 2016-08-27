@@ -1,0 +1,11 @@
+# ~/.tmuxinator/tmuxinator.yml
+
+name: tmuxinator
+root: ~/.tmuxinator
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+        - 
