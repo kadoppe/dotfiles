@@ -1,11 +1,9 @@
-# ~/.tmuxinator/tmuxinator.yml
-
 name: tmuxinator
-root: ~/.tmuxinator
+root: ~/.homesick/repos/dotfiles
 
 windows:
   - editor:
       layout: even-horizontal
       panes:
         - vim
-        - 
+        -
