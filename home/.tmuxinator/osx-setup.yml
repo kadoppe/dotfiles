@@ -1,0 +1,10 @@
+name: osx-setup
+root: ~/Tools/osx-setup
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+        -
+
