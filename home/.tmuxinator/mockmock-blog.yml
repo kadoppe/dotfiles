@@ -1,0 +1,9 @@
+name: mockmock-blog
+root: ~/Projects/mockmock/blog
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - vim
+        -
