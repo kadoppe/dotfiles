@@ -6,7 +6,7 @@
 [core]
   excludesfile = /Users/kadoppe/.gitignore
   pager = less -r
-  editor = vim
+	editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
@@ -58,3 +58,5 @@
   jgraft = !legit graft \"$@\"
 [github]
 	user = kadoppe
+[url "https://github.com"]
+	insteadOf = git://github.com
