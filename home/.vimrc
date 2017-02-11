@@ -12,6 +12,7 @@ set directory=~/.vim/swap
 set expandtab
 set exrc
 set helplang=en
+set hidden
 set listchars=tab:^\ ,trail:~
 set noerrorbells
 set nrformats=
