@@ -143,6 +143,13 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
 endif
 
+" easymotion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s <Plug>(easymotion-overwin-f)
+let g:EasyMotion_smartcase = 1
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
 " lightline.vim
 let g:lightline = {
       \ 'colorscheme': 'solarized',
