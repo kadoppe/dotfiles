@@ -30,7 +30,6 @@ set history=1000
 set ignorecase
 set nextpattern=^次(へ|の|ペ)?,^続き,ＮＥＸＴ,(next|more),^(>>*|»)
 set previouspattern=^前(へ|の|ペ)?,^戻る,ＢＡＣＫ,(prev|previous),^(<<*|«)
-set nobeep
 set popups=tab
 set status=input,location,position
 set! browser.tabs.closeWindowWithLastTab=false
