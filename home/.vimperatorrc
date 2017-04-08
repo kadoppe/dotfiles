@@ -64,3 +64,4 @@ qmark r javascript:(function(){var%20e=function(t,n,r,i,s){var%20o=[1411827,4218
 ignorekeys clear
 ignorekeys add inbox\\.google\\.com -except d,t,h,l,<C-n>,<C-p>,:
 ignorekeys add iknow\\.jp
+ignorekeys add esa\\.io -except d,t,h,l,<C-n>,<C-p>
