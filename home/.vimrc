@@ -39,7 +39,6 @@ call dein#begin('~/.vim/bundle')
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
-call dein#add('KeitaNakamura/railscasts.vim')
 call dein#add('Lokaltog/vim-easymotion')
 call dein#add('Shougo/neocomplcache')
 call dein#add('Shougo/neocomplcache-rsense')
@@ -50,6 +49,7 @@ call dein#add('briancollins/vim-jst')
 call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('digitaltoad/vim-jade')
+call dein#add('dracula/vim')
 call dein#add('elzr/vim-json')
 call dein#add('groenewege/vim-less')
 call dein#add('itchyny/lightline.vim')
@@ -63,8 +63,8 @@ call dein#add('leafgarland/typescript-vim')
 call dein#add('mxw/vim-jsx')
 call dein#add('pangloss/vim-javascript')
 call dein#add('rhysd/vim-textobj-ruby')
-call dein#add('rking/ag.vim')
 call dein#add('rizzatti/dash.vim')
+call dein#add('rking/ag.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('slim-template/vim-slim')
 call dein#add('thinca/vim-qfreplace')
@@ -182,7 +182,7 @@ let g:vim_json_syntax_conceal = 0
 "
 " color scheme
 "
-colorscheme railscasts
+colorscheme dracula
 
 "
 " misc
