@@ -48,6 +48,7 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('briancollins/vim-jst')
 call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('dag/vim-fish')
 call dein#add('digitaltoad/vim-jade')
 call dein#add('dracula/vim')
 call dein#add('elzr/vim-json')
@@ -102,11 +103,8 @@ nnoremap <silent> [unite]f :<C-u>Unite<space>-buffer-name=files<space>buffer_tab
 nnoremap <silent> [unite]bm :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<space>grep -no-quit<CR>
-nnoremap <silent> [unite]l :<C-u>Unite<space>line<CR>
 
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-
-nnoremap <leader>vs :VimShell<CR>
 
 " NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
