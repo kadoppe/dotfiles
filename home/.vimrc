@@ -75,6 +75,7 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-markdown')
 call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-surround')
+call dein#add('vim-airline/vim-airline')
 call dein#add('vim-ruby/vim-ruby')
 
 call dein#end()
@@ -149,26 +150,6 @@ nmap s <Plug>(easymotion-overwin-f)
 let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-
-" lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'active': {
-      \   'left': [ ['mode', 'paste'], ['fugitive', 'filename'] ]
-      \ },
-      \ 'component_function' : {
-      \   'fugitive': 'MyFugitive'
-      \ }
-      \ }
-function! MyFugitive()
-  try
-    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head())
-      return fugitive#head()
-    endif
-  catch
-  endtry
-  return ''
-endfunction
 
 " vimshell
 let g:vimshell_prompt_expr = 'getcwd()." > "'
