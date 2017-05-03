@@ -8,6 +8,7 @@ syntax enable
 set backup
 set backupdir=~/.vim/backup
 set clipboard=unnamed,autoselect
+set cmdheight=1
 set directory=~/.vim/swap
 set expandtab
 set exrc
