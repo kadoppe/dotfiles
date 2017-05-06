@@ -78,6 +78,7 @@ call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-surround')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-ruby/vim-ruby')
+call dein#add('w0rp/ale')
 
 call dein#end()
 
