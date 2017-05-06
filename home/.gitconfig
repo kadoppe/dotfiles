@@ -4,7 +4,7 @@
 [mergetool]
   keepBackup = true
 [core]
-  excludesfile = /Users/kadoppe/.gitignore
+  excludesfile = ~/.gitignore
   pager = less -r
 	editor = /Applications/MacVim.app/Contents/MacOS/Vim -c \"set fenc=utf-8\"
 [difftool "sourcetree"]
