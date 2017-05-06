@@ -58,5 +58,7 @@
   jgraft = !legit graft \"$@\"
 [github]
 	user = kadoppe
+[ghq]
+  root = ~/Sources
 [url "https://github.com"]
 	insteadOf = git://github.com
