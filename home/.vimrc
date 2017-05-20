@@ -5,6 +5,7 @@ syntax enable
 "
 " options
 "
+set autoread
 set backup
 set backupdir=~/.vim/backup
 set clipboard=unnamed,autoselect
@@ -183,12 +184,18 @@ augroup previousline
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
+" auto read when change window
+augroup vimrc-checktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
+
+" Fix broken syntax highlighting for .vue
+autocmd FileType vue syntax sync fromstart
+
 " load local vimrc
 if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
   source $HOME/.localsetting/vimrc_local
 endif
-
-" vue
-autocmd FileType vue syntax sync fromstart
 
 filetype plugin indent on
