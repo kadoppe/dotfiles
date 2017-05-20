@@ -50,7 +50,7 @@ call dein#add('briancollins/vim-jst')
 call dein#add('bronson/vim-trailing-whitespace')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('dag/vim-fish')
-call dein#add('digitaltoad/vim-jade')
+call dein#add('digitaltoad/vim-pug')
 call dein#add('dracula/vim')
 call dein#add('elzr/vim-json')
 call dein#add('groenewege/vim-less')
@@ -64,6 +64,7 @@ call dein#add('kchmck/vim-coffee-script')
 call dein#add('leafgarland/typescript-vim')
 call dein#add('mxw/vim-jsx')
 call dein#add('pangloss/vim-javascript')
+call dein#add('posva/vim-vue')
 call dein#add('rhysd/vim-textobj-ruby')
 call dein#add('rizzatti/dash.vim')
 call dein#add('rking/ag.vim')
@@ -186,5 +187,8 @@ augroup END
 if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
   source $HOME/.localsetting/vimrc_local
 endif
+
+" vue
+autocmd FileType vue syntax sync fromstart
 
 filetype plugin indent on
