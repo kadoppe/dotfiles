@@ -70,10 +70,10 @@ call dein#add('rhysd/vim-textobj-ruby')
 call dein#add('rizzatti/dash.vim')
 call dein#add('rking/ag.vim')
 call dein#add('scrooloose/nerdtree')
+call dein#add('scrooloose/nerdcommenter')
 call dein#add('slim-template/vim-slim')
 call dein#add('thinca/vim-qfreplace')
 call dein#add('tmux-plugins/vim-tmux')
-call dein#add('tomtom/tcomment_vim')
 call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-markdown')
 call dein#add('tpope/vim-rails')
@@ -114,6 +114,27 @@ noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo '
 
 " NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
+
+" NERDCommenter
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
 
 " dash
 nmap <silent> <leader>d <Plug>DashSearch
