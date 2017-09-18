@@ -1,6 +1,5 @@
 set -x EDITOR 'vim'
 
-source ~/.asdf/asdf.fish
 set -x PATH $HOME/.pyenv/bin $PATH
 
 status --is-interactive; and . (pyenv init - | psub)
