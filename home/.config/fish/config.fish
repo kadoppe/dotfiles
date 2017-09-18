@@ -1,9 +1,7 @@
 set -x EDITOR 'vim'
 
-set -x PATH $HOME/.pyenv/bin $PATH
-
-status --is-interactive; and . (pyenv init - | psub)
-status --is-interactive; and . (pyenv virtualenv-init -)
+set -x CPPFLAGS -I/usr/local/opt/openssl/include
+set -x LDFLAGS -L/usr/local/opt/openssl/lib
 
 set -x JAVA_HOME (/usr/libexec/java_home)
 
