@@ -1,4 +1,4 @@
-set -x PATH $HOME/.nodebrew/current/bin $PATH
+set -x EDITOR 'vim'
 
 source ~/.asdf/asdf.fish
 set -x PATH $HOME/.pyenv/bin $PATH
