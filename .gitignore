@@ -1,2 +1,5 @@
 .vimperator/info
+home/.vim/backup
+home/.vim/swap
+home/.vim/bundles
 .DS_Store
