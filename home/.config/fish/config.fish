@@ -7,7 +7,6 @@ set -x JAVA_HOME (/usr/libexec/java_home)
 
 set -g theme_color_scheme terminal
 
-alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi=vim
 alias mux=tmuxinator
 
