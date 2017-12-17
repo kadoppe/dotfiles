@@ -7,6 +7,9 @@ set -x JAVA_HOME (/usr/libexec/java_home)
 
 set -g theme_color_scheme terminal
 
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
+
 alias vi=vim
 alias mux=tmuxinator
 
