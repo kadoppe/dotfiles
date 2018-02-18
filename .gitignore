@@ -2,4 +2,5 @@
 home/.config/nvim/backup
 home/.config/nvim/swap
 home/.config/nvim/bundles
+home/.config/nvim/undo
 .DS_Store
