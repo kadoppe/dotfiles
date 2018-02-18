@@ -178,6 +178,9 @@ endif
 
 " ale
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ }
 
 " easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
