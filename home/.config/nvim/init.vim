@@ -8,7 +8,7 @@ syntax enable
 set autoread
 set backup
 set backupdir=~/.vim/backup
-set clipboard=unnamed,autoselect
+set clipboard=unnamed
 set cmdheight=1
 set directory=~/.vim/swap
 set expandtab
