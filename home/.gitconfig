@@ -7,19 +7,8 @@
   excludesfile = ~/.gitignore
   pager = less -r
   editor = vim
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
 [color]
   ui = auto
-[push]
-  default = tracking
-[merge]
-  ff = false
-[pull]
-  rebase = true
 [alias]
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
   a = !git add . && git status
