@@ -12,6 +12,7 @@ status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 alias vi=vim
 alias mux=tmuxinator
+alias lzd=lazydocker
 
 eval (direnv hook fish)
 
