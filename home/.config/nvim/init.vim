@@ -1,4 +1,6 @@
-set nocompatible
+if &compatible
+  set nocompatible
+endif
 
 syntax enable
 
@@ -6,10 +8,11 @@ syntax enable
 " options
 "
 set autoread
-set backup
+set nobackup
+set nowritebackup
 set backupdir=~/.vim/backup
 set clipboard=unnamed
-set cmdheight=1
+set cmdheight=2
 set directory=~/.vim/swap
 set expandtab
 set exrc
@@ -21,72 +24,71 @@ set nrformats=
 set number
 set scrolloff=5
 set shiftwidth=2
+set shortmess+=c
 set swapfile
 set tabstop=2
 set ttyfast
+set updatetime=300
 set visualbell t_vb=
 set whichwrap=b,s,h,l
+set mouse=a
+
+if has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 if has('persistent_undo')
   set undofile
   set undodir=./.vimundo,~/.vim/undo
 endif
 
+if has('nvim')
+  let g:python_host_prog = '~/.pyenv/shims/python2'
+  let g:python3_host_prog = '/usr/local/bin/python3'
+endif
+
 "
 " load plugins
 "
-set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-if dein#load_state('~/.vim/bundles')
-  call dein#begin('~/.vim/bundles')
+  " Let dein manage dein
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/denite.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
-  call dein#add('Lokaltog/vim-easymotion')
-  call dein#add('Shougo/neocomplcache')
-  call dein#add('Shougo/neocomplcache-rsense')
-  call dein#add('Shougo/neomru.vim')
-  call dein#add('Shougo/unite.vim')
   call dein#add('airblade/vim-gitgutter')
-  call dein#add('briancollins/vim-jst')
-  call dein#add('bronson/vim-trailing-whitespace')
-  call dein#add('ctrlpvim/ctrlp.vim')
-  call dein#add('dag/vim-fish')
-  call dein#add('digitaltoad/vim-pug')
   call dein#add('dracula/vim')
-  call dein#add('elzr/vim-json')
-  call dein#add('groenewege/vim-less')
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('junegunn/vim-easy-align')
-  call dein#add('kana/vim-textobj-indent')
-  call dein#add('kana/vim-textobj-line')
-  call dein#add('kana/vim-textobj-underscore')
-  call dein#add('kana/vim-textobj-user')
-  call dein#add('kchmck/vim-coffee-script')
-  call dein#add('leafgarland/typescript-vim')
-  call dein#add('mxw/vim-jsx')
+  call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'], 'build': 'sh -c "cd app & yarn install"' })
+  call dein#add('jkramer/vim-checkbox')
+  call dein#add('neoclide/coc.nvim')
   call dein#add('pangloss/vim-javascript')
-  call dein#add('posva/vim-vue')
-  call dein#add('rhysd/vim-textobj-ruby')
-  call dein#add('rizzatti/dash.vim')
-  call dein#add('rking/ag.vim')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('scrooloose/nerdcommenter')
-  call dein#add('slim-template/vim-slim')
-  call dein#add('thinca/vim-qfreplace')
-  call dein#add('tmux-plugins/vim-tmux')
+  call dein#add('pbrisbin/vim-mkdir')
+  call dein#add('plasticboy/vim-markdown')
+  call dein#add('preservim/nerdtree')
+  call dein#add('tpope/vim-commentary')
   call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-markdown')
-  call dein#add('tpope/vim-rails')
-  call dein#add('tpope/vim-rhubarb')
-  call dein#add('tpope/vim-surround')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-ruby/vim-ruby')
-  call dein#add('w0rp/ale')
+  call dein#add('tyru/caw.vim')
 
+  " call dein#add('neovim/node-host', { 'build': 'npm install -g neovim' })
+  " call dein#add('billyvg/tigris.nvim', { 'build': './install.sh' })
+
+
+  " Required:
   call dein#end()
   call dein#save_state()
 endif
+
+filetype plugin indent on
+syntax enable
 
 if dein#check_install()
   call dein#install()
@@ -102,131 +104,103 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-nnoremap <ESC><ESC> :nohlsearch<CR>
-
-nnoremap <leader>P :CtrlPClearCache<CR>:CtrlP<CR><CR>
-
-nnoremap [unite] <Nop>
-nmap <Leader>u [unite]
-nnoremap <silent> [unite]f :<C-u>Unite<space>-buffer-name=files<space>buffer_tab<space>file_mru<CR>
-nnoremap <silent> [unite]bm :<C-u>Unite<Space>bookmark<CR>
-nnoremap <silent> [unite]m :<C-u>Unite<space>file_mru<CR>
-nnoremap <silent> [unite]g :<C-u>Unite<space>grep -no-quit<CR>
-
-noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-
-" NERDTree
-nnoremap <leader>t :NERDTreeToggle<CR>
-
-" NERDCommenter
-let g:ft = ''
-function! NERDCommenter_before()
-  if &ft == 'vue'
-    let g:ft = 'vue'
-    let stack = synstack(line('.'), col('.'))
-    if len(stack) > 0
-      let syn = synIDattr((stack)[0], 'name')
-      if len(syn) > 0
-        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
-      endif
-    endif
-  endif
-endfunction
-function! NERDCommenter_after()
-  if g:ft == 'vue'
-    setf vue
-    let g:ft = ''
-  endif
-endfunction
-
-" dash
-nmap <silent> <leader>d <Plug>DashSearch
-
 "
 " plugin settings
 "
+"
+" Define
+"
+nmap ; :Denite buffer<CR>
+nmap <leader>t :DeniteProjectDir file/rec<CR>
+nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
+nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
 
-" unite.vim
-let g:unite_enable_start_insert=0
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--nocolor --nogroup'
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_source_grep_max_candidates = 200
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
 
-" neomru.vim
-call unite#custom#source('file_mru', 'converters', 'converter_relative_word')
 
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_max_list = 20
-let g:neocomplcache_manual_completion_start_length = 3
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_smart_case = 1
-if !exists('g:neocomplcache_delimiter_patterns')
-    let g:neocomplcache_delimiter_patterns = {}
+" nerdtree
+nmap <leader>n :NERDTreeToggle<CR>
+
+" coc
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-let g:rsenseUseOmniFunc = 1
-let g:neocomplcache#sources#rsense#home_directory = '/usr/local/Cellar/rsense/0.3/libexec'
-
-" ctrlp
-if executable('ag')
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" ale
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {
-      \ 'javascript': ['eslint'],
-      \ }
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" easymotion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-nmap s <Plug>(easymotion-overwin-f)
-let g:EasyMotion_smartcase = 1
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" vim-json
-let g:vim_json_syntax_conceal = 0
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nmap <leader>rn <Plug>(coc-rename)
+
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" vimwiki
+nnoremap <Leader>ww :e ~/Documents/notes/index.md<cr>
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
 
 "
 " color scheme
 "
 colorscheme dracula
-hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
-hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
 
 "
 " misc
 "
 
-" :vimgrepでの検索後QuickFixウインドウを自動的に開く
-augroup grepopen
-  autocmd!
-  autocmd QuickfixCmdPost vimgrep cw
-augroup END
-
-" ファイルを開いた時にカーソルを前回編集時の位置に移動
-augroup previousline
-  autocmd!
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-augroup END
-
-" auto read when change window
-augroup vimrc-checktime
-  autocmd!
-  autocmd WinEnter * checktime
-augroup END
-
-" Fix broken syntax highlighting for .vue
-autocmd FileType vue syntax sync fromstart
 
 " load local vimrc
 if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
   source $HOME/.localsetting/vimrc_local
 endif
 
-filetype plugin indent on
