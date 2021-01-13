@@ -67,7 +67,6 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('airblade/vim-gitgutter')
   call dein#add('dracula/vim')
-  call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'], 'build': 'sh -c "cd app & yarn install"' })
   call dein#add('jkramer/vim-checkbox')
   call dein#add('neoclide/coc.nvim')
   call dein#add('pangloss/vim-javascript')
