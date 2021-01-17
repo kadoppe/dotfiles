@@ -66,6 +66,7 @@ if dein#load_state('~/.cache/dein')
   endif
 
   call dein#add('airblade/vim-gitgutter')
+  call dein#add('dag/vim-fish')
   call dein#add('dracula/vim')
   call dein#add('jkramer/vim-checkbox')
   call dein#add('neoclide/coc.nvim')
@@ -181,9 +182,6 @@ nmap <leader>rn <Plug>(coc-rename)
 
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-
-" vimwiki
-nnoremap <Leader>ww :e ~/Documents/notes/index.md<cr>
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
