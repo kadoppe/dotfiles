@@ -10,7 +10,7 @@ set -g theme_color_scheme terminal
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
-alias vi=vim
+alias vi=nvim
 alias mux=tmuxinator
 alias lzd=lazydocker
 
@@ -22,3 +22,4 @@ function fish_user_key_bindings
 end
 
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+
