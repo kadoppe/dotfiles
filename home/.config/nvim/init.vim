@@ -67,7 +67,7 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('airblade/vim-gitgutter')
   call dein#add('dag/vim-fish')
-  call dein#add('dracula/vim')
+  call dein#add('dracula/vim', {'name': 'dracula' })
   call dein#add('jkramer/vim-checkbox')
   call dein#add('neoclide/coc.nvim')
   call dein#add('pangloss/vim-javascript')
