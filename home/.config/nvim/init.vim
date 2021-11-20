@@ -46,7 +46,7 @@ endif
 
 if has('nvim')
   let g:python_host_prog = '~/.pyenv/shims/python2'
-  let g:python3_host_prog = '/usr/local/bin/python3'
+  let g:python3_host_prog = '/opt/homebrew/bin/python3'
 endif
 
 "
@@ -69,7 +69,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('dag/vim-fish')
   call dein#add('dracula/vim', {'name': 'dracula' })
   call dein#add('jkramer/vim-checkbox')
-  call dein#add('neoclide/coc.nvim')
+  call dein#add('neoclide/coc.nvim', { 'rev': 'release' })
   call dein#add('pangloss/vim-javascript')
   call dein#add('pbrisbin/vim-mkdir')
   call dein#add('plasticboy/vim-markdown')
