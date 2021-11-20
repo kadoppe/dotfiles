@@ -1,5 +1,7 @@
 set -x EDITOR 'vim'
 
+set PATH /opt/homebrew/bin $PATH
+
 set -x CPPFLAGS -I/usr/local/opt/openssl/include
 set -x LDFLAGS -L/usr/local/opt/openssl/lib
 
@@ -9,6 +11,8 @@ set -g theme_color_scheme terminal
 
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
+
+load_nvm
 
 alias vi=nvim
 alias mux=tmuxinator
