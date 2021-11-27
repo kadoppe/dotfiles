@@ -1,6 +1,8 @@
 set -x EDITOR 'vim'
 
 set PATH /opt/homebrew/bin $PATH
+set -x GOPATH $HOME/go
+set -x PATH $PATH $GOPATH/bin
 
 set -x CPPFLAGS -I/usr/local/opt/openssl/include
 set -x LDFLAGS -L/usr/local/opt/openssl/lib
