@@ -15,6 +15,7 @@ status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 alias vi=nvim
+alias vim=nvim
 alias mux=tmuxinator
 alias lzd=lazydocker
 
