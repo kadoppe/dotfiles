@@ -11,8 +11,8 @@ set -x JAVA_HOME (/usr/libexec/java_home)
 
 set -g theme_color_scheme terminal
 
-status --is-interactive; and source (pyenv init -|psub)
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
 
 alias vi=nvim
 alias vim=nvim
