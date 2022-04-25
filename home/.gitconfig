@@ -53,5 +53,3 @@
 	insteadOf = git://github.com
 [pull]
 	ff = only
-[credential]
-	helper = store
