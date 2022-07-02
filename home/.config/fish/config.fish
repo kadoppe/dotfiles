@@ -7,8 +7,6 @@ set -x PATH $PATH $GOPATH/bin
 set -x CPPFLAGS -I/usr/local/opt/openssl/include
 set -x LDFLAGS -L/usr/local/opt/openssl/lib
 
-set -x JAVA_HOME (/usr/libexec/java_home)
-
 set -g theme_color_scheme terminal
 
 status is-login; and pyenv init --path | source
