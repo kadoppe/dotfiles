@@ -45,8 +45,14 @@ if has('persistent_undo')
 endif
 
 if has('nvim')
-  let g:python_host_prog = '~/.pyenv/shims/python2'
-  let g:python3_host_prog = '/opt/homebrew/bin/python3'
+  if has('mac')
+    let g:python_host_prog = '~/.pyenv/shims/python2'
+    let g:python3_host_prog = '/opt/homebrew/bin/python3'
+  endif
+
+  if has('unix')
+    let g:python3_host_prog = '/usr/bin/python3'
+  endif
 endif
 
 "
@@ -81,7 +87,6 @@ if dein#load_state('~/.cache/dein')
 
   " call dein#add('neovim/node-host', { 'build': 'npm install -g neovim' })
   " call dein#add('billyvg/tigris.nvim', { 'build': './install.sh' })
-
 
   " Required:
   call dein#end()
