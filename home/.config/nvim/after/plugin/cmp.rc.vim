@@ -2,6 +2,7 @@ set completeopt=menuone,noinsert,noselect
 
 lua << EOF
 local cmp = require 'cmp'
+local lspkind = require 'lspkind'
 
 cmp.setup({
   snippet = {
@@ -20,6 +21,11 @@ cmp.setup({
     { name = 'nvim_lsp' },
   }, {
     { name = 'buffer' }
-  })
+  }),
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text'
+    })
+  }
 })
 EOF

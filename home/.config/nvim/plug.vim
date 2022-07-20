@@ -33,6 +33,7 @@ if has('nvim')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'williamboman/nvim-lsp-installer'
+  Plug 'onsails/lspkind-nvim'
 endif
 
 call plug#end()
