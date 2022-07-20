@@ -13,8 +13,23 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
-require('lspconfig')['tsserver'].setup{
+local lspconfig = require("lspconfig")
+
+lspconfig.tsserver.setup{
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   capabilities = capabilities
 }
+
+lspconfig.sumneko_lua.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {'vim'}
+      }
+    }
+  }
+}
+

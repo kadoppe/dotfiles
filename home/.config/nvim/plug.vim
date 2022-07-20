@@ -32,6 +32,7 @@ if has('nvim')
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'nvim-lualine/lualine.nvim'
+  Plug 'williamboman/nvim-lsp-installer'
 endif
 
 call plug#end()
