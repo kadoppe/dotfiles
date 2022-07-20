@@ -58,45 +58,29 @@ endif
 "
 " load plugins
 "
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+call plug#begin()
 
-  " Let dein manage dein
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-
-  call dein#add('Shougo/denite.nvim')
+  Plug 'Shougo/denite.nvim'
   if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
   endif
 
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('dag/vim-fish')
-  call dein#add('dracula/vim', {'name': 'dracula' })
-  call dein#add('hashivim/vim-terraform')
-  call dein#add('jkramer/vim-checkbox')
-  call dein#add('neoclide/coc.nvim', { 'rev': 'release' })
-  call dein#add('pangloss/vim-javascript')
-  call dein#add('plasticboy/vim-markdown')
-  call dein#add('preservim/nerdtree')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tyru/caw.vim')
+  Plug 'airblade/vim-gitgutter'
+  Plug 'dag/vim-fish'
+  Plug 'dracula/vim', {'as': 'dracula' }
+  Plug 'hashivim/vim-terraform'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'pangloss/vim-javascript'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'preservim/nerdtree'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tyru/caw.vim'
 
-  " call dein#add('neovim/node-host', { 'build': 'npm install -g neovim' })
-  " call dein#add('billyvg/tigris.nvim', { 'build': './install.sh' })
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+call plug#end()
 
 filetype plugin indent on
 syntax enable
-
-if dein#check_install()
-  call dein#install()
-endif
 
 "
 " key mapping
