@@ -15,7 +15,7 @@ set cursorline
 set directory=~/.vim/swap
 set expandtab
 set exrc
-set formatoptions+=r
+set formatoptions-=ro
 set helplang=en
 set hidden
 set hlsearch

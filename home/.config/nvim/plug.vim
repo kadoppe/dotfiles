@@ -19,6 +19,7 @@ Plug 'tyru/caw.vim'
 
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
+  Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 endif
 
 call plug#end()
