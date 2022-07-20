@@ -77,6 +77,10 @@ call plug#begin()
   Plug 'tpope/vim-rhubarb'
   Plug 'tyru/caw.vim'
 
+  if has('nvim')
+    Plug  'neovim/nvim-lspconfig'
+  endif
+
 call plug#end()
 
 filetype plugin indent on
