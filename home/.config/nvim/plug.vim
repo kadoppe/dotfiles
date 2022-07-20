@@ -34,6 +34,7 @@ if has('nvim')
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'onsails/lspkind-nvim'
+  Plug 'nvim-lua/popup.nvim'
 endif
 
 call plug#end()
