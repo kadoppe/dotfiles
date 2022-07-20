@@ -3,7 +3,7 @@ local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
 -- Async lsp finder
-vim.keymap.set("n", "gh", require("lspsaga.finder").lsp_finder, { silent = true, noremap = true })
+vim.keymap.set("n", "gd", require("lspsaga.finder").lsp_finder, { silent = true, noremap = true })
 
 -- Code action
 local action = require("lspsaga.codeaction")
@@ -26,7 +26,7 @@ vim.keymap.set("n", "<C-b>", function()
 end, { silent = true })
 
 -- Signature help
-vim.keymap.set("n", "gs", require("lspsaga.signaturehelp").signature_help, { silent = true, noremap = true})
+vim.keymap.set("n", "<C-k>", require("lspsaga.signaturehelp").signature_help, { silent = true, noremap = true})
 
 -- Jump and show diagnostics
 vim.keymap.set("n", "<leader>cd", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
@@ -42,3 +42,10 @@ end, { silent = true, noremap = true })
 vim.keymap.set("n", "]E", function()
   require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true, noremap = true })
+
+-- Preview definition
+vim.keymap.set("n", "gp", require("lspsaga.definition").preview_definition, { silent = true, noremap = true })
+
+-- Rename
+vim.keymap.set("n", "gr", require("lspsaga.rename").lsp_rename, { silent = true, noremap = true })
+
