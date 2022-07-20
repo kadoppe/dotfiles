@@ -59,14 +59,13 @@ endif
 " load plugins
 "
 call plug#begin()
-
-  Plug 'Shougo/denite.nvim'
   if !has('nvim')
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
   endif
 
   Plug 'airblade/vim-gitgutter'
+  Plug 'cohama/lexima.vim'
   Plug 'dag/vim-fish'
   Plug 'dracula/vim', {'as': 'dracula' }
   Plug 'hashivim/vim-terraform'
@@ -75,6 +74,7 @@ call plug#begin()
   Plug 'plasticboy/vim-markdown'
   Plug 'preservim/nerdtree'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
   Plug 'tyru/caw.vim'
 
 call plug#end()
