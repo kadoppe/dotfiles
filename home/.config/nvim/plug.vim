@@ -18,7 +18,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tyru/caw.vim'
 
 if has('nvim')
-  Plug  'neovim/nvim-lspconfig'
+  Plug 'neovim/nvim-lspconfig'
 endif
 
 call plug#end()
