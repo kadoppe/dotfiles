@@ -8,6 +8,7 @@ require 'nvim-treesitter.configs'.setup {
     disable = {}
   },
   ensure_installed = {
+    "bash",
     "fish",
     "html",
     "javascript",
