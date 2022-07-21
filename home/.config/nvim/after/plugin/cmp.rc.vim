@@ -21,7 +21,8 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' }
   }, {
-    { name = 'buffer' }
+    { name = 'buffer' },
+    { name = 'path' }
   }),
   formatting = {
     format = lspkind.cmp_format({
@@ -30,3 +31,4 @@ cmp.setup({
   }
 })
 EOF
+
