@@ -48,6 +48,7 @@ if has('nvim')
   Plug 'RRethy/vim-illuminate'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'folke/todo-comments.nvim'
+  Plug 'mvllow/modes.nvim'
 endif
 
 call plug#end()
