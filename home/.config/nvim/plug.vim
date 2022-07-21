@@ -44,6 +44,7 @@ if has('nvim')
   Plug 'tami5/sqlite.lua'
   Plug 'nvim-telescope/telescope-frecency.nvim'
   Plug 'haringsrob/nvim_context_vt'
+  Plug 'SmiteshP/nvim-navic'
 endif
 
 call plug#end()

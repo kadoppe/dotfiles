@@ -1,3 +1,5 @@
+local navic = require('nvim-navic')
+
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -7,6 +9,8 @@ local on_attach = function(client, bufnr)
   -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+
+  navic.attach(client, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
