@@ -6,9 +6,9 @@ saga.init_lsp_saga()
 vim.keymap.set("n", "gd", require("lspsaga.finder").lsp_finder, { silent = true, noremap = true })
 
 -- Code action
-local action = require("lspsaga.codeaction")
+local codeaction = require("lspsaga.codeaction")
 
-vim.keymap.set("n", "<leader>ca", action.code_action, { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>ca", codeaction.code_action, { silent = true, noremap = true })
 vim.keymap.set("v", "<leader>ca", function()
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
   codeaction.range_code_action()
@@ -47,5 +47,5 @@ end, { silent = true, noremap = true })
 vim.keymap.set("n", "gp", require("lspsaga.definition").preview_definition, { silent = true, noremap = true })
 
 -- Rename
-vim.keymap.set("n", "gr", require("lspsaga.rename").lsp_rename, { silent = true, noremap = true })
+vim.keymap.set("n", "gr", require("lspsaga.rename").lsp_rename, { silent = true,noremap = true })
 
