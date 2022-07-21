@@ -43,7 +43,7 @@ if has('nvim')
   Plug 'j-hui/fidget.nvim'
   Plug 'tami5/sqlite.lua'
   Plug 'nvim-telescope/telescope-frecency.nvim'
-  Plug 'haringsrob/nvim_context_vt'
+  Plug 'nvim-telescope/telescope-smart-history.nvim'
 endif
 
 call plug#end()
