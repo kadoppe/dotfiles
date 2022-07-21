@@ -45,6 +45,7 @@ if has('nvim')
   Plug 'nvim-telescope/telescope-frecency.nvim'
   Plug 'haringsrob/nvim_context_vt'
   Plug 'SmiteshP/nvim-navic'
+  Plug 'RRethy/vim-illuminate'
 endif
 
 call plug#end()
