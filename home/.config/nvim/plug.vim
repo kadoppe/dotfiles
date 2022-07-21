@@ -40,6 +40,8 @@ if has('nvim')
   Plug 'rcarriga/nvim-notify'
   Plug 'folke/lsp-colors.nvim'
   Plug 'j-hui/fidget.nvim'
+  Plug 'tami5/sqlite.lua'
+  Plug 'nvim-telescope/telescope-frecency.nvim'
 endif
 
 call plug#end()
