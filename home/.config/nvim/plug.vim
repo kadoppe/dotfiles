@@ -38,6 +38,7 @@ if has('nvim')
   Plug 'onsails/lspkind-nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'rcarriga/nvim-notify'
+  Plug 'folke/lsp-colors.nvim'
 endif
 
 call plug#end()
