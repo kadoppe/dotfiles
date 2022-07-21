@@ -49,6 +49,8 @@ if has('nvim')
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'folke/todo-comments.nvim'
   Plug 'mvllow/modes.nvim'
+  Plug 'kevinhwang91/nvim-hlslens'
+  Plug 'petertriho/nvim-scrollbar'
 endif
 
 call plug#end()
