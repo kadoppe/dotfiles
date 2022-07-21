@@ -39,6 +39,7 @@ if has('nvim')
   Plug 'nvim-lua/popup.nvim'
   Plug 'rcarriga/nvim-notify'
   Plug 'folke/lsp-colors.nvim'
+  Plug 'j-hui/fidget.nvim'
 endif
 
 call plug#end()
