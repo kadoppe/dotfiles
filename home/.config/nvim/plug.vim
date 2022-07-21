@@ -46,6 +46,7 @@ if has('nvim')
   Plug 'haringsrob/nvim_context_vt'
   Plug 'SmiteshP/nvim-navic'
   Plug 'RRethy/vim-illuminate'
+  Plug 'norcalli/nvim-colorizer.lua'
 endif
 
 call plug#end()
