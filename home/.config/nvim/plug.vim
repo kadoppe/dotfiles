@@ -58,6 +58,7 @@ if has('nvim')
   Plug 'sindrets/diffview.nvim'
   Plug 'akinsho/git-conflict.nvim'
   Plug 'lewis6991/gitsigns.nvim'
+  Plug 'rmagatti/auto-session'
 endif
 
 call plug#end()
