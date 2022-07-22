@@ -57,6 +57,7 @@ if has('nvim')
   Plug 'numToStr/Comment.nvim'
   Plug 'TimUntersberger/neogit'
   Plug 'sindrets/diffview.nvim'
+  Plug 'akinsho/git-conflict.nvim'
 endif
 
 call plug#end()
