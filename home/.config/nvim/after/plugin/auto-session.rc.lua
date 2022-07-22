@@ -1,8 +1,3 @@
-local function close_neo_tree()
-  require 'neo-tree.sources.manager'.close_all()
-  vim.notify('closed all')
-end
-
 require('auto-session').setup {
   log_level = 'info',
   auto_session_suppress_dirs = {'~/'},
