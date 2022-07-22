@@ -51,6 +51,7 @@ if has('nvim')
   Plug 'mvllow/modes.nvim'
   Plug 'kevinhwang91/nvim-hlslens'
   Plug 'petertriho/nvim-scrollbar'
+  Plug 'phaazon/hop.nvim'
 endif
 
 call plug#end()
