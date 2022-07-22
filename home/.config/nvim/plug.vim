@@ -5,7 +5,6 @@ if !has('nvim')
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'airblade/vim-gitgutter'
 Plug 'cohama/lexima.vim'
 Plug 'dag/vim-fish'
 Plug 'dracula/vim', {'as': 'dracula' }
@@ -58,6 +57,7 @@ if has('nvim')
   Plug 'TimUntersberger/neogit'
   Plug 'sindrets/diffview.nvim'
   Plug 'akinsho/git-conflict.nvim'
+  Plug 'lewis6991/gitsigns.nvim'
 endif
 
 call plug#end()
