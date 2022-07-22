@@ -56,6 +56,7 @@ if has('nvim')
   Plug 'folke/which-key.nvim'
   Plug 'numToStr/Comment.nvim'
   Plug 'TimUntersberger/neogit'
+  Plug 'sindrets/diffview.nvim'
 endif
 
 call plug#end()

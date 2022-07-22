@@ -1,6 +1,10 @@
 lua << EOF
 local neogit = require('neogit')
-neogit.setup {}
+neogit.setup {
+  integrations = {
+    diffview = true
+  }
+}
 EOF
 
 nmap <leader>go :Neogit kind=vsplit<CR>
