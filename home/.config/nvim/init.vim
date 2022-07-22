@@ -1,6 +1,3 @@
-" Fundamentals "{{{
-" ---------------------------------------------------------------------
-
 autocmd!
 
 if &compatible
@@ -70,16 +67,10 @@ if has('nvim')
   endif
 endif
 
-"}}}
 
-" Imports "{{{
-" ---------------------------------------------------------------------
 runtime ./plug.vim
 runtime ./maps.vim
-"}}}
 
-" Syntax theme "{{{
-" ---------------------------------------------------------------------
 if exists("&termguicolors") && exists("&winblend")
   set termguicolors
   set winblend=0
@@ -87,6 +78,4 @@ if exists("&termguicolors") && exists("&winblend")
   set pumblend=5
   set background=dark
 endif
-"}}}
 
-" vim: set foldmethod=marker foldlevel=0:
