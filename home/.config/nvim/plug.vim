@@ -15,7 +15,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'tyru/caw.vim'
 Plug 'EdenEast/nightfox.nvim'
 
 if has('nvim')
@@ -55,6 +54,7 @@ if has('nvim')
   Plug 'MunifTanjim/nui.nvim'
   Plug 'nvim-neo-tree/neo-tree.nvim'
   Plug 'folke/which-key.nvim'
+  Plug 'numToStr/Comment.nvim'
 endif
 
 call plug#end()
