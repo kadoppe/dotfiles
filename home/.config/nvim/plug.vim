@@ -12,7 +12,6 @@ Plug 'dracula/vim', {'as': 'dracula' }
 Plug 'hashivim/vim-terraform'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
@@ -53,6 +52,8 @@ if has('nvim')
   Plug 'kevinhwang91/nvim-hlslens'
   Plug 'petertriho/nvim-scrollbar'
   Plug 'phaazon/hop.nvim'
+  Plug 'MunifTanjim/nui.nvim'
+  Plug 'nvim-neo-tree/neo-tree.nvim'
 endif
 
 call plug#end()
