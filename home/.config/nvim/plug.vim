@@ -54,6 +54,7 @@ if has('nvim')
   Plug 'phaazon/hop.nvim'
   Plug 'MunifTanjim/nui.nvim'
   Plug 'nvim-neo-tree/neo-tree.nvim'
+  Plug 'folke/which-key.nvim'
 endif
 
 call plug#end()
