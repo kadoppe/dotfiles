@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tyru/caw.vim'
+Plug 'EdenEast/nightfox.nvim'
 
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'
