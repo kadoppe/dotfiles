@@ -55,6 +55,7 @@ if has('nvim')
   Plug 'nvim-neo-tree/neo-tree.nvim'
   Plug 'folke/which-key.nvim'
   Plug 'numToStr/Comment.nvim'
+  Plug 'TimUntersberger/neogit'
 endif
 
 call plug#end()
