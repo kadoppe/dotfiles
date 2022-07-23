@@ -58,6 +58,7 @@ if has('nvim')
   Plug 'akinsho/git-conflict.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'rmagatti/auto-session'
+  Plug 'akinsho/flutter-tools.nvim'
 endif
 
 call plug#end()
