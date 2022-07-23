@@ -36,7 +36,6 @@ if has('nvim')
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'onsails/lspkind-nvim'
   Plug 'nvim-lua/popup.nvim'
-  Plug 'rcarriga/nvim-notify'
   Plug 'folke/lsp-colors.nvim'
   Plug 'j-hui/fidget.nvim'
   Plug 'tami5/sqlite.lua'
