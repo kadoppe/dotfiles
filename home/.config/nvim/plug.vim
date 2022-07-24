@@ -59,6 +59,7 @@ if has('nvim')
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'rmagatti/auto-session'
   Plug 'akinsho/flutter-tools.nvim'
+  Plug 'folke/trouble.nvim'
 endif
 
 call plug#end()
