@@ -50,7 +50,7 @@ if has('nvim')
   Plug 'petertriho/nvim-scrollbar'
   Plug 'phaazon/hop.nvim'
   Plug 'MunifTanjim/nui.nvim'
-  Plug 'nvim-neo-tree/neo-tree.nvim'
+  Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v2.x' }
   Plug 'folke/which-key.nvim'
   Plug 'numToStr/Comment.nvim'
   Plug 'TimUntersberger/neogit'
