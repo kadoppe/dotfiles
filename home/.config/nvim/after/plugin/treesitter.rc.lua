@@ -10,6 +10,7 @@ require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "bash",
     "fish",
+    "go",
     "html",
     "javascript",
     "json",

@@ -25,6 +25,11 @@ lspconfig.tsserver.setup{
   capabilities = capabilities
 }
 
+lspconfig.gopls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 lspconfig.vimls.setup{
   on_attach = on_attach,
   capabilities = capabilities
