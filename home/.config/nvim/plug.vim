@@ -14,6 +14,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 Plug 'EdenEast/nightfox.nvim'
 
 if has('nvim')
