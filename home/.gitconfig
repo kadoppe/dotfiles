@@ -1,6 +1,6 @@
 [user]
-  name = kadoppe
-  email = kadoppe@me.com
+	name = kadoppe
+	email = kadoppe@me.com
 [mergetool]
   keepBackup = true
 [core]
