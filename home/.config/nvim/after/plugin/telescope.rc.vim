@@ -4,7 +4,7 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fd <cmd>Telescope diagnostics<cr>
 nnoremap <leader>fc <cmd>Telescope command_history<cr>
-nnoremap <leader><leader> <cmd>Telescope frecency<cr>
+nnoremap <leader><leader> <cmd>Telescope frecency theme=ivy<cr>
 
 lua <<EOF
 local telescope = require('telescope')
@@ -19,6 +19,26 @@ telescope.setup {
         ["q"] = actions.close
       }
     }
+  },
+  pickers = {
+    find_files = {
+      theme = "ivy",
+    },
+    live_grep = {
+      theme = "ivy",
+    },
+    buffers = {
+      theme = "ivy",
+    },
+    help_tags = {
+      theme = "ivy",
+    },
+    diagnostics = {
+      theme = "ivy",
+    },
+    command_history = {
+      theme = "ivy",
+    },
   },
   extensions = {
     frecency = {
