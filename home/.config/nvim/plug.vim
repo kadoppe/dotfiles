@@ -52,7 +52,6 @@ if has('nvim')
   Plug 'petertriho/nvim-scrollbar'
   Plug 'phaazon/hop.nvim'
   Plug 'MunifTanjim/nui.nvim'
-  Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v2.x' }
   Plug 'folke/which-key.nvim'
   Plug 'numToStr/Comment.nvim'
   Plug 'TimUntersberger/neogit'
@@ -62,6 +61,7 @@ if has('nvim')
   Plug 'rmagatti/auto-session'
   Plug 'akinsho/flutter-tools.nvim'
   Plug 'folke/trouble.nvim'
+  Plug 'nvim-telescope/telescope-file-browser.nvim'
 endif
 
 call plug#end()
