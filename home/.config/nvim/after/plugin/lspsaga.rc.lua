@@ -3,7 +3,7 @@ local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
 -- Async lsp finder
-vim.keymap.set("n", "gd", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
 -- Code action
 local codeaction = require("lspsaga.codeaction")
