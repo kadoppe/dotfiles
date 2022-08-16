@@ -41,7 +41,7 @@ telescope.setup {
   },
   extensions = {
     frecency = {
-      default_workspace = 'CWD'
+      default_workspace = 'CWD',
     },
     file_browser = {
       hijack_netrw = true,
@@ -63,5 +63,5 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fd <cmd>Telescope diagnostics<cr>
 nnoremap <leader>fc <cmd>Telescope command_history<cr>
-nnoremap <leader><leader> <cmd>Telescope frecency theme=ivy<cr>
+nnoremap <leader><leader> <cmd>Telescope frecency theme=ivy workspace=CWD<cr>
 nnoremap <leader>ft <cmd>Telescope file_browser theme=ivy hidden=true respect_gitignore=false initial_mode=normal<cr>
