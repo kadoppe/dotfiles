@@ -35,7 +35,6 @@ if has('nvim')
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'nvim-lualine/lualine.nvim'
-  Plug 'williamboman/nvim-lsp-installer'
   Plug 'onsails/lspkind-nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'folke/lsp-colors.nvim'
@@ -62,6 +61,9 @@ if has('nvim')
   Plug 'akinsho/flutter-tools.nvim'
   Plug 'folke/trouble.nvim'
   Plug 'nvim-telescope/telescope-file-browser.nvim'
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
+  Plug 'neovim/nvim-lspconfig'
 endif
 
 call plug#end()
