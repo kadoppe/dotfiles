@@ -55,7 +55,6 @@ if has('nvim')
   Plug 'numToStr/Comment.nvim'
   Plug 'TimUntersberger/neogit'
   Plug 'sindrets/diffview.nvim'
-  Plug 'akinsho/git-conflict.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'rmagatti/auto-session'
   Plug 'akinsho/flutter-tools.nvim'
