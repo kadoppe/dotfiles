@@ -25,9 +25,6 @@ vim.keymap.set("n", "<C-b>", function()
   action.smart_scroll_with_saga(-1)
 end, { silent = true })
 
--- Signature help
-vim.keymap.set("n", "<C-k>", require("lspsaga.signaturehelp").signature_help, { silent = true, noremap = true})
-
 -- Jump and show diagnostics
 vim.keymap.set("n", "<leader>cd", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
 vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true,noremap= true })
