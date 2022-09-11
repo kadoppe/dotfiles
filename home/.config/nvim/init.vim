@@ -24,6 +24,7 @@ set mouse=a
 set nobackup
 set noerrorbells
 set nosc noru nosm
+set noswapfile
 set nowritebackup
 set nrformats=
 set number
