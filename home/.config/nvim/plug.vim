@@ -60,7 +60,6 @@ if has('nvim')
   Plug 'rmagatti/auto-session'
   Plug 'akinsho/flutter-tools.nvim'
   Plug 'folke/trouble.nvim'
-  Plug 'nvim-telescope/telescope-file-browser.nvim'
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'neovim/nvim-lspconfig'
