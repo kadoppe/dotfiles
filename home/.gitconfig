@@ -1,12 +1,12 @@
 [user]
-	name = kadoppe
-	email = kadoppe@me.com
+  name = kadoppe
+  email = kadoppe@me.com
 [mergetool]
   keepBackup = true
 [core]
   excludesfile = ~/.gitignore
   pager = less -r
-  editor = vim
+  editor = nvim
 [color]
   ui = auto
 [alias]
