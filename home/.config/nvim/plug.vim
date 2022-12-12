@@ -63,6 +63,7 @@ if has('nvim')
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'neovim/nvim-lspconfig'
+  Plug 'dense-analysis/ale'
 endif
 
 call plug#end()
