@@ -33,7 +33,6 @@ set scrolloff=10
 set shortmess+=c
 set showcmd
 set smarttab
-set swapfile
 set title
 set ttyfast
 set updatetime=300
