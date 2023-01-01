@@ -19,7 +19,6 @@ set hlsearch
 set ignorecase
 set smartcase
 set laststatus=2
-set lazyredraw
 set listchars=tab:^\ ,trail:~
 set mouse=a
 set nobackup
