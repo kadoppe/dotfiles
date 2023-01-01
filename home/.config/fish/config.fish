@@ -17,6 +17,10 @@ set -gx EDITOR 'nvim'
 
 # path
 set PATH /opt/homebrew/bin $PATH
+source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
+
+# gcloud
+set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
 # go
 set -x GOPATH $HOME/go
