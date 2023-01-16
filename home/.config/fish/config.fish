@@ -34,6 +34,9 @@ status is-interactive; and pyenv init - | source
 set -x CPPFLAGS -I/usr/local/opt/openssl/include
 set -x LDFLAGS -L/usr/local/opt/openssl/lib
 
+# openjdk
+set PATH /opt/homebrew/opt/openjdk/bin $PATH
+
 # direnv
 eval (direnv hook fish)
 
