@@ -1,40 +1,35 @@
-local saga = require 'lspsaga'
+require('lspsaga').setup({})
 
-saga.init_lsp_saga()
+local keymap = vim.keymap.set
 
 -- Async lsp finder
-vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
 -- Code action
-local codeaction = require("lspsaga.codeaction")
-
-vim.keymap.set("n", "<leader>ca", codeaction.code_action, { silent = true, noremap = true })
-vim.keymap.set("v", "<leader>ca", function()
-  vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
-  codeaction.range_code_action()
-end, { silent = true, noremap =true })
+keymap({"n", "v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 
 -- Hover doc
-vim.keymap.set("n", "K", require("lspsaga.hover").render_hover_doc, { silent = true })
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 
 -- Jump and show diagnostics
-vim.keymap.set("n", "<leader>cd", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
-vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true,noremap= true })
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>")
 
 -- jump diagnostic
-vim.keymap.set("n", "[e", require("lspsaga.diagnostic").goto_prev, { silent = true, noremap =true })
-vim.keymap.set("n", "]e", require("lspsaga.diagnostic").goto_next, { silent = true, noremap =true })
+keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+
 -- or jump to error
-vim.keymap.set("n", "[E", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true, noremap = true })
-vim.keymap.set("n", "]E", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true, noremap = true })
+--
+keymap("n", "[E", function()
+  require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end)
+keymap("n", "]E", function()
+  require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+end)
 
 -- Preview definition
-vim.keymap.set("n", "gp", require("lspsaga.definition").peek_definition, { silent = true, noremap = true })
+keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
 
 -- Rename
-vim.keymap.set("n", "gr", require("lspsaga.rename").lsp_rename, { silent = true,noremap = true })
+keymap("n", "gr", "<cmd>Lspsaga rename<CR>")
 

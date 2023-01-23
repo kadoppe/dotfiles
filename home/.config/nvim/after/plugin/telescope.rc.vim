@@ -14,27 +14,8 @@ telescope.setup {
   },
   pickers = {
     find_files = {
-      theme = "ivy",
       no_ignore = false,
       hidden = true
-    },
-    live_grep = {
-      theme = "ivy",
-    },
-    grep_string = {
-      theme = "ivy",
-    },
-    buffers = {
-      theme = "ivy",
-    },
-    help_tags = {
-      theme = "ivy",
-    },
-    diagnostics = {
-      theme = "ivy",
-    },
-    command_history = {
-      theme = "ivy",
     },
   },
   extensions = {
@@ -52,4 +33,4 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fd <cmd>Telescope diagnostics<cr>
 nnoremap <leader>fc <cmd>Telescope command_history<cr>
-nnoremap <leader><leader> <cmd>Telescope frecency theme=ivy workspace=CWD<cr>
+nnoremap <leader><leader> <cmd>Telescope frecency workspace=CWD<cr>

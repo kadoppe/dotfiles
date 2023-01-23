@@ -33,7 +33,7 @@ if has('nvim')
   Jetpack 'hrsh7th/cmp-vsnip'
   Jetpack 'hrsh7th/vim-vsnip'
   Jetpack 'nvim-lua/plenary.nvim'
-  Jetpack 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0', 'on': 'Telescope' }
+  Jetpack 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
   Jetpack 'kyazdani42/nvim-web-devicons'
   Jetpack 'kyazdani42/nvim-tree.lua'
   Jetpack 'nvim-lualine/lualine.nvim'
