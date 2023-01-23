@@ -55,7 +55,6 @@ if has('nvim')
   Jetpack 'MunifTanjim/nui.nvim'
   Jetpack 'folke/which-key.nvim'
   Jetpack 'numToStr/Comment.nvim'
-  Jetpack 'TimUntersberger/neogit'
   Jetpack 'sindrets/diffview.nvim'
   Jetpack 'lewis6991/gitsigns.nvim'
   Jetpack 'rmagatti/auto-session'
