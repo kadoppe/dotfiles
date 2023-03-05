@@ -1,4 +1,4 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua", "gopls", "tsserver", "vimls" }
+  ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls" }
 })
