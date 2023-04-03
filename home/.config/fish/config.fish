@@ -37,6 +37,9 @@ set -x LDFLAGS -L/usr/local/opt/openssl/lib
 # openjdk
 set PATH /opt/homebrew/opt/openjdk/bin $PATH
 
+# nvm
+set -gx NVM_DIR ~/.nvm
+
 # direnv
 eval (direnv hook fish)
 
