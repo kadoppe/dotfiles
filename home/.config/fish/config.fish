@@ -4,7 +4,6 @@ set -gx TERM xterm-256color
 
 # theme
 set -g theme_nerd_fonts yes
-set -g theme_color_scheme nord
 set -g fish_prompt_pwd_dir_length 1
 set -g tide_right_prompt_items status time
 
