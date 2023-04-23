@@ -10,8 +10,9 @@ shift + alt - y : yabai -m space --mirror y-axis
 shift + alt - x : yabai -m space --mirror x-axis 
 
 shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
-
 shift + alt - m : yabai -m window --toggle zoom-fullscreen
+shift + alt - p : yabai -m window --toggle sticky
+
 shift + alt - e : yabai -m space --balance
 
 shift + alt -j : yabai -m window --swap south
