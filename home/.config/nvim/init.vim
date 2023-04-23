@@ -75,3 +75,5 @@ if exists("&termguicolors") && exists("&winblend")
   set termguicolors
 endif
 
+colorscheme dracula
+

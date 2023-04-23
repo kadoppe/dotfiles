@@ -25,7 +25,7 @@ yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^DeepL$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Gather$" manage=off
-yabai -m rule --add app="Google Chrome" title="Picture in Picture" manage=off
+yabai -m rule --add title="^ピクチャー イン ピクチャー$" manage=off
 
 # Window Border
 yabai -m config window_border on
