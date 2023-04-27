@@ -1,0 +1,18 @@
+import:
+  - ~/Sources/github.com/dracula/alacritty/dracula.yml
+
+window:
+  opacity: 0.8
+
+scrolling:
+  history: 10000
+
+font: 
+  normal:
+    family: DejaVuSansMono Nerd Font Mono
+
+  bold: 
+    family: DejaVuSansMono Nerd Font Mono
+
+  size: 14.0
+

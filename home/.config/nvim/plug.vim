@@ -9,6 +9,7 @@ endif
 Jetpack 'cohama/lexima.vim'
 Jetpack 'dag/vim-fish'
 Jetpack 'dracula/vim', {'as': 'dracula' }
+Jetpack 'github/copilot.vim'
 Jetpack 'hashivim/vim-terraform'
 Jetpack 'pangloss/vim-javascript'
 Jetpack 'plasticboy/vim-markdown'
@@ -65,6 +66,7 @@ if has('nvim')
   Jetpack 'tami5/sqlite.lua'
   Jetpack 'williamboman/mason-lspconfig.nvim'
   Jetpack 'williamboman/mason.nvim'
+  Jetpack 'xiyaowong/transparent.nvim'
 endif
 
 call jetpack#end()
