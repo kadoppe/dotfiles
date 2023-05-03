@@ -1,8 +1,5 @@
 set fish_greeting ""
 
-set -gx TERM xterm-256color
-
-
 # aliases
 alias vi=nvim
 alias vim=nvim
