@@ -9,10 +9,10 @@ scrolling:
 
 font: 
   normal:
-    family: DejaVuSansMono Nerd Font Mono
+    family: SF Mono Powerline
 
   bold: 
-    family: DejaVuSansMono Nerd Font Mono
+    family: SF Mono Powerline
 
   size: 14.0
 
