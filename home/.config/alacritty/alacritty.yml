@@ -2,17 +2,20 @@ import:
   - ~/Sources/github.com/dracula/alacritty/dracula.yml
 
 window:
-  opacity: 0.8
+  opacity: 0.5
+  padding:
+    x: 2
+    y: 2
 
 scrolling:
   history: 10000
 
 font: 
   normal:
-    family: SF Mono Powerline
+    family: FiraCode Nerd Font
 
   bold: 
-    family: SF Mono Powerline
+    family: FiraCode Nerd Font
 
-  size: 14.0
+  size: 13.0
 
