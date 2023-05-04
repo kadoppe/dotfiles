@@ -38,7 +38,6 @@ vim.opt.whichwrap = "b,s,h,l"
 vim.opt.inccommand = "split"
 
 vim.opt.undofile = true
-vim.opt.undodir = "./.vimundo,~/.vim/undo"
 
 -- colorscheme
 vim.opt.termguicolors = true
