@@ -44,8 +44,8 @@ shift + alt - 9 : yabai -m window --space 9
 ctrl - right : yabai -m space --focus next
 ctrl - left : yabai -m space --focus prev
 
-ctrl + alt - q : brew services stop yabai
-ctrl + alt - s : brew services start yabai
+ctrl + alt - q : yabai --stop-service
+ctrl + alt - s : yabai --start-service
 
 # window resize
 shift + alt - a : yabai -m window --resize left:-20:0 || yabai -m window --resize right:-20:0
