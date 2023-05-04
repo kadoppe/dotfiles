@@ -376,10 +376,8 @@ require("lazy").setup({
     'github/copilot.vim'
   },
   {
-    'tyru/open-browser-github.vim'
-  },
-  {
-    'tyru/open-browser.vim'
+    'tyru/open-browser-github.vim',
+    dependencies = {'tyru/open-browser.vim'},
   },
   {
     "folke/which-key.nvim",
@@ -422,26 +420,26 @@ require("lazy").setup({
   --     end, { noremap = false, expr = true })
   --   end,
   -- },
-
   -- {
-  --   'rmagatti/auto-session',
-  --   dependencies = {'nvim-telescope/telescope.nvim'},
-  --   config = function()
-  --     require('auto-session').setup {
-  --       log_level = 'info',
-  --       auto_session_suppress_dirs = {'~/'},
-  --       auto_session_create_enabled = false,
-  --       auto_save_enabled = true,
-  --       auto_restore_enabled = true,
-  --       psession_lens = {
-  --         previewer = false,
-  --       }
-  --     }
-  --
-  --     vim.keymap.set("n", "<leader>s", require("auto-session.session-lens").search_session, {
-  --       noremap = true,
-  --     })
-  --   end
-  -- }
+  --   'tpope/vim-obsession'
+  -- },
+  {
+    'rmagatti/auto-session',
+    dependencies = {'nvim-telescope/telescope.nvim'},
+    config = function()
+      require('auto-session').setup {
+        log_level = 'error',
+        auto_session_suppress_dirs = {'~/'},
+        auto_session_create_enabled = false,
+        auto_save_enabled = true,
+        auto_restore_enabled = true,
+        psession_lens = {
+          previewer = false,
+        },
+        pre_save_cmds = {"NeoTreeClose"},
+      }
+      vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+    end
+  }
 })
 
