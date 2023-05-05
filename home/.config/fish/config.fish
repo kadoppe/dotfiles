@@ -4,6 +4,9 @@ set fish_greeting ""
 alias vi=nvim
 alias vim=nvim
 alias lzd=lazydocker
+alias ls='exa --icons --git'
+alias lt='exa -T -L 3 -a -I "node_modules|.git|.cache" --icons'
+alias ltl='exa -T -L 3 -a -I "node_modules|.git|.cache" -l --icons'
 
 set -gx EDITOR 'nvim'
 
