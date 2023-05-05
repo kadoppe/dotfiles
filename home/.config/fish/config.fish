@@ -3,7 +3,6 @@ set fish_greeting ""
 # aliases
 alias vi=nvim
 alias vim=nvim
-alias mux=tmuxinator
 alias lzd=lazydocker
 
 set -gx EDITOR 'nvim'
