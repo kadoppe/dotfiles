@@ -39,9 +39,8 @@ eval (direnv hook fish)
 # starship
 starship init fish | source
 
-# peco
+# fzf
 function fish_user_key_bindings
-  bind \cr 'peco_select_history (commandline -b)'
   bind \c] prj
 end
 
@@ -51,13 +50,13 @@ function prj -d "start project"
     set prjflag --query "$argv"
   end
 
-  set PRJ_PATH (ghq root)/(ghq list | peco $prjflag)
+  set PRJ_PATH (ghq root)/(ghq list | fzf-tmux -p 90% $prjflag)
   if test -z $PRJ_PATH
     return
   end
 
   set PRJ_NAME (echo (basename (dirname $PRJ_PATH))/(basename $PRJ_PATH) | sed -e 's/\./_/g')
-  if not tmux has-session -t $PRJ_NAME
+  if not tmux has-session -t $PRJ_NAME > /dev/null 2>&1
     tmux new-session -c $PRJ_PATH -s $PRJ_NAME -d
     tmux setenv -t $PRJ_NAME TMUX_SESSION_PATH $PRJ_PATH
   end
