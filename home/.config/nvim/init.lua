@@ -36,6 +36,7 @@ vim.opt.updatetime = 300
 vim.opt.visualbell = true
 vim.opt.whichwrap = "b,s,h,l"
 vim.opt.inccommand = "split"
+vim.opt.wrap = true
 
 vim.opt.undofile = true
 
@@ -47,7 +48,6 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.wrap = false
 vim.opt.backspace = "start,eol,indent"
 
 -- python
