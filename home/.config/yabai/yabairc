@@ -27,6 +27,8 @@ yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Gather$" manage=off
 yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^VampireSurvivors$" manage=off
+yabai -m rule --add app="^Rewind$" manage=off
+yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add title="^ピクチャー イン ピクチャー$" manage=off
 
 # Window Border
