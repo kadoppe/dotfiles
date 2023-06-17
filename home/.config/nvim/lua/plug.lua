@@ -385,6 +385,9 @@ require("lazy").setup({
     'haringsrob/nvim_context_vt',
   },
   {
+    "lukas-reineke/indent-blankline.nvim"
+  },
+  {
     'github/copilot.vim'
   },
   {
