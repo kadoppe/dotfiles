@@ -3,9 +3,12 @@ import:
 
 window:
   opacity: 0.5
+
   padding:
     x: 2
     y: 2
+
+  decorations: Buttonless
 
 scrolling:
   history: 10000
