@@ -385,7 +385,12 @@ require("lazy").setup({
     'haringsrob/nvim_context_vt',
   },
   {
-    "lukas-reineke/indent-blankline.nvim"
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("indent_blankline").setup {
+        show_current_context = true,
+      }
+    end
   },
   {
     'github/copilot.vim'
