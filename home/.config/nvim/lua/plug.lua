@@ -364,6 +364,18 @@ require("lazy").setup({
     end
   },
   {
+    'dense-analysis/ale',
+    config = function()
+      vim.g.ale_fixers = {
+        javascript = {'eslint'},
+        typescript = {'eslint'},
+        typescriptreact = {'eslint'},
+      }
+      vim.g.ale_fix_on_save = 1
+      vim.g.ale_javascript_prettier_use_local_config = 1
+    end
+  },
+  {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
