@@ -376,6 +376,9 @@ require("lazy").setup({
     end
   },
   {
+    'mattn/vim-goimports'
+  },
+  {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
@@ -462,4 +465,3 @@ require("lazy").setup({
     end
   }
 })
-
