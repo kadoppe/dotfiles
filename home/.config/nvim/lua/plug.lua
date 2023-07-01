@@ -213,7 +213,7 @@ require("lazy").setup({
     dependencies = {'williamboman/mason.nvim'},
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls", "astro" }
+        ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls", "astro"}
       })
     end
   },
@@ -246,9 +246,32 @@ require("lazy").setup({
 
       lspconfig.tsserver.setup{
         on_attach = on_attach,
-        filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+        root_dir = lspconfig.util.root_pattern("package.json"),
+        single_file_support = false,
         capabilities = capabilities
       }
+
+      if vim.fn.executable("deno") then
+        lspconfig.denols.setup{
+          on_attach = on_attach,
+          root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+          init_options = {
+            enable=true,
+            lint = true,
+            unstable = true,
+            suggest = {
+              imports = {
+                hosts = {
+                  ["https://deno.land"] = true,
+                  ["https://cdn.nest.land"] = true,
+                  ["https://crux.land"] = true,
+                },
+              },
+            },
+          },
+          capabilities = capabilities,
+        }
+      end
 
       lspconfig.gopls.setup{
         on_attach = on_attach,
@@ -363,18 +386,18 @@ require("lazy").setup({
       }
     end
   },
-  {
-    'dense-analysis/ale',
-    config = function()
-      vim.g.ale_fixers = {
-        javascript = {'eslint'},
-        typescript = {'eslint'},
-        typescriptreact = {'eslint'},
-      }
-      vim.g.ale_fix_on_save = 1
-      vim.g.ale_javascript_prettier_use_local_config = 1
-    end
-  },
+  -- {
+  --   'dense-analysis/ale',
+  --   config = function()
+  --     vim.g.ale_fixers = {
+  --       javascript = {'eslint'},
+  --       typescript = {'eslint'},
+  --       typescriptreact = {'eslint'},
+  --     }
+  --     vim.g.ale_fix_on_save = 1
+  --     vim.g.ale_javascript_prettier_use_local_config = 1
+  --   end
+  -- },
   {
     'mattn/vim-goimports'
   },
