@@ -377,6 +377,7 @@ require("lazy").setup({
           "markdown",
           "markdown_inline",
           "proto",
+          "terraform",
           "toml",
           "tsx",
           "typescript",
