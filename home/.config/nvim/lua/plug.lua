@@ -97,7 +97,10 @@ require("lazy").setup({
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.1',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-fzf-native.nvim'
+    },
     config = function()
       local telescope = require('telescope')
       local actions = require('telescope.actions')
@@ -119,6 +122,12 @@ require("lazy").setup({
         extensions = {
           frecency = {
             default_workspace = 'CWD',
+          },
+          fzf = {
+            fuzzy = true,                    -- false will only do exact matching
+            override_generic_sorter = true,  -- override the generic sorter
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
           }
         }
       }
@@ -137,6 +146,13 @@ require("lazy").setup({
     config = function()
       require"telescope".load_extension("frecency")
       vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope frecency workspace=CWD<CR>", { silent = true, noremap = true })
+    end
+  },
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make',
+    config = function()
+      require"telescope".load_extension("fzf")
     end
   },
   {
@@ -222,12 +238,17 @@ require("lazy").setup({
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "SmiteshP/nvim-navic",
-      "hrsh7th/cmp-nvim-lsp"
+      "hrsh7th/cmp-nvim-lsp",
+      "lukas-reineke/lsp-format.nvim"
     },
     config = function()
+      require("lsp-format").setup {}
+
       local navic = require('nvim-navic')
 
       local on_attach = function(client, bufnr)
+        require("lsp-format").on_attach(client)
+
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
         local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -348,12 +369,29 @@ require("lazy").setup({
   {
     "jose-elias-alvarez/null-ls.nvim",
     config = function()
+      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       local null_ls = require("null-ls")
+  require("null-ls").setup({
+    -- you can reuse a shared lspconfig on_attach callback here
+})
 
       null_ls.setup({
+        on_attach = function(client, bufnr)
+          if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              group = augroup,
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.format({ async = false })
+              end,
+            })
+          end
+        end,
         sources = {
           null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.isort,
+          null_ls.builtins.formatting.autoflake,
           null_ls.builtins.diagnostics.flake8,
         },
       })
