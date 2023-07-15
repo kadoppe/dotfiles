@@ -28,9 +28,6 @@ ctrl + alt -l : yabai -m window --warp east
 shift + alt - s : yabai -m window --display west; yabai -m display --focus west
 shift + alt - g : yabai -m window --display east; yabai -m display --focus east
 
-shift + alt - p : yabai -m window --spaces prev
-shift + alt - n : yabai -m window --spaces next
-
 shift + alt - 1 : yabai -m window --space 1
 shift + alt - 2 : yabai -m window --space 2
 shift + alt - 3 : yabai -m window --space 3
@@ -54,8 +51,7 @@ shift + alt - w : yabai -m window --resize top:0:-20 || yabai -m window --resize
 shift + alt - d : yabai -m window --resize right:20:0 || yabai -m window --resize left:20:0
 
 # stackline
-# Stack window
-ctrl + alt - s : yabai -m window --stack next
+
 # Focus window up/down in stack
 ctrl + alt - n : yabai -m window --focus stack.next
 ctrl + alt - p : yabai -m window --focus stack.prev

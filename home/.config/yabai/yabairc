@@ -6,10 +6,10 @@ yabai -m config window_placement second_child
 
 # padding
 yabai -m config top_padding 4
-yabai -m config bottom_padding 8
-yabai -m config left_padding  8
-yabai -m config right_padding 8
-yabai -m config window_gap 8
+yabai -m config bottom_padding 4
+yabai -m config left_padding  4
+yabai -m config right_padding 4
+yabai -m config window_gap 4
 yabai -m config external_bar all:40:0
 
 # mouse settings
@@ -35,6 +35,7 @@ yabai -m rule --add title="^ピクチャー イン ピクチャー$" manage=off
 yabai -m config window_border on
 yabai -m config window_border_blur off
 yabai -m config window_border_width 2
+yabai -m config window_border_radius 0
 yabai -m config active_window_border_color 0xFF50FA7B
 yabai -m config normal_window_border_color 0x00FFFFFF
 yabai -m config insert_feedback_color 0xffd75f5f
