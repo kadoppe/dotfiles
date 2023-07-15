@@ -213,7 +213,7 @@ require("lazy").setup({
     dependencies = {'williamboman/mason.nvim'},
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls", "astro"}
+        ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls", "astro", "pyright"}
       })
     end
   },
@@ -294,6 +294,11 @@ require("lazy").setup({
           }
         }
       }
+
+      lspconfig.pyright.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
+      }
     end
   },
   {
@@ -341,6 +346,20 @@ require("lazy").setup({
     end,
   },
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      local null_ls = require("null-ls")
+
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.black,
+          null_ls.builtins.formatting.isort,
+          null_ls.builtins.diagnostics.flake8,
+        },
+      })
+    end
+  },
+  {
     "folke/trouble.nvim",
     dependencies = {"nvim-tree/nvim-web-devicons"},
     config = function()
@@ -377,6 +396,7 @@ require("lazy").setup({
           "markdown",
           "markdown_inline",
           "proto",
+          "python",
           "terraform",
           "toml",
           "tsx",
