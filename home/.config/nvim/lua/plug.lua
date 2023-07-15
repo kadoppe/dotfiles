@@ -455,41 +455,36 @@ require("lazy").setup({
       })
     end,
   },
-  -- {
-  --   "epwalsh/obsidian.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "hrsh7th/nvim-cmp",
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  --   opts = {
-  --     dir = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/kadoppe",
-  --     notes_subdir = "Notes",
-  --     daily_notes = {
-  --       folder = "Daily Notes",
-  --     },
-  --     completion = {
-  --       nvim_cmp = true,  -- if using nvim-cmp, otherwise set to false
-  --     },
-  --     follow_url_func = function(url)
-  --       vim.fn.jobstart({"open", url})  -- Mac OS
-  --     end,
-  --   },
-  --   config = function(_, opts)
-  --     require("obsidian").setup(opts)
-  --
-  --     vim.keymap.set("n", "gf", function()
-  --       if require("obsidian").util.cursor_on_markdown_link() then
-  --         return "<cmd>ObsidianFollowLink<CR>"
-  --       else
-  --         return "gf"
-  --       end
-  --     end, { noremap = false, expr = true })
-  --   end,
-  -- },
-  -- {
-  --   'tpope/vim-obsession'
-  -- },
+  {
+    "epwalsh/obsidian.nvim",
+    lazy = true,
+    event = { "BufReadPre " .. vim.fn.expand "~" .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/kadoppe/**.md" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-telescope/telescope.nvim",
+    },
+    opts = {
+      dir = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/kadoppe",
+      notes_subdir = "notes",
+      daily_notes = {
+        folder = "Daily Notes",
+      },
+    },
+    config = function(_, opts)
+      require("obsidian").setup(opts)
+
+      vim.keymap.set("n", "gf", function()
+        if require("obsidian").util.cursor_on_markdown_link() then
+          return "<cmd>ObsidianFollowLink<CR>"
+        else
+          return "gf"
+        end
+      end, { noremap = false, expr = true })
+
+      vim.keymap.set("n", "<leader>fo", "<cmd>ObsidianQuickSwitch<CR>", { silent = true, noremap = true })
+    end,
+  },
   {
     'rmagatti/auto-session',
     dependencies = {'nvim-telescope/telescope.nvim'},
