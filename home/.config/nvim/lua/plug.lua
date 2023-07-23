@@ -7,7 +7,7 @@ require("lazy").setup({
       vim.cmd([[colorscheme dracula]])
     end
   },
-  {"xiyaowong/transparent.nvim"},
+  { "xiyaowong/transparent.nvim" },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -38,33 +38,33 @@ require("lazy").setup({
         options = {
           icons_enabled = true,
           theme = 'auto',
-          component_separators = { left = '', right = ''},
-          section_separators = { left = '', right = ''},
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
           disabled_filetypes = {},
           always_divide_middle = true,
           globalstatus = false,
         },
         sections = {
-          lualine_a = {'mode'},
-          lualine_b = {'branch', 'diff', 'diagnostics'},
-          lualine_c = {{
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch', 'diff', 'diagnostics' },
+          lualine_c = { {
             'filename',
             file_status = true,
             path = 0
-          }},
-          lualine_x = {'encoding', 'fileformat', 'filetype'},
-          lualine_y = {'progress'},
-          lualine_z = {'location'}
+          } },
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
         },
         inactive_sections = {
           lualine_a = {},
           lualine_b = {},
-          lualine_c = {{
+          lualine_c = { {
             'filename',
             file_status = true,
             path = 1
-          }},
-          lualine_x = {'location'},
+          } },
+          lualine_x = { 'location' },
           lualine_y = {},
           lualine_z = {}
         },
@@ -88,7 +88,7 @@ require("lazy").setup({
   {
     'norcalli/nvim-colorizer.lua',
     config = function()
-      require'colorizer'.setup()
+      require 'colorizer'.setup()
     end
   },
   {
@@ -124,10 +124,10 @@ require("lazy").setup({
             default_workspace = 'CWD',
           },
           fzf = {
-            fuzzy = true,                    -- false will only do exact matching
-            override_generic_sorter = true,  -- override the generic sorter
-            override_file_sorter = true,     -- override the file sorter
-            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+            fuzzy = true,                   -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
           }
         }
       }
@@ -142,17 +142,18 @@ require("lazy").setup({
   },
   {
     'nvim-telescope/telescope-frecency.nvim',
-    dependencies = {"kkharji/sqlite.lua"},
+    dependencies = { "kkharji/sqlite.lua" },
     config = function()
-      require"telescope".load_extension("frecency")
-      vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope frecency workspace=CWD<CR>", { silent = true, noremap = true })
+      require "telescope".load_extension("frecency")
+      vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope frecency workspace=CWD<CR>",
+        { silent = true, noremap = true })
     end
   },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     build = 'make',
     config = function()
-      require"telescope".load_extension("fzf")
+      require "telescope".load_extension("fzf")
     end
   },
   {
@@ -226,10 +227,10 @@ require("lazy").setup({
   {
     "williamboman/mason-lspconfig.nvim",
     build = ":MasonUpdate",
-    dependencies = {'williamboman/mason.nvim'},
+    dependencies = { 'williamboman/mason.nvim' },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls", "astro", "pyright"}
+        ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls", "astro", "pyright" }
       })
     end
   },
@@ -251,7 +252,7 @@ require("lazy").setup({
 
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-        local bufopts = { noremap=true, silent=true, buffer=bufnr }
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
         -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
         -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -265,7 +266,7 @@ require("lazy").setup({
 
       local lspconfig = require("lspconfig")
 
-      lspconfig.tsserver.setup{
+      lspconfig.tsserver.setup {
         on_attach = on_attach,
         root_dir = lspconfig.util.root_pattern("package.json"),
         single_file_support = false,
@@ -273,11 +274,11 @@ require("lazy").setup({
       }
 
       if vim.fn.executable("deno") then
-        lspconfig.denols.setup{
+        lspconfig.denols.setup {
           on_attach = on_attach,
           root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
           init_options = {
-            enable=true,
+            enable = true,
             lint = true,
             unstable = true,
             suggest = {
@@ -294,29 +295,29 @@ require("lazy").setup({
         }
       end
 
-      lspconfig.gopls.setup{
+      lspconfig.gopls.setup {
         on_attach = on_attach,
         capabilities = capabilities
       }
 
-      lspconfig.vimls.setup{
+      lspconfig.vimls.setup {
         on_attach = on_attach,
         capabilities = capabilities
       }
 
-      lspconfig.lua_ls.setup{
+      lspconfig.lua_ls.setup {
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
           Lua = {
             diagnostics = {
-              globals = {'vim'}
+              globals = { 'vim' }
             }
           }
         }
       }
 
-      lspconfig.pyright.setup{
+      lspconfig.pyright.setup {
         on_attach = on_attach,
         capabilities = capabilities
       }
@@ -326,8 +327,8 @@ require("lazy").setup({
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
     dependencies = {
-      {"nvim-tree/nvim-web-devicons"},
-      {"nvim-treesitter/nvim-treesitter"}
+      { "nvim-tree/nvim-web-devicons" },
+      { "nvim-treesitter/nvim-treesitter" }
     },
     config = function()
       require("lspsaga").setup({})
@@ -335,10 +336,10 @@ require("lazy").setup({
       local keymap = vim.keymap.set
 
       -- Async lsp finder
-      keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
+      keymap("n", "gh", "<cmd>Lspsaga finder<CR>")
 
       -- Code action
-      keymap({"n", "v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+      keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 
       -- Hover doc
       keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
@@ -371,9 +372,6 @@ require("lazy").setup({
     config = function()
       local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       local null_ls = require("null-ls")
-  require("null-ls").setup({
-    -- you can reuse a shared lspconfig on_attach callback here
-})
 
       null_ls.setup({
         on_attach = function(client, bufnr)
@@ -399,7 +397,7 @@ require("lazy").setup({
   },
   {
     "folke/trouble.nvim",
-    dependencies = {"nvim-tree/nvim-web-devicons"},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("trouble").setup()
       vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<CR>", { silent = true, noremap = true })
@@ -482,7 +480,7 @@ require("lazy").setup({
   },
   {
     'tyru/open-browser-github.vim',
-    dependencies = {'tyru/open-browser.vim'},
+    dependencies = { 'tyru/open-browser.vim' },
   },
   {
     "folke/which-key.nvim",
@@ -496,14 +494,14 @@ require("lazy").setup({
   {
     "epwalsh/obsidian.nvim",
     lazy = true,
-    event = { "BufReadPre " .. vim.fn.expand "~" .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/kadoppe/**.md" },
+    event = { "BufReadPre " .. vim.fn.expand "~" .. "/Obsidian/kadoppe/**.md" },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
       "nvim-telescope/telescope.nvim",
     },
     opts = {
-      dir = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/kadoppe",
+      dir = "~/Obsidian/kadoppe/",
       notes_subdir = "notes",
       daily_notes = {
         folder = "Daily Notes",
@@ -525,20 +523,20 @@ require("lazy").setup({
   },
   {
     'rmagatti/auto-session',
-    dependencies = {'nvim-telescope/telescope.nvim'},
+    dependencies = { 'nvim-telescope/telescope.nvim' },
     config = function()
       require('auto-session').setup {
         log_level = 'error',
-        auto_session_suppress_dirs = {'~/'},
+        auto_session_suppress_dirs = { '~/' },
         auto_session_create_enabled = false,
         auto_save_enabled = true,
         auto_restore_enabled = true,
         psession_lens = {
           previewer = false,
         },
-        pre_save_cmds = {"NeoTreeClose"},
+        pre_save_cmds = { "NeoTreeClose" },
       }
-      vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
     end
   }
 })
