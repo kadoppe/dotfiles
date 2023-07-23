@@ -75,11 +75,13 @@ yabai -m rule --add app="^Google Chrome$" space=1
 yabai -m rule --add app="^iTerm2$" space=2
 yabai -m rule --add app="^Alacritty$" space=2
 yabai -m rule --add app="^Code$" space=2
+yabai -m rule --add app="^Docker Desktop$" space=2
 yabai -m rule --add app="^Todoist$" space=3
 yabai -m rule --add app="^Linear$" space=3
 yabai -m rule --add app="^Akiflow$" space=3
 yabai -m rule --add app="^Cron$" space=3
 yabai -m rule --add app="^Slack$" space=5
+yabai -m rule --add app="^Microsoft Teams$" space=5
 yabai -m rule --add app="^Spotify$" space=7
 
 # ubersicht
