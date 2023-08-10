@@ -166,13 +166,25 @@ require("lazy").setup({
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
-      'onsails/lspkind.nvim'
+      'onsails/lspkind.nvim',
+      'zbirenbaum/copilot.lua'
     },
     config = function()
       local cmp = require 'cmp'
       local lspkind = require 'lspkind'
 
+      lspkind.init({
+        symbol_map = {
+          Copilot = "",
+        },
+      })
+      vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+
       cmp.setup({
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
         snippet = {
           expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
@@ -186,6 +198,7 @@ require("lazy").setup({
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
+          { name = 'copilot' },
           { name = 'nvim_lsp' },
           { name = 'nvim_lsp_signature_help' },
           { name = 'path' },
@@ -197,10 +210,28 @@ require("lazy").setup({
           format = lspkind.cmp_format({
             mode = 'symbol_text'
           })
-        }
+        },
+        sorting = {
+          priority_weight = 2,
+          comparators = {
+            require("copilot_cmp.comparators").prioritize,
+
+            -- Below is the default comparitor list and order for nvim-cmp
+            cmp.config.compare.offset,
+            -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.locality,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+          },
+        },
       })
 
-      cmp.setup.cmdline('/', {
+      cmp.setup.cmdline({'/', '?'}, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
           { name = 'buffer' }
@@ -214,6 +245,23 @@ require("lazy").setup({
         }, {
           { name = 'cmdline' },
         })
+      })
+
+      local has_words_before = function()
+        if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+      end
+      cmp.setup({
+        mapping = {
+          ["<Tab>"] = vim.schedule_wrap(function(fallback)
+            if cmp.visible() and has_words_before() then
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            else
+              fallback()
+            end
+          end),
+        },
       })
     end
   },
@@ -243,13 +291,9 @@ require("lazy").setup({
       "lukas-reineke/lsp-format.nvim"
     },
     config = function()
-      require("lsp-format").setup {}
-
       local navic = require('nvim-navic')
 
       local on_attach = function(client, bufnr)
-        require("lsp-format").on_attach(client)
-
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -370,22 +414,9 @@ require("lazy").setup({
   {
     "jose-elias-alvarez/null-ls.nvim",
     config = function()
-      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       local null_ls = require("null-ls")
 
       null_ls.setup({
-        on_attach = function(client, bufnr)
-          if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              group = augroup,
-              buffer = bufnr,
-              callback = function()
-                vim.lsp.buf.format({ async = false })
-              end,
-            })
-          end
-        end,
         sources = {
           null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.isort,
@@ -461,6 +492,9 @@ require("lazy").setup({
     'mattn/vim-goimports'
   },
   {
+    'mustache/vim-mustache-handlebars'
+  },
+  {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
@@ -478,7 +512,20 @@ require("lazy").setup({
     end
   },
   {
-    'github/copilot.vim'
+    "zbirenbaum/copilot.lua",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = { 'zbirenbaum/copilot.lua' },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
   },
   {
     'tyru/open-browser-github.vim',
