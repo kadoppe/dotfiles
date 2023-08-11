@@ -7,7 +7,7 @@ require("lazy").setup({
       vim.cmd([[colorscheme dracula]])
     end
   },
-  { "xiyaowong/transparent.nvimak" },
+  { "xiyaowong/transparent.nvim" },
   {
     "machakann/vim-sandwich",
   },
@@ -146,6 +146,9 @@ require("lazy").setup({
     config = function()
       require "telescope".load_extension("fzf")
     end
+  },
+  {
+    'kevinhwang91/nvim-bqf'
   },
   {
     'hrsh7th/nvim-cmp',
