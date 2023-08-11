@@ -7,7 +7,10 @@ require("lazy").setup({
       vim.cmd([[colorscheme dracula]])
     end
   },
-  { "xiyaowong/transparent.nvim" },
+  { "xiyaowong/transparent.nvimak" },
+  {
+    "machakann/vim-sandwich",
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -120,9 +123,6 @@ require("lazy").setup({
           },
         },
         extensions = {
-          frecency = {
-            default_workspace = 'CWD',
-          },
           fzf = {
             fuzzy = true,                   -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
@@ -138,15 +138,6 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { silent = true, noremap = true })
       vim.keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", { silent = true, noremap = true })
       vim.keymap.set("n", "<leader>fc", "<cmd>Telescope command_history<CR>", { silent = true, noremap = true })
-    end
-  },
-  {
-    'nvim-telescope/telescope-frecency.nvim',
-    dependencies = { "kkharji/sqlite.lua" },
-    config = function()
-      require "telescope".load_extension("frecency")
-      vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope frecency workspace=CWD<CR>",
-        { silent = true, noremap = true })
     end
   },
   {
