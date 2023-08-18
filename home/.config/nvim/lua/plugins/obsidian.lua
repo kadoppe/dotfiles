@@ -14,6 +14,8 @@ return {
       folder = "Daily Notes",
     },
     disable_frontmatter = true,
+    mappings = {
+    },
   },
   config = function(_, opts)
     require("obsidian").setup(opts)
