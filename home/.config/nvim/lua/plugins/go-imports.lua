@@ -1,3 +1,4 @@
 return {
-  'mattn/vim-goimports'
+  'mattn/vim-goimports',
+  ft = 'go',
 }
