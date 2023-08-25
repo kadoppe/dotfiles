@@ -31,6 +31,7 @@ return {
         "typescript",
         "vim",
         "yaml",
+        "prisma",
       }
     }
   end
