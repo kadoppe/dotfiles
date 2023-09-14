@@ -8,7 +8,7 @@ return {
       dependencies = { 'williamboman/mason.nvim' },
       config = function()
         require("mason-lspconfig").setup({
-          ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls", "astro", "pyright" }
+          ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls", "astro", "pyright", "powershell_es" }
         })
       end
     },
@@ -87,6 +87,11 @@ return {
     }
 
     lspconfig.pyright.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+
+    lspconfig.powershell_es.setup {
       on_attach = on_attach,
       capabilities = capabilities
     }
