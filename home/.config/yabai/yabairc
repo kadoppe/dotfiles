@@ -10,7 +10,6 @@ yabai -m config bottom_padding 4
 yabai -m config left_padding  4
 yabai -m config right_padding 4
 yabai -m config window_gap 4
-yabai -m config external_bar all:40:0
 
 # mouse settings
 yabai -m config mouse_modifier alt
@@ -31,6 +30,7 @@ yabai -m rule --add app="^Rewind$" manage=off
 yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add title="^ピクチャー イン ピクチャー$" manage=off
 yabai -m rule --add app="^Todoist$" title="^Todoist$" manage=off
+yabai -m rule --add app="^System Settings" manage=off
 
 # Window Border
 yabai -m config window_border on
@@ -84,7 +84,3 @@ yabai -m rule --add app="^Cron$" space=3
 yabai -m rule --add app="^Slack$" space=5
 yabai -m rule --add app="^Microsoft Teams$" space=5
 yabai -m rule --add app="^Spotify$" space=7
-
-# ubersicht
-yabai -m signal --add event=space_changed \
-    action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"spaces-widget\"'"
