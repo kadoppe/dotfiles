@@ -6,7 +6,11 @@ return {
     { "nvim-treesitter/nvim-treesitter" }
   },
   config = function()
-    require("lspsaga").setup({})
+    require("lspsaga").setup({
+      lightbulb = {
+        sign = false
+      }
+    })
 
     local keymap = vim.keymap.set
 
