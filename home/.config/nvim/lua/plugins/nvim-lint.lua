@@ -3,9 +3,9 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     require('lint').linters_by_ft = {
-      javascript = {'eslint',},
-      typescript = {'eslint',},
-      typescriptreact = {'eslint', 'stylelint'},
+      javascript = {'eslint_d',},
+      typescript = {'eslint_d',},
+      typescriptreact = {'eslint_d', 'stylelint'},
     }
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       callback = function()
