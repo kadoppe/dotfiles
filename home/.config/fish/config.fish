@@ -4,6 +4,7 @@ set fish_greeting ""
 alias vi=nvim
 alias vim=nvim
 alias lzd=lazydocker
+alias lg=lazygit
 alias ls='eza --icons --git'
 alias lt='eza -T -L 3 -a -I "node_modules|.git|.cache" --icons'
 alias ltl='eza -T -L 3 -a -I "node_modules|.git|.cache" -l --icons'
@@ -69,4 +70,3 @@ function prj -d "start project"
     tmux switch-client -t $PRJ_NAME
   end
 end
-
