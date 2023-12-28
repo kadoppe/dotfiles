@@ -1,0 +1,27 @@
+import = ["/Users/kadoppe/Sources/github.com/dracula/alacritty/dracula.toml"]
+
+[font]
+size = 14
+
+[font.bold]
+family = "FiraCode Nerd Font Mono"
+style = "Bold"
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+style = "Regular"
+
+[font.offset]
+x = 1
+y = 1
+
+[scrolling]
+history = 10000
+
+[window]
+decorations = "Buttonless"
+opacity = 1.0
+
+[window.padding]
+x = 0
+y = 0
