@@ -8,7 +8,18 @@ return {
       dependencies = { 'williamboman/mason.nvim' },
       config = function()
         require("mason-lspconfig").setup({
-          ensure_installed = { "lua_ls", "gopls", "tsserver", "vimls", "astro", "pyright", "powershell_es" }
+          ensure_installed = {
+            "lua_ls",
+            "gopls",
+            "tsserver",
+            "vimls",
+            "astro",
+            "pyright",
+            "powershell_es",
+            "tailwindcss",
+            "terraformls",
+          },
+          automatically_installation = true
         })
       end
     },
@@ -28,7 +39,9 @@ return {
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
       -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 
-      navic.attach(client, bufnr)
+      if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+      end
     end
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -97,6 +110,16 @@ return {
     }
 
     lspconfig.astro.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+
+    lspconfig.tailwindcss.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+
+    lspconfig.terraformls.setup {
       on_attach = on_attach,
       capabilities = capabilities
     }
