@@ -25,6 +25,7 @@ return {
       ensure_installed = {
         "astro",
         "bash",
+        "css",
         "fish",
         "go",
         "html",

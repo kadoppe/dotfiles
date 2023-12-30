@@ -95,5 +95,10 @@ return {
       on_attach = on_attach,
       capabilities = capabilities
     }
+
+    lspconfig.astro.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
   end
 }
