@@ -10,7 +10,10 @@ return {
       psession_lens = {
         previewer = false,
       },
-      pre_save_cmds = { "Neotree close" },
+      pre_save_cmds = {
+        "Neotree close",
+        "TroubleClose",
+      },
     }
     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
   end,
