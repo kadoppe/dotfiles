@@ -1,7 +1,7 @@
 import = ["/Users/kadoppe/Sources/github.com/dracula/alacritty/dracula.toml"]
 
 [font]
-size = 14
+size = 12
 
 [font.bold]
 family = "FiraCode Nerd Font Mono"
