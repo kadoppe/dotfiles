@@ -26,9 +26,8 @@ set -x PATH $PATH $GOPATH/bin
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source
 
-# openssl
-set -x CPPFLAGS -I/usr/local/opt/openssl/include
-set -x LDFLAGS -L/usr/local/opt/openssl/lib
+# rbenv
+status --is-interactive; and rbenv init - fish | source
 
 # openjdk
 set PATH /opt/homebrew/opt/openjdk/bin $PATH
