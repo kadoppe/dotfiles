@@ -18,6 +18,7 @@ return {
             "powershell_es",
             "tailwindcss",
             "terraformls",
+            "solargraph",
           },
           automatically_installation = true
         })
@@ -120,6 +121,11 @@ return {
     }
 
     lspconfig.terraformls.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+
+    lspconfig.solargraph.setup {
       on_attach = on_attach,
       capabilities = capabilities
     }
