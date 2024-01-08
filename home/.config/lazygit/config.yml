@@ -1,0 +1,5 @@
+customCommands:
+  - key: 'C'
+    command: "aicommits --type conventional"
+    context: 'files'
+    subprocess: true
