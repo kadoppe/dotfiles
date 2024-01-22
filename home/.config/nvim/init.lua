@@ -51,8 +51,8 @@ vim.opt.smartindent = true
 vim.opt.backspace = "start,eol,indent"
 
 -- python
-vim.g.python_host_prog = "~/.pyenv/shims/python2"
-vim.g.python3_host_prog = "~/.pyenv/shims/python3"
+vim.g.python_host_prog = "~/.local/share/mise/shims/python"
+vim.g.python3_host_prog = "~/.local/share/mise/shims/python3"
 
 require('maps')
 require('lazyvim')
