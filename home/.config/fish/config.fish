@@ -22,18 +22,11 @@ set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
 
-# pyenv
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init - | source
-
-# rbenv
-status --is-interactive; and rbenv init - fish | source
+# mise
+fish_add_path ~/.local/share/mise/shims
 
 # openjdk
 set PATH /opt/homebrew/opt/openjdk/bin $PATH
-
-# nvm
-set -gx NVM_DIR ~/.nvm
 
 # direnv
 eval (direnv hook fish)

@@ -1,6 +1,5 @@
 [tools]
 node = "latest"
 ruby = "latest"
-ghq = "latest"
 python = "latest"
 go = "latest"
