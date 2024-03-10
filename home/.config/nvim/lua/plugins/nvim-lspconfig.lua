@@ -19,6 +19,7 @@ return {
             "tailwindcss",
             "terraformls",
             "solargraph",
+            "solidity_ls_nomicfoundation",
           },
           automatically_installation = true
         })
@@ -126,6 +127,11 @@ return {
     }
 
     lspconfig.solargraph.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+
+    lspconfig.solidity_ls_nomicfoundation.setup {
       on_attach = on_attach,
       capabilities = capabilities
     }

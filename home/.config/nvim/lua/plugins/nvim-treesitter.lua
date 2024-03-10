@@ -44,6 +44,7 @@ return {
         "yaml",
         "prisma",
         "powershell",
+        "solidity",
       }
     }
   end
