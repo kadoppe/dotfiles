@@ -14,7 +14,6 @@ return {
             "tsserver",
             "vimls",
             "astro",
-            "pyright",
             "powershell_es",
             "tailwindcss",
             "terraformls",
@@ -99,11 +98,6 @@ return {
           }
         }
       }
-    }
-
-    lspconfig.pyright.setup {
-      on_attach = on_attach,
-      capabilities = capabilities
     }
 
     lspconfig.powershell_es.setup {
