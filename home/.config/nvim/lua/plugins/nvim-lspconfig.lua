@@ -19,6 +19,7 @@ return {
             "terraformls",
             "solargraph",
             "solidity_ls_nomicfoundation",
+            "volar",
           },
           automatically_installation = true
         })
@@ -49,11 +50,35 @@ return {
 
     local lspconfig = require("lspconfig")
 
+    local vue_typescript_plugin = require('mason-registry')
+      .get_package('vue-language-server')
+      :get_install_path()
+      .. '/node_modules/@vue/language-server'
+      .. '/node_modules/@vue/typescript-plugin'
+
     lspconfig.tsserver.setup {
       on_attach = on_attach,
       root_dir = lspconfig.util.root_pattern("package.json"),
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vue_typescript_plugin,
+            languages = {'javascript', 'typescript', 'vue'}
+          }
+        }
+      },
       single_file_support = false,
-      capabilities = capabilities
+      capabilities = capabilities,
+      filetypes = {
+        'javascript',
+        'javascriptreact',
+        'javascript.jsx',
+        'typescript',
+        'typescriptreact',
+        'typescript.tsx',
+        'vue',
+      }
     }
 
     if vim.fn.executable("deno") then

@@ -45,6 +45,7 @@ return {
         "prisma",
         "powershell",
         "solidity",
+        "vue",
       }
     }
   end
