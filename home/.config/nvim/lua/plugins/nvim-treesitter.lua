@@ -44,6 +44,7 @@ return {
         "yaml",
         "prisma",
         "powershell",
+        "scss",
         "solidity",
         "vue",
       }
