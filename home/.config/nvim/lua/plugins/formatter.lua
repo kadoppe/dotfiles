@@ -15,9 +15,6 @@ return {
         typescriptreact = {
           require("formatter.filetypes.typescriptreact").eslint_d,
           require("formatter.filetypes.typescriptreact").prettierd
-        },
-        ["*"] = {
-          require("formatter.filetypes.any").remove_trailing_whitespace
         }
       }
     })
@@ -31,4 +28,3 @@ return {
     })
   end
 }
-

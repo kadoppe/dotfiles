@@ -35,6 +35,7 @@ eval (direnv hook fish)
 starship init fish | source
 
 # fzf
+fzf --fish | source
 function fish_user_key_bindings
   bind \c] prj
 end

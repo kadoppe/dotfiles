@@ -31,14 +31,10 @@ yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add title="^ピクチャー イン ピクチャー$" manage=off
 yabai -m rule --add app="^System Settings" manage=off
 
-# Window Border
-# yabai -m config window_border on
-# yabai -m config window_border_blur off
-# yabai -m config window_border_width 2
-# yabai -m config window_border_radius 0
-# yabai -m config active_window_border_color 0xFF50FA7B
-# yabai -m config normal_window_border_color 0x00FFFFFF
-# yabai -m config insert_feedback_color 0xffd75f5f
+# Window
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.8
 
 yabai -m config window_shadow off
 
