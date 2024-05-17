@@ -75,5 +75,6 @@ yabai -m rule --add app="^Todoist$" space=3
 yabai -m rule --add app="^Linear$" space=3
 yabai -m rule --add app="^Cron$" space=3
 yabai -m rule --add app="^Slack$" space=5
+yabai -m rule --add app="^Messenger$" space=5
 yabai -m rule --add app="^Microsoft Teams$" space=5
 yabai -m rule --add app="^Spotify$" space=7
