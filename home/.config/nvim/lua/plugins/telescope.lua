@@ -1,6 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.2',
+  branch = '0.1.x',
   cmd = {
     "Telescope",
   },
@@ -17,6 +17,7 @@ return {
         return vim.fn.executable 'make' == 1
       end,
     },
+    "nvim-telescope/telescope-frecency.nvim",
     'stevearc/aerial.nvim',
   },
   config = function()
@@ -24,6 +25,7 @@ return {
     local actions = require('telescope.actions')
 
     require("telescope").load_extension("aerial")
+    require("telescope").load_extension "frecency"
 
     telescope.setup {
       defaults = {
@@ -57,6 +59,7 @@ return {
     }
 
     vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { silent = true, noremap = true })
+    vim.keymap.set("n", "<leader>fr", "<cmd>Telescope frecency workspace=CWD<CR>", { silent = true, noremap = true })
     vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { silent = true, noremap = true })
     vim.keymap.set("n", "<leader>fG", "<cmd>Telescope grep_string<CR>", { silent = true, noremap = true })
     vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { silent = true, noremap = true })
