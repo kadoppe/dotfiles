@@ -12,7 +12,7 @@ return {
       },
       pre_save_cmds = {
         "Neotree close",
-        "TroubleClose",
+        "Trouble diagnostics close",
       },
     }
     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

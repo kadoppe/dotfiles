@@ -6,7 +6,6 @@ return {
       { "<leader>tf", "<cmd>Neotree focus<cr>", desc = "NeoTree" },
    },
    dependencies = {
-     
      "nvim-lua/plenary.nvim",
      "nvim-tree/nvim-web-devicons",
      "MunifTanjim/nui.nvim",
