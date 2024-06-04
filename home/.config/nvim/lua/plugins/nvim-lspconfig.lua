@@ -17,8 +17,6 @@ return {
             "powershell_es",
             "tailwindcss",
             "terraformls",
-            "solargraph",
-            "solidity_ls_nomicfoundation",
             "volar",
           },
           automatically_installation = true
