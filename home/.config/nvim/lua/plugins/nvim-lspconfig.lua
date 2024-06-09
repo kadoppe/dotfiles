@@ -130,9 +130,14 @@ return {
       end
     })
 
+    lspconfig.pyright.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+
     lspconfig.vimls.setup {
       on_attach = on_attach,
-      capabilities = capabilities
+      capabilities = capabilities,
     }
 
     lspconfig.lua_ls.setup {
@@ -168,11 +173,6 @@ return {
     }
 
     lspconfig.solargraph.setup {
-      on_attach = on_attach,
-      capabilities = capabilities
-    }
-
-    lspconfig.solidity_ls_nomicfoundation.setup {
       on_attach = on_attach,
       capabilities = capabilities
     }
