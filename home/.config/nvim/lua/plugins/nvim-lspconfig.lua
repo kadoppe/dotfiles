@@ -130,9 +130,18 @@ return {
       end
     })
 
-    lspconfig.pyright.setup {
+    lspconfig.pylsp.setup {
       on_attach = on_attach,
       capabilities = capabilities,
+      settings = {
+        pylsp = {
+          plugins = {
+            autopep8 = {enabled = true},
+            mypy = {enabled = true},
+            pycodestyle = {enabled = false},
+          }
+        }
+      }
     }
 
     lspconfig.vimls.setup {
