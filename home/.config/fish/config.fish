@@ -37,6 +37,9 @@ set PATH /opt/homebrew/opt/openjdk/bin $PATH
 # direnv
 eval (direnv hook fish)
 
+# mysql-client
+fish_add_path /opt/homebrew/opt/mysql-client/bin
+
 # starship
 starship init fish | source
 
