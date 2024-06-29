@@ -16,6 +16,11 @@ set PATH /opt/homebrew/bin $PATH
 set -gx PATH $PATH $HOME/.krew/bin
 source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 
+# pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
+fish_add_path $PYENV_ROOT/bin
+pyenv init - | source
+
 # gcloud
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
