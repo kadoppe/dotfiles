@@ -3,3 +3,7 @@ customCommands:
     command: "aicommits --type conventional"
     context: 'files'
     subprocess: true
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never 

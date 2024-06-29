@@ -57,3 +57,16 @@
 	helper = store
 [init]
 	defaultBranch = main
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+[delta]
+  plus-style = "syntax #005CB1"
+  minus-style = "syntax #914E00"
+  syntax-theme = Monokai Extended
+  navigate = true
+  side-by-side = true
+[interactive]
+  diffFilter = delta --color-only
