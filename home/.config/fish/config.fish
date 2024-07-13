@@ -52,6 +52,9 @@ end
 # lazygit
 set -x XDG_CONFIG_HOME $HOME/.config
 
+# ripgrep
+set -x RIPGREP_CONFIG_PATH $HOME/.ripgreprc
+
 # see also: https://blog.abekoh.dev/posts/prj-command
 function prj -d "start project"
   if test (count $argv) -gt 0

@@ -1,0 +1,2 @@
+--glob=!**/gen/**/*
+--glob=!mock_*.go
