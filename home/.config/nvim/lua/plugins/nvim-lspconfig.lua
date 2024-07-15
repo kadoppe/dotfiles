@@ -136,9 +136,14 @@ return {
       settings = {
         pylsp = {
           plugins = {
+            -- format
             autopep8 = {enabled = true},
-            mypy = {enabled = true},
             pycodestyle = {enabled = false},
+            -- type check
+            pylsp_mypy = {enabled = true},
+            -- lint
+            pyflakes = {enabled = false},
+            mccabe = {enabled = false},
           }
         }
       }
