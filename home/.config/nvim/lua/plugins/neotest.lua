@@ -4,17 +4,30 @@ return {
   dependencies = {
     "nvim-neotest/nvim-nio",
     "nvim-neotest/neotest-python",
+    "nvim-neotest/neotest-go",
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter"
   },
   config = function()
     local neotest = require("neotest")
+    local neotest_ns = vim.api.nvim_create_namespace("neotest")
+    vim.diagnostic.config({
+      virtual_text = {
+        format = function(diagnostic)
+          local message =
+            diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+          return message
+        end,
+      },
+    }, neotest_ns)
+
     neotest.setup({
       adapters = {
         require("neotest-python")({
           dap = { justMyCode = false },
         }),
+        require("neotest-go")
       },
       output = {
         enabled = true,
@@ -40,7 +53,7 @@ return {
     end, {
       desc = "Run the neaest test with debug"
     })
-    vim.keymap.set('n', '<leader>to', function() 
+    vim.keymap.set('n', '<leader>to', function()
       neotest.output.open({
         short = true,
         enter = true,
