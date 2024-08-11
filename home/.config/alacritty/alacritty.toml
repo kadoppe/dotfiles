@@ -4,11 +4,11 @@ import = ["/Users/kadoppe/Sources/github.com/dracula/alacritty/dracula.toml"]
 size = 12
 
 [font.bold]
-family = "FiraCode Nerd Font Mono"
+family = "UDEV Gothic 35NF"
 style = "Bold"
 
 [font.normal]
-family = "FiraCode Nerd Font Mono"
+family = "UDEV Gothic 35NF"
 style = "Regular"
 
 [font.offset]
