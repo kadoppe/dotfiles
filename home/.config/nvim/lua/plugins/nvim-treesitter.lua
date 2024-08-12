@@ -43,7 +43,6 @@ return {
         "vim",
         "yaml",
         "prisma",
-        "powershell",
         "scss",
         "solidity",
         "vue",
