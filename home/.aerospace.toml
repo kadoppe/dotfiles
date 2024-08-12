@@ -152,11 +152,11 @@ alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-a = 'move-node-to-workspace A'
 alt-shift-b = 'move-node-to-workspace B' # browser
 alt-shift-c = 'move-node-to-workspace C' # Calender
-alt-shift-d = 'move-node-to-workspace D'
+alt-shift-d = 'move-node-to-workspace D' # Development
 alt-shift-e = 'move-node-to-workspace E'
 alt-shift-f = 'move-node-to-workspace F'
 alt-shift-g = 'move-node-to-workspace G' # gather
-alt-shift-i = 'move-node-to-workspace I'
+alt-shift-i = 'move-node-to-workspace I' 
 alt-shift-m = 'move-node-to-workspace M' # messaging
 alt-shift-n = 'move-node-to-workspace N' # note / task
 alt-shift-o = 'move-node-to-workspace O'
@@ -236,3 +236,6 @@ run = 'move-node-to-workspace M'
 if.app-id = 'com.cron.electron'
 run = 'move-node-to-workspace C'
 
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.datagrip'
+run = 'move-node-to-workspace D'
