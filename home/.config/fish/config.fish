@@ -55,6 +55,9 @@ set -x XDG_CONFIG_HOME $HOME/.config
 # ripgrep
 set -x RIPGREP_CONFIG_PATH $HOME/.ripgreprc
 
+# 1password
+set -x SSH_AUTH_SOCK $HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
 # see also: https://blog.abekoh.dev/posts/prj-command
 function prj -d "start project"
   if test (count $argv) -gt 0
