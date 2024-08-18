@@ -182,6 +182,7 @@ alt-shift-semicolon = 'mode service'
 
 cmd-h = [] # Disable "hide application"
 cmd-alt-h = [] # Disable "hide others"
+cmd-m = [] # Disable "Minimize the front window to the Dock"
 
 [workspace-to-monitor-force-assignment]
 N = 'secondary'                  
