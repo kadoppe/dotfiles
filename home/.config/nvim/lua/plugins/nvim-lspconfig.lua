@@ -11,7 +11,7 @@ return {
           ensure_installed = {
             "lua_ls",
             "gopls",
-            "tsserver",
+            "ts_ls",
             "vimls",
             "astro",
             "powershell_es",
@@ -54,7 +54,7 @@ return {
       .. '/node_modules/@vue/language-server'
       .. '/node_modules/@vue/typescript-plugin'
 
-    lspconfig.tsserver.setup {
+    lspconfig.ts_ls.setup {
       on_attach = on_attach,
       root_dir = lspconfig.util.root_pattern("package.json"),
       init_options = {
