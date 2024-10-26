@@ -1,4 +1,4 @@
-import = ["/Users/kadoppe/Sources/github.com/dracula/alacritty/dracula.toml"]
+general.import = ["/Users/kadoppe/Sources/github.com/dracula/alacritty/dracula.toml"]
 
 [font]
 size = 12
