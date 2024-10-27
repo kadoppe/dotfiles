@@ -5,6 +5,7 @@ return {
     "nvim-neotest/nvim-nio",
     "nvim-neotest/neotest-python",
     "nvim-neotest/neotest-go",
+    "marilari88/neotest-vitest",
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter"
@@ -27,7 +28,8 @@ return {
         require("neotest-python")({
           dap = { justMyCode = false },
         }),
-        require("neotest-go")
+        require("neotest-go"),
+        require("neotest-vitest")
       },
       output = {
         enabled = true,
@@ -45,7 +47,6 @@ return {
     })
     vim.keymap.set('n', '<leader>td', function()
       neotest.run.run({
-        strategy = "dap",
         env = {
           FLASK_ENV = "test"
         }
