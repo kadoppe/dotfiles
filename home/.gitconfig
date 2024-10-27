@@ -57,6 +57,12 @@
 	helper = store
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
 [pager]
   diff = delta
   log = delta
@@ -70,3 +76,6 @@
   side-by-side = true
 [interactive]
   diffFilter = delta --color-only
+[filter "ignore-token"]
+  smudge = cat
+  clean = sed "s/:_authToken="[^@]*"/:_authToken=""/"
