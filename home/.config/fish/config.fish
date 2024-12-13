@@ -12,7 +12,6 @@ alias ltl='eza -T -L 3 -a -I "node_modules|.git|.cache" -l --icons'
 set -gx EDITOR 'nvim'
 
 # path
-set PATH /opt/homebrew/bin $PATH
 set -gx PATH $PATH $HOME/.krew/bin
 source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
 
@@ -23,12 +22,11 @@ set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
 
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # mise
-fish_add_path ~/.local/share/mise/shims
-
-# openjdk
-set PATH /opt/homebrew/opt/openjdk/bin $PATH
-
+/opt/homebrew/bin/mise activate fish | source
 # direnv
 eval (direnv hook fish)
 
