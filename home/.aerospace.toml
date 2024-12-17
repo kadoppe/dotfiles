@@ -240,9 +240,9 @@ if.app-id = 'com.cron.electron'
 run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.datagrip'
+if.app-id = 'com.todesktop.230313mzl4w4u92'
 run = 'move-node-to-workspace D'
 
 [[on-window-detected]]
-if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = 'move-node-to-workspace D'
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace S'
