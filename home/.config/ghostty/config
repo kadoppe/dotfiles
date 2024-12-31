@@ -1,1 +1,7 @@
 theme = "dracula"
+
+font-size = 12
+font-family = "UDEV Gothic 35NF"
+
+fullscreen = true
+macos-non-native-fullscreen = true
