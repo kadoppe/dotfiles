@@ -1,7 +1,7 @@
-theme = "dracula"
+theme = "nord"
 
 font-size = 12
-font-family = "UDEV Gothic 35NF"
+font-family = "FiraCode Nerd Font"
 
 fullscreen = true
 macos-non-native-fullscreen = true

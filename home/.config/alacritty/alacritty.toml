@@ -2,11 +2,11 @@
 size = 12
 
 [font.bold]
-family = "UDEV Gothic 35NF"
+family = "FiraCode Nerd Font"
 style = "Bold"
 
 [font.normal]
-family = "UDEV Gothic 35NF"
+family = "FiraCode Nerd Font"
 style = "Regular"
 
 [font.offset]
