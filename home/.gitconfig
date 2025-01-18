@@ -1,6 +1,7 @@
 [user]
   name = kadoppe
   email = kadoppe@me.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/SaS9vMc7HMFfxvoGBUd8TwJJLWZyY7haHnMcMop1B
 [mergetool]
   keepBackup = true
 [core]
