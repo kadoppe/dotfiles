@@ -37,6 +37,7 @@ return {
         lualine_y = {},
         lualine_z = {}
       },
+      theme = 'nord',
       tabline = {},
       extensions = {}
     }
