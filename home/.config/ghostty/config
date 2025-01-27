@@ -3,7 +3,12 @@ theme = "nord"
 font-size = 12
 font-family = "FiraCode Nerd Font"
 
-fullscreen = true
-macos-non-native-fullscreen = true
+macos-titlebar-style = hidden
+shell-integration-features = no-title
+window-decoration = false
+
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = true
 
 title = ""
