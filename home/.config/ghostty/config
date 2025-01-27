@@ -5,3 +5,5 @@ font-family = "FiraCode Nerd Font"
 
 fullscreen = true
 macos-non-native-fullscreen = true
+
+title = ""
