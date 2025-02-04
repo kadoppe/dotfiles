@@ -148,7 +148,7 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-a = 'move-node-to-workspace A'
+alt-shift-a = 'move-node-to-workspace A' # AI / LLM
 alt-shift-b = 'move-node-to-workspace B' # browser
 alt-shift-c = 'move-node-to-workspace C' # Calender
 alt-shift-d = 'move-node-to-workspace D' # Development
@@ -183,6 +183,9 @@ cmd-alt-h = [] # Disable "hide others"
 cmd-m = [] # Disable "Minimize the front window to the Dock"
 
 [workspace-to-monitor-force-assignment]
+1 = 'secondary'
+2 = 'secondary'
+A = 'secondary'
 N = 'secondary'                  
 C = 'secondary'                  
 
@@ -202,10 +205,17 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 
-# [[on-window-detected]]
-# if.app-id = 'com.todoist.mac.Todoist'
-# if.window-title-regex-substring = '^Todoist$'
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace A'
 
+[[on-window-detected]]
+if.app-id = 'ai.perplexity.mac'
+run = 'move-node-to-workspace A'
+
+[[on-window-detected]]
+if.app-id = 'com.raycast.macos'
+run = 'move-node-to-workspace A'
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
