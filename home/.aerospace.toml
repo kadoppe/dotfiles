@@ -185,6 +185,7 @@ cmd-m = [] # Disable "Minimize the front window to the Dock"
 [workspace-to-monitor-force-assignment]
 1 = 'secondary'
 2 = 'secondary'
+3 = 'secondary'
 A = 'secondary'
 N = 'secondary'                  
 C = 'secondary'                  
