@@ -99,6 +99,11 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
+alt-ctrl-h = 'move-node-to-monitor left --focus-follows-window'
+alt-ctrl-j = 'move-node-to-monitor down --focus-follows-window  '
+alt-ctrl-k = 'move-node-to-monitor up --focus-follows-window'
+alt-ctrl-l = 'move-node-to-monitor right --focus-follows-window'
+
 alt-ctrl-m = 'focus-monitor --wrap-around next'
 
 
