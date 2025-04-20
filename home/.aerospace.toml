@@ -252,6 +252,14 @@ if.app-id = 'com.readdle.SparkDesktop.appstore'
 run = 'move-node-to-workspace M'
 
 [[on-window-detected]]
+if.app-id = 'notion.mail.id'
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-id = 'jp.naver.line.mac'
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
 if.app-id = 'com.cron.electron'
 run = 'move-node-to-workspace C'
 
