@@ -31,7 +31,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval (direnv hook fish)
 
 # mysql-client
-fish_add_path /opt/homebrew/opt/mysql-client/bin
+# fish_add_path /opt/homebrew/opt/mysql-client/bin
+fish_add_path /opt/homebrew/opt/mysql-client@8.4/bin
 
 # starship
 starship init fish | source
