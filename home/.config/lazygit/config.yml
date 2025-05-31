@@ -2,9 +2,9 @@ customCommands:
   - key: 'C'
     command: "aicommits --type conventional"
     context: 'files'
-    subprocess: true
+    output: terminal
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never 
+    pager: delta --dark --paging=never
 promptToReturnFromSubprocess: false
