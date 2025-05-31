@@ -13,6 +13,6 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+    vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle!<CR>")
   end
 }
