@@ -3,4 +3,5 @@ home/.config/nvim/backup
 home/.config/nvim/swap
 home/.config/nvim/bundles
 home/.config/nvim/undo
+home/.config/fish/config.local.fish
 .DS_Store
