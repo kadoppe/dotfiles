@@ -17,7 +17,6 @@ return {
             "powershell_es",
             "tailwindcss",
             "terraformls",
-            "volar",
           },
           automatically_installation = true
         })
@@ -45,14 +44,7 @@ return {
     end
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
     local lspconfig = require("lspconfig")
-
-    local vue_typescript_plugin = require('mason-registry')
-      .get_package('vue-language-server')
-      :get_install_path()
-      .. '/node_modules/@vue/language-server'
-      .. '/node_modules/@vue/typescript-plugin'
 
     lspconfig.ts_ls.setup {
       on_attach = on_attach,
