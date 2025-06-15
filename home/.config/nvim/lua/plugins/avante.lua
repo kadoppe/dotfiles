@@ -3,14 +3,17 @@ return {
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   opts = {
-    provider = "claude",  -- Anthropic 直叩き
-    claude = {
-      endpoint    = "https://api.anthropic.com",
-      model        = "claude-sonnet-4-20250514",
-      -- avante がまだ tool 呼び出しをフルサポートしていないため暫定で OFF
-      temperature   = 0,
-      max_tokens    = 64000,
-      timeout       = 30000,                 -- ms
+    provider = "claude",
+    providers = {
+      claude = {
+        endpoint    = "https://api.anthropic.com",
+        model        = "claude-sonnet-4-20250514",
+        timeout = 30000,
+        extra_request_body = {
+          temperature = 0,
+          max_tokens    = 64000,
+        },
+      },
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
