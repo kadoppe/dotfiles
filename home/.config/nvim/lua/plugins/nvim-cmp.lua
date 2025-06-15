@@ -10,21 +10,6 @@ return {
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
     'onsails/lspkind.nvim',
-    {
-      'zbirenbaum/copilot.lua',
-      config = function()
-        require("copilot").setup({
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-        })
-      end
-    },
-    {
-      "zbirenbaum/copilot-cmp",
-      config = function ()
-        require("copilot_cmp").setup()
-      end
-    },
   },
   config = function()
     local cmp = require 'cmp'
@@ -32,10 +17,9 @@ return {
 
     lspkind.init({
       symbol_map = {
-        Copilot = "",
+        Codeium = "?"
       },
     })
-    vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
 
     cmp.setup({
       window = {
@@ -55,7 +39,7 @@ return {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       }),
       sources = cmp.config.sources({
-        { name = 'copilot' },
+        { name = "codeium" },
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
@@ -71,8 +55,6 @@ return {
       sorting = {
         priority_weight = 2,
         comparators = {
-          require("copilot_cmp.comparators").prioritize,
-
           -- Below is the default comparitor list and order for nvim-cmp
           cmp.config.compare.offset,
           -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
@@ -106,7 +88,7 @@ return {
 
     local has_words_before = function()
       if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
-      local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
       return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
     end
     cmp.setup({
