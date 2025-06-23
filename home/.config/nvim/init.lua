@@ -1,4 +1,5 @@
-vim.cmd("language en_US")
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
