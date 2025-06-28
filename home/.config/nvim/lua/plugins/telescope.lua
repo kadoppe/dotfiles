@@ -38,7 +38,8 @@ return {
       pickers = {
         find_files = {
           no_ignore = false,
-          hidden = true
+          hidden = true,
+          file_ignore_patterns = { "^.git/" }
         },
       },
       extensions = {
