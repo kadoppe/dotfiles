@@ -5,3 +5,8 @@ home/.config/nvim/bundles
 home/.config/nvim/undo
 home/.config/fish/config.local.fish
 .DS_Store
+
+# .claude directories
+home/.claude/todos/
+home/.claude/statsig/
+home/.claude/projects/
