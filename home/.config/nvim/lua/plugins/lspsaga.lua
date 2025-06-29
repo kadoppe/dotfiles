@@ -9,6 +9,9 @@ return {
     require("lspsaga").setup({
       lightbulb = {
         enable = false
+      },
+      outline = {
+        layout = 'float'
       }
     })
 
@@ -39,10 +42,17 @@ return {
       require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
     end)
 
-    -- Preview definition
-    keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
+    -- -- Preview definition
+    -- keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
 
     -- Rename
     keymap("n", "gr", "<cmd>Lspsaga rename<CR>")
+
+    -- Call hierarchy
+    keymap("n", "<leader>ch", "<cmd>Lspsaga incoming_calls ++float<CR>")
+    keymap("n", "<leader>cl", "<cmd>Lspsaga outgoing_calls ++float<CR>")
+
+    -- outline
+    keymap("n", "<leader>go", "<cmd>Lspsaga outline<CR>")
   end,
 }

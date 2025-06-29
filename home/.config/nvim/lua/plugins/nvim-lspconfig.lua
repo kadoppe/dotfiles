@@ -29,12 +29,21 @@ return {
   config = function()
     local navic = require('nvim-navic')
 
+    -- Configure diagnostics display
+    vim.diagnostic.config({
+      virtual_text = true, -- Show error text at the end of the line
+      float = {
+        source = "always", -- Show source in diagnostic float window
+        border = "rounded",
+      },
+    })
+
     local on_attach = function(client, bufnr)
       vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-      -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
       -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
       -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
@@ -50,15 +59,6 @@ return {
     lspconfig.ts_ls.setup {
       on_attach = on_attach,
       root_dir = lspconfig.util.root_pattern("package.json"),
-      init_options = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vue_typescript_plugin,
-            languages = {'javascript', 'typescript', 'vue'}
-          }
-        }
-      },
       single_file_support = false,
       capabilities = capabilities,
       filetypes = {
