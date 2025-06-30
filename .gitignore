@@ -10,3 +10,7 @@ home/.config/fish/config.local.fish
 home/.claude/todos/
 home/.claude/statsig/
 home/.claude/projects/
+
+# cache
+.users_cache.json
+.channels_cache.json
