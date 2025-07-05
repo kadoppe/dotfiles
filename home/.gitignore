@@ -2,3 +2,7 @@
 .idea
 .nvim.lua
 .mise.toml
+
+# cache
+.users_cache.json
+.channels_cache.json
