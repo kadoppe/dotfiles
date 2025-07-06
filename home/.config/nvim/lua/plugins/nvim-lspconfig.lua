@@ -134,8 +134,13 @@ return {
         },
         python = {
           analysis = {
-            -- Ignore all files for analysis to exclusively use Ruff for linting
-            -- ignore = { '*' },
+            -- Type checking rules (disable to avoid duplication with mypy)
+            typeCheckingMode = "off",
+            -- Keep unused variable warnings
+            reportUnusedVariable = true,
+            reportUnusedImport = true,
+            reportUnusedFunction = true,
+            reportUnusedClass = true,
           },
         },
       },
@@ -162,8 +167,6 @@ return {
       end,
       desc = 'LSP: Disable hover capability from Ruff',
     })
-
-
 
     vim.lsp.enable('vimls')
     vim.lsp.config('vimls', {
