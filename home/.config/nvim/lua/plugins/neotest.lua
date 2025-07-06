@@ -4,7 +4,6 @@ return {
   dependencies = {
     "nvim-neotest/nvim-nio",
     "nvim-neotest/neotest-python",
-    "nvim-neotest/neotest-go",
     "marilari88/neotest-vitest",
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
@@ -17,7 +16,7 @@ return {
       virtual_text = {
         format = function(diagnostic)
           local message =
-            diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+              diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
           return message
         end,
       },
@@ -28,7 +27,6 @@ return {
         require("neotest-python")({
           dap = { justMyCode = false },
         }),
-        require("neotest-go"),
         require("neotest-vitest")
       },
       output = {
@@ -39,7 +37,7 @@ return {
     vim.keymap.set('n', '<leader>tr', function()
       neotest.run.run({
         env = {
-          FLASK_ENV = "test"
+          ENV = "test"
         }
       })
     end, {
@@ -48,7 +46,7 @@ return {
     vim.keymap.set('n', '<leader>td', function()
       neotest.run.run({
         env = {
-          FLASK_ENV = "test"
+          ENV = "test"
         }
       })
     end, {
