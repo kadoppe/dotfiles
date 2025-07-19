@@ -4,9 +4,9 @@ return {
   dependencies = {
     'mfussenegger/nvim-dap-python',
   },
-  config = function ()
+  config = function()
     local dap = require('dap')
-    require("dap-python").setup("python")
+    require("dap-python").setup("uv")
 
     vim.keymap.set('n', '<leader>db', function()
       dap.toggle_breakpoint()
