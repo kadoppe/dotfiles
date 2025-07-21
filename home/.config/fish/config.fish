@@ -8,6 +8,7 @@ alias lg=lazygit
 alias ls='eza --icons --git'
 alias lt='eza -T -L 3 -a -I "node_modules|.git|.cache" --icons'
 alias ltl='eza -T -L 3 -a -I "node_modules|.git|.cache" -l --icons'
+alias cc='claude --dangerously-skip-permissions'
 
 set -gx EDITOR 'nvim'
 
@@ -84,3 +85,5 @@ source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 if test -f ~/.config/fish/config.local.fish
     source ~/.config/fish/config.local.fish
 end
+
+string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
