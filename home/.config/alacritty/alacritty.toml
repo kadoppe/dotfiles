@@ -2,11 +2,11 @@
 size = 12
 
 [font.bold]
-family = "Iosevka Nerd Font Mono"
+family = "Iosevka Nerd Font"
 style = "Bold"
 
 [font.normal]
-family = "Iosevka Nerd Font Mono"
+family = "Iosevka Nerd Font"
 style = "Regular"
 
 [font.offset]
