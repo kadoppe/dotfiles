@@ -18,7 +18,7 @@ history = 10000
 
 [window]
 decorations = "Buttonless"
-opacity = 1.0
+opacity = 0.85
 
 [window.padding]
 x = 0

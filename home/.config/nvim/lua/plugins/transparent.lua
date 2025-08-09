@@ -1,4 +1,8 @@
-return { 
+return {
   "xiyaowong/transparent.nvim",
-  event = "VimEnter"
+  lazy = false,
+  config = function()
+    require("transparent").setup()
+    vim.cmd("TransparentEnable")
+  end
 }
