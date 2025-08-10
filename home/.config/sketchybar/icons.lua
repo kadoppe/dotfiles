@@ -51,6 +51,10 @@ local icons = {
       inbox = "💠",  -- Same icon for consistency
       inbox_dot = "💠",  -- Keep same icon, differentiate by count
     },
+    slack = {
+      mark = "💬",  -- Speech balloon emoji
+      unread = "💬",  -- Same emoji, differentiate by count
+    },
   },
 
   -- Alternative NerdFont icons
@@ -103,6 +107,10 @@ local icons = {
       mark = "󰧑",  -- Task/checklist icon  
       inbox = "󰇮",  -- Inbox icon
       inbox_dot = "󰇰",  -- Inbox with notification
+    },
+    slack = {
+      mark = "󰒱",  -- Slack icon in NerdFont
+      unread = "󰒲",  -- Slack with notification
     },
   },
 }
