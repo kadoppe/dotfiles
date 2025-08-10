@@ -311,4 +311,5 @@ return {
   ["音乐"] = ":music:",
   ["预览"] = ":pdf:",
   ["카카오톡"] = ":kakaotalk:",
+  ["default"] = ":default:",
 }

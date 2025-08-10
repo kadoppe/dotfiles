@@ -53,7 +53,7 @@ sbar.exec("aerospace list-workspaces --all", function(spaces)
         for app in windows:gmatch("[^\r\n]+") do
           no_app = false
           local lookup = app_icons[app]
-          local icon = ((lookup == nil) and app_icons["default"] or lookup)
+          local icon = lookup or app_icons["default"] or "?"
           icon_line = icon_line .. " " .. icon
         end
 
