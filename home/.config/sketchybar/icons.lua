@@ -40,6 +40,12 @@ local icons = {
       forward = "􀊌",
       play_pause = "􀊈",
     },
+    github = {
+      mark = "􀐀",  -- Developer icon (closest to GitHub in SF Symbols)
+      bell = "􀋚",
+      bell_dot = "􀝗",
+      octocat = "🐙",  -- Octopus emoji as alternative
+    },
   },
 
   -- Alternative NerdFont icons
@@ -81,6 +87,12 @@ local icons = {
       back = "",
       forward = "",
       play_pause = "",
+    },
+    github = {
+      mark = "",  -- GitHub logo
+      bell = "",
+      bell_dot = "",
+      octocat = "",  -- Actual GitHub octocat icon in NerdFont
     },
   },
 }
