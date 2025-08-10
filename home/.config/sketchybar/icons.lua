@@ -46,6 +46,11 @@ local icons = {
       bell_dot = "􀝗",
       octocat = "🐙",  -- Octopus emoji as alternative
     },
+    linear = {
+      mark = "💠",  -- Diamond with dot
+      inbox = "💠",  -- Same icon for consistency
+      inbox_dot = "💠",  -- Keep same icon, differentiate by count
+    },
   },
 
   -- Alternative NerdFont icons
@@ -93,6 +98,11 @@ local icons = {
       bell = "",
       bell_dot = "",
       octocat = "",  -- Actual GitHub octocat icon in NerdFont
+    },
+    linear = {
+      mark = "󰧑",  -- Task/checklist icon  
+      inbox = "󰇮",  -- Inbox icon
+      inbox_dot = "󰇰",  -- Inbox with notification
     },
   },
 }

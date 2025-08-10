@@ -70,27 +70,11 @@ local function update_github_notifications()
     
     local count = tonumber(count_str) or 0
     local icon = icons.github.octocat or icons.github.mark
-    local color = colors.green
+    local color = colors.white
     
-    if count > 0 then
-      icon = icons.github.octocat or icons.github.mark
-      if count >= 10 then
-        color = colors.red
-      elseif count >= 5 then
-        color = colors.orange
-      else
-        color = colors.yellow
-      end
-    else
-      color = colors.grey
-    end
-    
-    local label = ""
-    if count > 0 then
-      label = tostring(count)
-      if count > 99 then
-        label = "99+"
-      end
+    local label = tostring(count)
+    if count > 99 then
+      label = "99+"
     end
     
     github:set({
