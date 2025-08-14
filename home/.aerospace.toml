@@ -117,14 +117,10 @@ alt-shift-semicolon = 'mode service'
 # cmd-alt-h = [] # Disable "hide others"
 # cmd-m = [] # Disable "Minimize the front window to the Dock"
 
-# [workspace-to-monitor-force-assignment]
-# # 1 = 'secondary'
-# # 2 = 'secondary'
-# # 3 = 'secondary'
-# # A = 'secondary'
-# # N = 'secondary'                  
-# # C = 'secondary'                  
-
+[workspace-to-monitor-force-assignment]
+4_note = 'secondary'
+5_plan = 'secondary'
+6_misc = 'secondary'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
