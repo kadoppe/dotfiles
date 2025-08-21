@@ -154,7 +154,7 @@ if.app-id = 'md.obsidian'
 run = 'move-node-to-workspace 4_note'
 
 [[on-window-detected]]
-if.app-id = 'com.todesktop.230313mzl4w4u92'
+if.app-id = 'com.todoist.mac.Todoist'
 run = 'move-node-to-workspace 5_plan'
 
 [[on-window-detected]]
