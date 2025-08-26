@@ -175,3 +175,7 @@ run = 'move-node-to-workspace 5_plan'
 if.app-id = 'com.cron.electron'
 run = 'move-node-to-workspace 5_plan'
 
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace 6_misc'
+
