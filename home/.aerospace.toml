@@ -166,6 +166,10 @@ if.app-id = 'company.thebrowser.dia'
 run = 'move-node-to-workspace 2_web'
 
 [[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 2_web'
+
+[[on-window-detected]]
 if.app-id = 'com.openai.chat'
 run = 'move-node-to-workspace 3_ai'
 
