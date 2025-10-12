@@ -10,6 +10,12 @@ home/.config/fish/config.local.fish
 home/.claude/todos/
 home/.claude/statsig/
 home/.claude/projects/
+home/.claude/debug/
+home/.claude/file-history/
+home/.claude/ide/
+home/.claude/shell-snapshots/
+home/.claude/history.jsonl
+home/.claude/.settings.local.json
 
 # cache
 .users_cache.json
