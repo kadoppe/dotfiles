@@ -2,6 +2,9 @@ return {
   "coder/claudecode.nvim",
   event = "VeryLazy",
   dependencies = { "folke/snacks.nvim" },
+  opts = {
+    terminal_cmd = "cc", -- Point to local installation
+  },
   config = true,
   keys = {
     { "<leader>a",  nil,                              desc = "AI/Claude Code" },
