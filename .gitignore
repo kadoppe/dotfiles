@@ -15,7 +15,7 @@ home/.claude/file-history/
 home/.claude/ide/
 home/.claude/shell-snapshots/
 home/.claude/history.jsonl
-home/.claude/.settings.local.json
+home/.claude/settings.local.json
 
 # cache
 .users_cache.json
