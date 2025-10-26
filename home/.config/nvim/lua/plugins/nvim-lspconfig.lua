@@ -54,13 +54,15 @@ return {
     end
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    local lspconfig = require("lspconfig")
 
-    lspconfig.ts_ls.setup {
+    vim.lsp.enable('ts_ls')
+    vim.lsp.config('ts_ls', {
       on_attach = on_attach,
-      root_dir = lspconfig.util.root_pattern("package.json"),
-      single_file_support = false,
       capabilities = capabilities,
+      root_dir = function(fname)
+        return vim.fs.root(fname, { 'package.json' })
+      end,
+      single_file_support = false,
       filetypes = {
         'javascript',
         'javascriptreact',
@@ -70,12 +72,16 @@ return {
         'typescript.tsx',
         'vue',
       }
-    }
+    })
 
     -- if vim.fn.executable("deno") then
-    --   lspconfig.denols.setup {
+    --   vim.lsp.enable('denols')
+    --   vim.lsp.config('denols', {
     --     on_attach = on_attach,
-    --     root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+    --     capabilities = capabilities,
+    --     root_dir = function(fname)
+    --       return vim.fs.root(fname, { 'deno.json', 'deno.jsonc' })
+    --     end,
     --     init_options = {
     --       enable = true,
     --       lint = true,
@@ -90,14 +96,14 @@ return {
     --         },
     --       },
     --     },
-    --     capabilities = capabilities,
-    --   }
+    --   })
     -- end
 
-    -- lspconfig.gopls.setup {
+    -- vim.lsp.enable('gopls')
+    -- vim.lsp.config('gopls', {
     --   on_attach = on_attach,
     --   capabilities = capabilities
-    -- }
+    -- })
 
     -- local autocmd = vim.api.nvim_create_autocmd
     -- autocmd("BufWritePre", {
@@ -199,9 +205,10 @@ return {
       capabilities = capabilities,
     })
 
-    -- lspconfig.solargraph.setup {
+    -- vim.lsp.enable('solargraph')
+    -- vim.lsp.config('solargraph', {
     --   on_attach = on_attach,
     --   capabilities = capabilities
-    -- }
+    -- })
   end
 }
