@@ -5,7 +5,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.opt.autoread = true
-vim.opt.backupdir= "~/.vim/backup"
+vim.opt.backupdir = "~/.vim/backup"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 1
 vim.opt.cursorline = true
