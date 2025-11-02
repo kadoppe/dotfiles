@@ -3,6 +3,12 @@ theme = "catppuccin-frappe.conf"
 font-size = 13
 font-family = "Iosevka Nerd Font"
 
+font-thicken = true
+font-thicken-strength = 1
+
+adjust-cell-width = 1
+adjust-cell-height = 1
+
 macos-titlebar-style = hidden
 shell-integration-features = no-title
 window-decoration = false
@@ -12,3 +18,6 @@ window-padding-y = 0
 window-padding-balance = true
 
 title = ""
+
+cursor-style = block
+
