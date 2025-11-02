@@ -1,13 +1,13 @@
-theme = "nord"
+theme = "catppuccin-frappe.conf"
 
-font-size = 12
-font-family = "FiraCode Nerd Font"
+font-size = 13
+font-family = "Iosevka Nerd Font"
 
 macos-titlebar-style = hidden
 shell-integration-features = no-title
 window-decoration = false
 
-window-padding-x = 2
+window-padding-x = 0
 window-padding-y = 0
 window-padding-balance = true
 
