@@ -59,9 +59,6 @@ return {
     vim.lsp.config('ts_ls', {
       on_attach = on_attach,
       capabilities = capabilities,
-      root_dir = function(fname)
-        return vim.fs.root(fname, { 'package.json' })
-      end,
       single_file_support = false,
       filetypes = {
         'javascript',
@@ -204,11 +201,5 @@ return {
       on_attach = on_attach,
       capabilities = capabilities,
     })
-
-    -- vim.lsp.enable('solargraph')
-    -- vim.lsp.config('solargraph', {
-    --   on_attach = on_attach,
-    --   capabilities = capabilities
-    -- })
   end
 }
