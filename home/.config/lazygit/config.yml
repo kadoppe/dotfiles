@@ -1,10 +1,16 @@
 customCommands:
-  - key: 'C'
-    command: "aicommits --type conventional"
-    context: 'files'
+  - key: c
+    description: "AI Commit (aicommit2)"
+    context: files
+    command: "aicommit2 --yes"
+    output: terminal
+  - key: C
+    description: "AI Commit (show message before commit)"
+    context: files
+    command: "aicommit2"
     output: terminal
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
 promptToReturnFromSubprocess: false
