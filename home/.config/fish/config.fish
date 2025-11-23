@@ -29,6 +29,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # mise
 /opt/homebrew/bin/mise activate fish | source
+fish_add_path --prepend --move ~/.local/share/mise/shims
 # direnv
 eval (direnv hook fish)
 
