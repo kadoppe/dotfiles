@@ -2,7 +2,7 @@ customCommands:
   - key: c
     description: "AI Commit (aicommit2)"
     context: files
-    command: "aicommit2 -y"
+    command: aicommit2 -y
     output: terminal
   - key: C
     description: "AI Commit (show message before commit)"
