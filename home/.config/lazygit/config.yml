@@ -7,7 +7,7 @@ customCommands:
   - key: C
     description: "AI Commit (show message before commit)"
     context: files
-    command: "aicommit2 --auto-select"
+    command: "sh -c 'aicommit2 --auto-select'"
     output: terminal
 git:
   pagers:
