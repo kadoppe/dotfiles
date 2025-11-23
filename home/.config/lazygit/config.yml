@@ -1,9 +1,4 @@
 customCommands:
-  - key: c
-    description: "AI Commit (aicommit2)"
-    context: files
-    command: "sh -c 'aicommit2 --confirm --auto-select'"
-    output: terminal
   - key: C
     description: "AI Commit (show message before commit)"
     context: files
