@@ -10,6 +10,7 @@ alias lt='eza -T -L 3 -a -I "node_modules|.git|.cache" --icons'
 alias ltl='eza -T -L 3 -a -I "node_modules|.git|.cache" -l --icons'
 alias cc='claude --dangerously-skip-permissions'
 alias co='codex --dangerously-bypass-approvals-and-sandbox'
+alias gtr='git gtr'
 
 set -gx EDITOR 'nvim'
 
@@ -89,3 +90,6 @@ if test -f ~/.config/fish/config.local.fish
 end
 
 string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+
+# uv
+fish_add_path "/Users/kadoppe/.local/bin"
