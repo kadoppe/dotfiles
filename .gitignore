@@ -16,6 +16,7 @@ home/.claude/telemetry/
 home/.claude/debug/
 home/.claude/file-history/
 home/.claude/ide/
+home/.claude/plans/
 home/.claude/shell-snapshots/
 home/.claude/history.jsonl
 home/.claude/settings.local.json
