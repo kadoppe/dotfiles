@@ -5,6 +5,17 @@ import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import os from "node:os";
 
+function getTmuxInfo() {
+  try {
+    const session = execFileSync('tmux', ['display-message', '-p', '#{session_name}'], { encoding: 'utf8' }).trim();
+    const window = execFileSync('tmux', ['display-message', '-p', '#{window_index}'], { encoding: 'utf8' }).trim();
+    const pane = execFileSync('tmux', ['display-message', '-p', '#{pane_index}'], { encoding: 'utf8' }).trim();
+    return { session, window, pane };
+  } catch {
+    return null;
+  }
+}
+
 try {
   const input = JSON.parse(readFileSync(0, 'utf8'));
   if (!input.transcript_path) {
@@ -41,16 +52,22 @@ try {
   const lastMessageContent = transcript?.message?.content?.[0]?.text;
 
   if (lastMessageContent) {
-    const script = `
-          on run {notificationTitle, notificationMessage}
-            try
-              display notification notificationMessage with title notificationTitle
-            end try
-          end run
-        `;
-    execFileSync('osascript', ['-e', script, "Claude Code", lastMessageContent], {
-      stdio: 'ignore'
-    });
+    const tmuxInfo = getTmuxInfo();
+    const message = lastMessageContent.substring(0, 200);
+
+    if (tmuxInfo) {
+      const focusScript = path.join(homeDir, '.claude', 'hooks', 'focus-claude-pane.sh');
+      execFileSync('terminal-notifier', [
+        '-title', 'Claude Code',
+        '-message', message,
+        '-execute', `"${focusScript}" "${tmuxInfo.session}" "${tmuxInfo.window}" "${tmuxInfo.pane}"`
+      ], { stdio: 'ignore' });
+    } else {
+      execFileSync('terminal-notifier', [
+        '-title', 'Claude Code',
+        '-message', message
+      ], { stdio: 'ignore' });
+    }
   }
 } catch (error) {
   console.log('Hook execution failed:', error.message);

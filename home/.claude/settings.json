@@ -11,7 +11,7 @@
             "command": "~/.claude/hooks/stop-send-notification.mjs"
           },
           {
-            "type": "command", 
+            "type": "command",
             "command": "~/.tmux/plugins/tmux-claude-status/hooks/better-hook.sh Stop"
           }
         ]
@@ -40,13 +40,35 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bun x ccusage statusline"
+    "command": "~/.claude/statusline.py"
   },
   "enabledPlugins": {
     "code-review@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": true
+    "plugin-dev@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "Notion@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "discord@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "obsidian-skills": {
+      "source": {
+        "source": "github",
+        "repo": "kepano/obsidian-skills"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
+  "effortLevel": "xhigh",
+  "tui": "default",
+  "channelsEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085701509
   }
