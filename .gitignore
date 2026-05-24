@@ -20,6 +20,18 @@ home/.claude/plans/
 home/.claude/shell-snapshots/
 home/.claude/history.jsonl
 home/.claude/settings.local.json
+home/.claude/.last-cleanup
+home/.claude/backups/
+home/.claude/cache/
+home/.claude/channels/
+home/.claude/mcp-needs-auth-cache.json
+home/.claude/paste-cache/
+home/.claude/policy-limits.json
+home/.claude/sessions/
+home/.claude/session-env/
+home/.claude/stats-cache.json
+home/.claude/tasks/
+home/.claude/teams/
 
 .claude/settings.local.json
 
