@@ -3,3 +3,8 @@ node = "latest"
 ruby = "latest"
 python = "3.13.2"
 go = "latest"
+deno = "latest"
+
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = ["python"]
