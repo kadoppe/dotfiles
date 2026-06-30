@@ -52,13 +52,29 @@
     "skill-creator@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "discord@claude-plugins-official": true
+    "discord@claude-plugins-official": true,
+    "honcho@honcho": true,
+    "datadog@claude-plugins-official": true,
+    "stripe@claude-plugins-official": true,
+    "crit@crit": true
   },
   "extraKnownMarketplaces": {
     "obsidian-skills": {
       "source": {
         "source": "github",
         "repo": "kepano/obsidian-skills"
+      }
+    },
+    "honcho": {
+      "source": {
+        "source": "github",
+        "repo": "plastic-labs/claude-honcho"
+      }
+    },
+    "crit": {
+      "source": {
+        "source": "github",
+        "repo": "tomasz-tomczyk/crit"
       }
     }
   },
