@@ -62,21 +62,32 @@ function prj -d "start project"
     set prjflag --query "$argv"
   end
 
-  set PRJ_PATH (ghq root)/(ghq list | fzf-tmux -p 90% $prjflag)
+  set PRJ_PATH (ghq root)/(ghq list | fzf $prjflag)
   if test -z $PRJ_PATH
     return
   end
 
-  set PRJ_NAME (echo (basename (dirname $PRJ_PATH))/(basename $PRJ_PATH) | sed -e 's/\./_/g')
-  if not tmux has-session -t $PRJ_NAME > /dev/null 2>&1
-    tmux new-session -c $PRJ_PATH -s $PRJ_NAME -d
-    tmux setenv -t $PRJ_NAME TMUX_SESSION_PATH $PRJ_PATH
+  set PRJ_NAME (basename (dirname $PRJ_PATH))/(basename $PRJ_PATH)
+
+  # the herdr CLI doesn't auto-start the server
+  if not herdr status server 2> /dev/null | grep -q "status: running"
+    herdr server > /dev/null 2>&1 &
+    disown
+    for i in (seq 30)
+      herdr status server 2> /dev/null | grep -q "status: running" && break
+      sleep 0.2
+    end
   end
 
-  if test -z $TMUX
-    tmux attach -t $PRJ_NAME
+  set WS_ID (herdr workspace list | jq -r --arg l "$PRJ_NAME" '.result.workspaces[] | select(.label == $l) | .workspace_id')
+  if test -z "$WS_ID"
+    herdr workspace create --cwd $PRJ_PATH --label $PRJ_NAME --focus > /dev/null
   else
-    tmux switch-client -t $PRJ_NAME
+    herdr workspace focus $WS_ID > /dev/null
+  end
+
+  if not set -q HERDR_ENV
+    herdr
   end
 end
 
@@ -89,7 +100,9 @@ if test -f ~/.config/fish/config.local.fish
     source ~/.config/fish/config.local.fish
 end
 
-string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+if command -sq kiro; and string match -q "$TERM_PROGRAM" "kiro"
+    . (kiro --locate-shell-integration-path fish)
+end
 
 # uv
 fish_add_path "/Users/kadoppe/.local/bin"

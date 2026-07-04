@@ -29,7 +29,7 @@ This is a dotfiles repository managed with [homesick](https://github.com/technic
 - Requires vim backup/swap/undo directories (created by `make_vim_dir.sh`)
 
 ### Shell Environment (Fish)
-- Custom `prj` function for project switching with tmux integration
+- Custom `prj` function for project switching with herdr integration (one herdr workspace per repository)
 - Uses ghq for repository management and fzf for fuzzy finding
 - Integrates with mise for runtime version management
 - Aliases for common tools (nvim, lazygit, eza, etc.)
@@ -37,7 +37,8 @@ This is a dotfiles repository managed with [homesick](https://github.com/technic
 ### Development Tools Integration
 - **mise**: Manages Node.js, Ruby, Python, Go, Deno versions
 - **Git**: Extensive alias configuration, delta for diff viewing, 1Password for signing
-- **tmux**: Custom configuration for terminal multiplexing
+- **herdr**: Agent-aware terminal multiplexer (config in `home/.config/herdr/config.toml`), replaced tmux as the daily driver
+- **tmux**: Legacy configuration kept for reference (no longer the daily entry point)
 
 ## Common Commands
 
@@ -59,7 +60,7 @@ Neovim uses LazyVim - plugins are automatically managed. When editing plugin con
 ### Development Environment
 - Use `mise install` to install configured language runtimes
 - Fish shell aliases: `vi`/`vim` → `nvim`, `lg` → `lazygit`, `ls` → `eza`
-- Project navigation: `prj` command for fuzzy project selection with tmux
+- Project navigation: `prj` command for fuzzy project selection with herdr
 
 ## File Editing Guidelines
 

@@ -32,6 +32,8 @@ home/.claude/session-env/
 home/.claude/stats-cache.json
 home/.claude/tasks/
 home/.claude/teams/
+home/.claude/.credentials.json
+home/.claude/.last-update-result.json
 
 .claude/settings.local.json
 

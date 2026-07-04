@@ -1,0 +1,43 @@
+# herdr configuration
+# see: https://herdr.dev/docs/configuration/
+# defaults: herdr --default-config
+
+onboarding = false
+
+[keys]
+# same prefix as tmux
+prefix = "ctrl+t"
+# tmux: bind s (session switcher)
+workspace_picker = "prefix+s"
+# tmux: bind w (worktree switcher)
+open_worktree = "prefix+w"
+# moved from default prefix+s to make room for workspace_picker
+settings = "prefix+shift+s"
+# tmux: bind | / bind -
+# NOTE: "shift+backslash" never matches the typed "|" character; use the literal char
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+# j/k moves the workspace selection in the picker (navigate mode);
+# pane focus in navigate mode moves to ctrl+j/k to make room
+navigate_workspace_down = "j"
+navigate_workspace_up = "k"
+navigate_pane_down = "ctrl+j"
+navigate_pane_up = "ctrl+k"
+
+[terminal]
+# panes inherit $SHELL from the server process, which may not be fish
+default_shell = "/opt/homebrew/bin/fish"
+
+[ui]
+# tmux: bind x kill-pane without confirmation
+confirm_close = false
+# tmux new-window doesn't prompt for a name
+prompt_new_tab_name = false
+# show detected agent names (claude, codex, ...) on pane borders
+show_agent_labels_on_pane_borders = true
+
+[theme]
+name = "catppuccin"
+
+[session]
+resume_agents_on_restore = true
