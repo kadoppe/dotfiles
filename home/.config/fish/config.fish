@@ -62,7 +62,8 @@ function prj -d "start project"
     set prjflag --query "$argv"
   end
 
-  set PRJ_PATH (ghq root)/(ghq list | fzf $prjflag)
+  # exclude gtr worktree checkouts (<repo>-worktrees/...) from candidates
+  set PRJ_PATH (ghq root)/(ghq list | grep -v -- '-worktrees/' | fzf $prjflag)
   if test -z $PRJ_PATH
     return
   end
@@ -89,6 +90,17 @@ function prj -d "start project"
   if not set -q HERDR_ENV
     herdr
   end
+end
+
+function wtn -d "create a worktree with git gtr and open it as a herdr workspace"
+  if test (count $argv) -eq 0
+    echo "usage: wtn <branch> [git gtr new options...]"
+    return 1
+  end
+
+  git gtr new $argv; or return
+  set WT_PATH (git gtr go $argv[1]); or return
+  herdr worktree open --cwd $PWD --path $WT_PATH > /dev/null
 end
 
 # Added by OrbStack: command-line tools and integration

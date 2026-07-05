@@ -36,6 +36,7 @@ prompt_new_tab_name = false
 # show detected agent names (claude, codex, ...) on pane borders
 show_agent_labels_on_pane_borders = true
 
+agent_panel_sort = "spaces"
 [theme]
 name = "catppuccin"
 

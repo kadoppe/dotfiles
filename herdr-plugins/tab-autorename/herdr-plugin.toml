@@ -1,0 +1,35 @@
+id = "kadoppe.tab-autorename"
+name = "Tab Autorename"
+version = "0.1.0"
+min_herdr_version = "0.7.0"
+description = "Rename tabs to the foreground process of each tab's pane (tmux-nerd-font-window-name style)"
+platforms = ["macos", "linux"]
+
+# tab.renamed is intentionally not hooked: our own renames would loop.
+[[events]]
+on = "pane.created"
+command = ["bash", "rename.sh"]
+
+[[events]]
+on = "pane.closed"
+command = ["bash", "rename.sh"]
+
+[[events]]
+on = "pane.exited"
+command = ["bash", "rename.sh"]
+
+[[events]]
+on = "pane.focused"
+command = ["bash", "rename.sh"]
+
+[[events]]
+on = "tab.focused"
+command = ["bash", "rename.sh"]
+
+[[events]]
+on = "pane.agent_detected"
+command = ["bash", "rename.sh"]
+
+[[events]]
+on = "pane.agent_status_changed"
+command = ["bash", "rename.sh"]
