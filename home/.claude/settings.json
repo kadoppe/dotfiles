@@ -1,91 +1,79 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "model": "opus",
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/stop-send-notification.mjs"
-          },
-          {
-            "type": "command",
-            "command": "~/.tmux/plugins/tmux-claude-status/hooks/better-hook.sh Stop"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.tmux/plugins/tmux-claude-status/hooks/better-hook.sh PreToolUse"
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.tmux/plugins/tmux-claude-status/hooks/better-hook.sh Notification"
-          }
-        ]
-      }
-    ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.py"
-  },
+  "agentPushNotifEnabled": true,
+  "alwaysThinkingEnabled": true,
+  "channelsEnabled": true,
+  "effortLevel": "xhigh",
   "enabledPlugins": {
-    "code-review@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
     "Notion@claude-plugins-official": true,
-    "figma@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "discord@claude-plugins-official": true,
-    "honcho@honcho": true,
+    "code-review@claude-plugins-official": true,
+    "crit@crit": true,
     "datadog@claude-plugins-official": true,
+    "discord@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "honcho@honcho": true,
+    "playwright@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
     "stripe@claude-plugins-official": true,
-    "crit@crit": true
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
-    "obsidian-skills": {
+    "crit": {
       "source": {
-        "source": "github",
-        "repo": "kepano/obsidian-skills"
+        "repo": "tomasz-tomczyk/crit",
+        "source": "github"
       }
     },
     "honcho": {
       "source": {
-        "source": "github",
-        "repo": "plastic-labs/claude-honcho"
+        "repo": "plastic-labs/claude-honcho",
+        "source": "github"
       }
     },
-    "crit": {
+    "obsidian-skills": {
       "source": {
-        "source": "github",
-        "repo": "tomasz-tomczyk/crit"
+        "repo": "kepano/obsidian-skills",
+        "source": "github"
       }
     }
   },
-  "alwaysThinkingEnabled": true,
-  "effortLevel": "xhigh",
-  "tui": "default",
-  "channelsEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
-  "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085701509
-  }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/Users/kadoppe/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "~/.claude/hooks/stop-send-notification.mjs",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ]
+  },
+  "model": "claude-fable-5[1m]",
+  "remoteControlAtStartup": true,
+  "skipDangerousModePermissionPrompt": true,
+  "statusLine": {
+    "command": "~/.claude/statusline.py",
+    "type": "command"
+  },
+  "tui": "default"
 }

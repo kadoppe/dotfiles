@@ -26,6 +26,15 @@ command = ["bash", "rename.sh"]
 on = "tab.focused"
 command = ["bash", "rename.sh"]
 
+# keep the index prefix fresh when tab order changes
+[[events]]
+on = "tab.closed"
+command = ["bash", "rename.sh"]
+
+[[events]]
+on = "tab.moved"
+command = ["bash", "rename.sh"]
+
 [[events]]
 on = "pane.agent_detected"
 command = ["bash", "rename.sh"]

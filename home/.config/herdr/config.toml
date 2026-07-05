@@ -17,6 +17,9 @@ settings = "prefix+shift+s"
 # NOTE: "shift+backslash" never matches the typed "|" character; use the literal char
 split_vertical = "prefix+|"
 split_horizontal = "prefix+minus"
+# tmux: bind L (switch-client -l) — toggle back to the previously focused
+# pane, across workspaces
+last_pane = "prefix+shift+l"
 # j/k moves the workspace selection in the picker (navigate mode);
 # pane focus in navigate mode moves to ctrl+j/k to make room
 navigate_workspace_down = "j"

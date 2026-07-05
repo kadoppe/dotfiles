@@ -38,7 +38,8 @@ label_for_pane() {
     .result.process_info as $pi
     | ([$pi.foreground_processes[]?
         | select(.pid != $pi.shell_pid)
-        | (.argv0 | split("/") | last | sub("^-"; "")) as $cmd
+        | ((.argv0 // .name // "") | split("/") | last | sub("^-"; "")) as $cmd
+        | select($cmd != "")
         | select($cmd != "starship")
         | if ($cmd | IN("node", "python", "python3", "ruby", "bun", "deno", "sh", "bash"))
           then (((.argv // [])[1:] | map(select(startswith("-") | not)) | first
@@ -47,12 +48,15 @@ label_for_pane() {
           end
        ][-1])
       // ([$pi.foreground_processes[]? | select(.pid == $pi.shell_pid)
-           | .argv0 | split("/") | last | sub("^-"; "")][0])
+           | (.argv0 // .name // "") | split("/") | last | sub("^-"; "")][0])
       // empty
   ' <<<"$info"
 }
 
-new_state='{}'
+# Merge into the existing state: a tab whose processing is skipped this run
+# (e.g. process-info briefly failing) must keep its record, or it would look
+# user-named forever after.
+new_state=$(cat "$STATE_FILE")
 while IFS= read -r tab; do
   [ -n "$tab" ] || continue
   tab_id=$(jq -r '.tab_id' <<<"$tab")
@@ -65,6 +69,9 @@ while IFS= read -r tab; do
 
   name=$(label_for_pane "$pane_id") || continue
   [ -n "$name" ] || continue
+
+  # tmux-style "index:name" so prefix+1..9 jumps stay predictable
+  name="$number:$name"
 
   last_auto=$(jq -r --arg t "$tab_id" '.[$t] // empty' "$STATE_FILE")
 
@@ -80,4 +87,6 @@ while IFS= read -r tab; do
   new_state=$(jq -c --arg t "$tab_id" --arg n "$name" '.[$t] = $n' <<<"$new_state")
 done <<<"$tabs"
 
-echo "$new_state" >"$STATE_FILE"
+# drop records of tabs that no longer exist
+tab_ids=$(jq -cn '[inputs.tab_id]' <<<"$tabs")
+jq -c --argjson ids "$tab_ids" 'with_entries(select(.key as $k | $ids | index($k)))' <<<"$new_state" >"$STATE_FILE"
