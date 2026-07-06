@@ -8,7 +8,7 @@ return {
     })
     require('lualine').setup {
       options = {
-        theme = "catppuccin"
+        theme = "catppuccin-frappe"
       }
     }
     require("lspsaga").setup {
