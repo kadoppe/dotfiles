@@ -1,42 +1,45 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
   build = ":TSUpdate",
-  event = "VeryLazy",
+  -- main branch does not support lazy-loading
+  lazy = false,
+  -- Requires the tree-sitter CLI to compile parsers (not needed on master):
+  --   brew install tree-sitter-cli
   config = function()
-    require('nvim-treesitter.configs').setup {
-      highlight = {
-        enable = true,
-        disable = {}
-      },
-      indent = {
-        enable = false,
-        disable = {}
-      },
-      ensure_installed = {
-        "astro",
-        "bash",
-        "css",
-        "fish",
-        "go",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "proto",
-        "python",
-        "terraform",
-        "toml",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-        "prisma",
-        "scss",
-        "solidity",
-        "vue",
-      }
-    }
-  end
+    -- Install parsers (async; no-op if already installed)
+    require("nvim-treesitter").install({
+      "astro",
+      "bash",
+      "css",
+      "fish",
+      "go",
+      "html",
+      "javascript",
+      "json",
+      "lua",
+      "markdown",
+      "markdown_inline",
+      "proto",
+      "python",
+      "terraform",
+      "toml",
+      "tsx",
+      "typescript",
+      "vim",
+      "yaml",
+      "prisma",
+      "scss",
+      "solidity",
+      "vue",
+    })
+
+    -- On main, highlighting is native Neovim (vim.treesitter.start), not a module.
+    -- Enable it on FileType; pcall no-ops for filetypes without an installed parser.
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
+    })
+  end,
 }
