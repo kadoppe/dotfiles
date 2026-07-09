@@ -1,9 +1,35 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "agentPushNotifEnabled": true,
-  "alwaysThinkingEnabled": true,
-  "channelsEnabled": true,
-  "effortLevel": "xhigh",
+  "model": "opus[1m]",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/kadoppe/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/stop-send-notification.mjs"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.py"
+  },
   "enabledPlugins": {
     "Notion@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
@@ -23,57 +49,31 @@
   "extraKnownMarketplaces": {
     "crit": {
       "source": {
-        "repo": "tomasz-tomczyk/crit",
-        "source": "github"
+        "source": "github",
+        "repo": "tomasz-tomczyk/crit"
       }
     },
     "honcho": {
       "source": {
-        "repo": "plastic-labs/claude-honcho",
-        "source": "github"
+        "source": "github",
+        "repo": "plastic-labs/claude-honcho"
       }
     },
     "obsidian-skills": {
       "source": {
-        "repo": "kepano/obsidian-skills",
-        "source": "github"
+        "source": "github",
+        "repo": "kepano/obsidian-skills"
       }
     }
   },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "xhigh",
+  "tui": "default",
+  "channelsEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085701509
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "bash '/Users/kadoppe/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "*"
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "command": "~/.claude/hooks/stop-send-notification.mjs",
-            "type": "command"
-          }
-        ],
-        "matcher": ""
-      }
-    ]
-  },
-  "model": "claude-fable-5[1m]",
-  "remoteControlAtStartup": true,
-  "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "command": "~/.claude/statusline.py",
-    "type": "command"
-  },
-  "tui": "default"
+  }
 }
