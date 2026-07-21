@@ -27,6 +27,22 @@ navigate_workspace_up = "k"
 navigate_pane_down = "ctrl+j"
 navigate_pane_up = "ctrl+k"
 
+[[keys.command]]
+key = "prefix+ctrl+h"
+type = "popup"
+command = "hunk diff"
+description = "run hunk diff"
+width = "90%"
+height = "90%"
+
+[[keys.command]]
+key = "prefix+ctrl+g"
+type = "popup"
+command = "lazygit"
+description = "run lazygit"
+width = "90%"
+height = "90%"
+
 [terminal]
 # panes inherit $SHELL from the server process, which may not be fish
 default_shell = "/opt/homebrew/bin/fish"
