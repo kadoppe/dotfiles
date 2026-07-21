@@ -1,6 +1,6 @@
 theme = "catppuccin-frappe.conf"
 
-font-size = 14
+font-size = 13
 font-family = "Iosevka Nerd Font"
 
 font-thicken = true
