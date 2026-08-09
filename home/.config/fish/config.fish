@@ -211,8 +211,26 @@ function prv -d "pick a review-requested PR, create a worktree, and start a revi
     return 1
   end
 
-  if not herdr agent start $WT_NAME --kind claude --pane $PANE_ID > /dev/null
-    echo "prv: ペイン $PANE_ID で Claude を起動できませんでした" >&2
+  # herdr の「利用可能なシェル」判定は上のプロセスグループ判定より厳しい。作りたての
+  # ワークスペースでは fish が config.fish を読んでいる間もフォアグラウンドのプロセス
+  # グループはシェル自身なので、上を通っても agent start が agent_pane_busy で弾かれる。
+  # PaneInfo に準備完了を示すフィールドが無いため、プロンプトに到達するまで粘る
+  set STARTED 0
+  set START_OUT ""
+  for i in (seq 25)
+    set START_OUT (herdr agent start $WT_NAME --kind claude --pane $PANE_ID 2>&1)
+    if test $status -eq 0
+      set STARTED 1
+      break
+    end
+    # プロンプト待ち以外のエラーは粘っても変わらない
+    if not string match -q '*agent_pane_busy*' -- "$START_OUT"
+      break
+    end
+    sleep 0.4
+  end
+  if test $STARTED -ne 1
+    echo "prv: ペイン $PANE_ID で Claude を起動できませんでした: $START_OUT" >&2
     return 1
   end
   if not herdr agent prompt $WT_NAME "/review-pr $PR_NUM" > /dev/null
