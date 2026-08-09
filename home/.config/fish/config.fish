@@ -176,10 +176,16 @@ function prv -d "pick a review-requested PR, create a worktree, and start a revi
 
   __ensure_herdr_server; or return
 
-  set OPEN_JSON (herdr worktree open --cwd $PWD --path $WT_PATH --label $WT_NAME --focus); or return
+  set OPEN_JSON (herdr worktree open --cwd $PWD --path $WT_PATH --label $WT_NAME --focus)
+  if test $status -ne 0
+    echo "prv: herdr ワークスペース $WT_NAME を開けませんでした" >&2
+    return 1
+  end
   set WS_ID (echo $OPEN_JSON | jq -r '.result.workspace.workspace_id')
   set TAB_ID (echo $OPEN_JSON | jq -r '.result.workspace.active_tab_id')
 
+  # NOTE: ワークスペース単位の判定なので、レビュー用ワークスペースで別のエージェントを
+  # 動かしていると、それを「レビューエージェント」とみなしてしまう
   set EXISTING_PANE (herdr agent list | jq -r --arg ws $WS_ID '.result.agents[] | select(.workspace_id == $ws) | .pane_id' | head -1)
   if test -n "$EXISTING_PANE"
     herdr agent focus $EXISTING_PANE > /dev/null
@@ -187,10 +193,32 @@ function prv -d "pick a review-requested PR, create a worktree, and start a revi
     return 0
   end
 
-  set PANE_ID (herdr pane list --workspace $WS_ID | jq -r --arg t $TAB_ID '.result.panes[] | select(.tab_id == $t and .agent == null) | .pane_id' | head -1)
+  # herdr agent start の前提は「ペインが対話シェルのプロンプトにいること」であって
+  # 「エージェントが検出されていないこと」ではない。nvim などが動いているペインを選ぶと
+  # 30 秒待たされた末に失敗するので、フォアグラウンドのプロセスグループがシェル自身か
+  # どうかで判定する。アクティブなタブのペインを優先する
+  set PANE_ID ""
+  for CAND in (herdr pane list --workspace $WS_ID | jq -r --arg t "$TAB_ID" '[.result.panes[] | select(.agent == null)] | sort_by(.tab_id != $t) | .[].pane_id')
+    set PROC_INFO (herdr pane process-info --pane $CAND 2>/dev/null); or continue
+    set IS_IDLE (echo $PROC_INFO | jq -r '.result.process_info | if .foreground_process_group_id == .shell_pid then "yes" else "no" end')
+    if test "$IS_IDLE" = yes
+      set PANE_ID $CAND
+      break
+    end
+  end
+  if test -z "$PANE_ID"
+    echo "prv: $WT_NAME に空いているシェルのペインがありません（実行中のコマンドを終えるか、ペインを分割してください）" >&2
+    return 1
+  end
 
-  herdr agent start $WT_NAME --kind claude --pane $PANE_ID > /dev/null; or return
-  herdr agent prompt $WT_NAME "/review-pr $PR_NUM" > /dev/null
+  if not herdr agent start $WT_NAME --kind claude --pane $PANE_ID > /dev/null
+    echo "prv: ペイン $PANE_ID で Claude を起動できませんでした" >&2
+    return 1
+  end
+  if not herdr agent prompt $WT_NAME "/review-pr $PR_NUM" > /dev/null
+    echo "prv: /review-pr $PR_NUM の投入に失敗しました（エージェントに手で入力してください）" >&2
+    return 1
+  end
 end
 
 # Added by OrbStack: command-line tools and integration
