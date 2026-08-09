@@ -23,6 +23,12 @@ PR $ARGUMENTS の一次レビューを行い、crit で最終レビューでき�
 2. **mento のチェックアウトであること** — origin の URL が `ugokuinc/mento` を指していること。
 3. **この PR のブランチにいること** — Current branch が「PR の head ブランチ」と一致していること。
 
+Context の「PR の head ブランチ」が空・エラー・あるいは `$ARGUMENTS` の文字列がそのまま残っている場合は、埋め込みの展開に失敗している。その場合は自分で次を実行し、その結果と比較すること（Context の値をそのまま信じて誤って中断しないこと）。
+
+```bash
+gh pr view $ARGUMENTS --json headRefName -q .headRefName
+```
+
 条件を満たさない場合は、**見つかった値と期待した値の両方を挙げて**中断する。例:
 
 > `/review-pr 4269` は mento の PR 4269 のブランチをチェックアウトした作業ツリーで実行してください。
@@ -77,7 +83,9 @@ crit comment --json --file <一時ファイルパス> --author 'Claude Code'
    crit story --guide
    ```
 
-   解決済みの authoring guide と、出力すべき JSON のスキーマが `---` 区切りで出る。これが唯一の正で、本コマンドの記述より優先する。
+   解決済みの authoring guide と、出力すべき JSON のスキーマが `---` 区切りで出る。**JSON の構造と書き方の方針についてはこのガイドが唯一の正**で、本コマンドの記述より優先する。
+
+   ただし **CLI の叩き方はここに書いてあるとおりにすること**。ガイドやスキルの例に `--pr` や `--refresh` の付かない `crit story` が出てきても、それに合わせてはならない（review file がずれてコメントが孤立する）。
 
 2. **prep ファイルを書き出して読む**
 
