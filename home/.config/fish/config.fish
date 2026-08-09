@@ -12,6 +12,29 @@ alias cc='claude --dangerously-skip-permissions'
 alias co='codex --dangerously-bypass-approvals-and-sandbox'
 alias gtr='git gtr'
 
+# Herdr restores native sessions with canonical command names. Apply the same
+# permission settings as cc/co only to those automatically resumed sessions.
+function claude --wraps=claude --description 'run Claude Code with Herdr resume defaults'
+  if set -q HERDR_ENV; \
+      and contains -- --resume $argv; \
+      and not contains -- --dangerously-skip-permissions $argv
+    command claude --dangerously-skip-permissions $argv
+  else
+    command claude $argv
+  end
+end
+
+function codex --wraps=codex --description 'run Codex with Herdr resume defaults'
+  if set -q HERDR_ENV; \
+      and test (count $argv) -gt 0; \
+      and test "$argv[1]" = resume; \
+      and not contains -- --dangerously-bypass-approvals-and-sandbox $argv
+    command codex --dangerously-bypass-approvals-and-sandbox $argv
+  else
+    command codex $argv
+  end
+end
+
 set -gx EDITOR 'nvim'
 
 # path
