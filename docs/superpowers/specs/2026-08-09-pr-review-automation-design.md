@@ -189,6 +189,23 @@ review file は `~/.crit/reviews/495449ca40c8/review.json` に書かれ、続け
 
 検証で作った `review-4269` worktree が残っている。実装時のテスト対象として使うか、`git gtr rm review-4269` で削除する。
 
+## 通し実行の結果（2026-08-09）
+
+`prv` から `/pr-code-review-with-crit` までを実際に通した結果、**crit のブラウザに story と一次レビューのコメントの両方が表示された。**
+「story スタブ先行」の順序が本番でも成立することを確認できた。この順序を外すとコメントが孤立して
+機能そのものが無意味になるため、ここが本設計で唯一の必須確認だった。
+
+通す過程で 2 件を修正している。
+
+- `prv` が `agent_pane_busy` で Claude を起動できなかった。作りたてのワークスペースのペインは
+  fish が `config.fish` を読んでいる間もプロセスグループ判定を通ってしまうため。`agent start` を
+  リトライする形にした（詳細は `prv` のコメント）。
+- エージェントを `--dangerously-skip-permissions` 付きで起動するようにした。`pr-code-review` は
+  サブエージェントを多数 dispatch するため、素の `claude` だと承認プロンプトで止まる。
+
+未確認: `crit push <番号>` による GitHub への反映と、`crit story --refresh` の 422 が
+「エラーは出るがファイルは書かれる」で済むかの再現性（実測は 1 回のみ）。
+
 ## テスト方針
 
 自動テストは書かない。fish 関数と CLI の結線が主体で、実行して確かめるほうが速く確実なため。
