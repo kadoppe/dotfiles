@@ -11,15 +11,21 @@ description: レビュー依頼された PR の一次レビューを実行し、
 - origin の URL: !`git remote get-url origin`
 - PR の head ブランチ: !`gh pr view $ARGUMENTS --json headRefName -q .headRefName`
 
+> **このファイルは 2 箇所に同じ内容で置かれている。**
+> dotfiles の `home/.claude/commands/pr-code-review-with-crit.md`（ユーザーレベル）と、
+> mento の `.claude/commands/pr-code-review-with-crit.md`（チーム共有）。
+> `prv` の worktree は PR の head ブランチをチェックアウトするため、リポジトリ側だけに置くと
+> マージ前に切られた PR からは見えない。片方を直したらもう片方も直すこと。
+
 ## Your task
 
 PR $ARGUMENTS の一次レビューを行い、crit で最終レビューできる状態にする。以下の手順に従うこと。
 
 ### ステップ0: 実行場所の確認
 
-このコマンドはユーザーレベル（`~/.claude/commands/`）に置かれているため、どのリポジトリからでも起動できてしまう。後続の手順は「mento の、この PR のブランチをチェックアウトした作業ツリーの中にいること」を前提とするので、先に上記 Context の内容だけで次を確認する。
+ユーザーレベルに置かれた方はどのリポジトリからでも起動できてしまう。後続の手順は「mento の、この PR のブランチをチェックアウトした作業ツリーの中にいること」を前提とするので、先に上記 Context の内容だけで次を確認する。
 
-1. **PR 番号が渡されていること** — `$ARGUMENTS` が空なら、`/review-pr <PR番号>` の形で呼び直すよう伝えて中断する。
+1. **PR 番号が渡されていること** — `$ARGUMENTS` が空なら、`/pr-code-review-with-crit <PR番号>` の形で呼び直すよう伝えて中断する。
 2. **mento のチェックアウトであること** — origin の URL が `ugokuinc/mento` を指していること。
 3. **この PR のブランチにいること** — Current branch が「PR の head ブランチ」と一致していること。
 
@@ -31,7 +37,7 @@ gh pr view $ARGUMENTS --json headRefName -q .headRefName
 
 条件を満たさない場合は、**見つかった値と期待した値の両方を挙げて**中断する。例:
 
-> `/review-pr 4269` は mento の PR 4269 のブランチをチェックアウトした作業ツリーで実行してください。
+> `/pr-code-review-with-crit 4269` は mento の PR 4269 のブランチをチェックアウトした作業ツリーで実行してください。
 > 現在地: `/Users/kadoppe/Sources/github.com/ugokuinc/dotfiles`（ブランチ `master`）
 > 期待: origin が `ugokuinc/mento` で、ブランチが `KentaYoshitani/list-in-app-recording-owners`
 > `prv 4269` を実行すると、この worktree が用意されます。

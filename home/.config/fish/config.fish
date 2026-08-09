@@ -233,8 +233,8 @@ function prv -d "pick a review-requested PR, create a worktree, and start a revi
     echo "prv: ペイン $PANE_ID で Claude を起動できませんでした: $START_OUT" >&2
     return 1
   end
-  if not herdr agent prompt $WT_NAME "/review-pr $PR_NUM" > /dev/null
-    echo "prv: /review-pr $PR_NUM の投入に失敗しました（エージェントに手で入力してください）" >&2
+  if not herdr agent prompt $WT_NAME "/pr-code-review-with-crit $PR_NUM" > /dev/null
+    echo "prv: /pr-code-review-with-crit $PR_NUM の投入に失敗しました（エージェントに手で入力してください）" >&2
     return 1
   end
 end
