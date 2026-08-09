@@ -23,7 +23,7 @@
 | ファイル | 責務 |
 |---|---|
 | `home/.config/fish/config.fish`（dotfiles・変更） | `__ensure_herdr_server` ヘルパー、`prj` のリファクタ、`prv` の追加 |
-| `.claude/commands/review-pr.md`（mento・新規） | worktree 内で一次レビュー → crit 登録 → story 生成をオーケストレートする |
+| `home/.claude/commands/review-pr.md`（dotfiles・新規） | worktree 内で一次レビュー → crit 登録 → story 生成をオーケストレートする。**当初は mento リポジトリに置く計画だったが、`prv` の worktree は PR の head ブランチをチェックアウトするためリポジトリ管理下のコマンドは見えない。ユーザーレベル（`~/.claude` は dotfiles の `home/.claude` への symlink）に移した。** |
 | `docs/superpowers/specs/2026-08-09-pr-review-automation-design.md`（dotfiles・変更） | Task 3 で実測した crit の review file 解決順序を追記する |
 
 ---
@@ -227,7 +227,7 @@ git worktree list | grep -c review-4269
 
 Expected: `prv: 既存の worktree review-4269 を開きます` が出て、`git worktree list` の該当行は `1` 件のまま。herdr でワークスペースが focus され、Claude が起動して `/review-pr 4269` が入力されること。
 
-**この時点では `/review-pr` はまだ存在しないので、Claude 側はコマンドが見つからない旨を返す。それが正しい状態。**
+**`/review-pr` は `home/.claude/commands/review-pr.md`（ユーザーレベル）にあるので、Task 4 まで進んでいれば Claude 側で認識される。**「コマンドが見つからない」と返ってきたら、それは想定内の状態ではなく本当の失敗なので、コマンドファイルの配置と frontmatter を確認すること。Task 4 より前にこの Step を実行している場合に限り、コマンド未作成による not found が正しい状態。
 
 - [ ] **Step 7: 新規 worktree の作成を確認する**
 
@@ -329,7 +329,7 @@ git commit -m "docs: record measured crit review file resolution order"
 ### Task 4: `/review-pr` スラッシュコマンドの追加
 
 **Files:**
-- Create: `/Users/kadoppe/Sources/github.com/ugokuinc/mento/.claude/commands/review-pr.md`
+- Create: `/Users/kadoppe/.homesick/repos/dotfiles/home/.claude/commands/review-pr.md`（= `~/.claude/commands/review-pr.md`）
 
 **Interfaces:**
 - Consumes: Task 3 で決めた crit の手順の並び。`prv`（Task 2）が `/review-pr <PR番号>` の形で起動する。
@@ -343,7 +343,9 @@ Expected: frontmatter に `allowed-tools` と `description`、本文に `## Cont
 
 - [ ] **Step 2: `review-pr.md` を作成する**
 
-以下の内容で作成する。**ステップ 3 の crit の手順は Task 3 の実測結果に置き換えること。** 下記は「コメント先行」を採用した場合の版。
+`home/.claude/commands/review-pr.md` に以下の内容で作成する。**ステップ 3 の crit の手順は Task 3 の実測結果に置き換えること。** 下記は「コメント先行」を採用した場合の版。
+
+なお実装済みの最終版は下書きから 2 点変わっている。(1) 冒頭の実行場所チェックは、ディレクトリ名ではなく origin が `ugokuinc/mento` であることとカレントブランチが PR の head ブランチであることで判定する（ユーザーレベルに置いたのでどのリポジトリからでも起動できてしまうため）。(2) story 生成は `crit:crit-story` スキルに委譲せず、`crit story --guide` / `--prep` / `--story-file --refresh` を手順として直接書き下す（スキルの手順は `--pr` と `--refresh` を落とすため）。
 
 ````markdown
 ---
@@ -413,9 +415,12 @@ claude --dangerously-skip-permissions
 起動した Claude に `/review-pr 4269` と入力する。
 
 Expected:
+- `/review-pr` がユーザーレベルのコマンドとして認識される（`review-4269` のブランチは PR 4269 の head ブランチなので、冒頭の実行場所チェックを通る）
 - `pr-code-review` スキルが走り、レビュー結果が出る
 - `crit comment --json --file ...` が成功する
 - crit のブラウザが開き、**story と一次レビューのコメントの両方が表示される**
+
+**「コマンドが見つからない」と返る場合は配置の問題。** `ls ~/.claude/commands/review-pr.md` で存在を確認する（`~/.claude` は dotfiles の `home/.claude` への symlink なので、homesick の貼り直しは不要）。
 
 **コメントが story 側に出てこない場合は Task 3 の結論が誤っている。** Task 3 に戻って順序を測り直し、このコマンドの手順を修正すること。
 
@@ -428,7 +433,7 @@ git gtr rm review-4269
 fish -c 'source ~/.homesick/repos/dotfiles/home/.config/fish/config.fish; prv 4269'
 ```
 
-Expected: worktree が新規作成され、herdr ワークスペースが開き、Claude が起動して `/review-pr 4269` が自動で投入され、Step 3 と同じ結果になる。
+Expected: worktree が新規作成され、herdr ワークスペースが開き、Claude が起動して `/review-pr 4269` が自動で投入され、Step 3 と同じ結果になる。ここでもコマンドが認識されること（Task 2 Step 6 の注記のとおり、not found は失敗であって想定内の状態ではない）。
 
 - [ ] **Step 5: `crit push` を確認する**
 
@@ -450,15 +455,14 @@ cd /Users/kadoppe/.homesick/repos/dotfiles
 fish -c 'source home/.config/fish/config.fish; prv'
 ```
 
-Expected: dotfiles のレビュー依頼 PR が候補に出る（0 件なら `prv: レビュー依頼はありません`）。`/review-pr` は mento にしか無いため、worktree を開いた時点で止まる。これは設計どおりの挙動。
+Expected: dotfiles のレビュー依頼 PR が候補に出る（0 件なら `prv: レビュー依頼はありません`）。`/review-pr` 自体はユーザーレベルなので起動はするが、冒頭の実行場所チェック（origin が `ugokuinc/mento` でない）に引っかかって中断する。これは設計どおりの挙動。
 
-- [ ] **Step 7: mento 側をコミット**
+- [ ] **Step 7: コミット**
 
 ```bash
-cd /Users/kadoppe/Sources/github.com/ugokuinc/mento
-git checkout -b feat/review-pr-command
-git add .claude/commands/review-pr.md
-git commit -m "feat(claude): add /review-pr command for PR review automation"
+cd /Users/kadoppe/.homesick/repos/dotfiles
+git add home/.claude/commands/review-pr.md
+git commit -m "feat(claude): add /review-pr as a user-level command"
 ```
 
-**mento は dotfiles とは別リポジトリ。`master` / `develop` に直接コミットせず、ブランチを切ること。** PR 化するかはユーザーに確認する。
+**mento リポジトリには何もコミットしない。** コマンドは dotfiles の `home/.claude/commands/` に置く（当初計画の `feat/review-pr-command` ブランチは破棄済み）。
