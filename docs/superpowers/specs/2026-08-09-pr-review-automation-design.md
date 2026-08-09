@@ -119,7 +119,15 @@ worktree の中で実行される前提。`/pr-code-review` が `backend/mento-b
 2. `crit comment --json --file <tmp>` でコメントを載せる
 3. `crit story --refresh` で story 本体を生成する
 
-どちらの順序になるかは実装時に実測して決める。**推測で片方に決め打ちしない。**
+**実測結果（2026-08-09、`review-4269` worktree で検証）**: `crit comment` を先に実行すると
+review file は `~/.crit/reviews/495449ca40c8/review.json` に書かれ、続けて
+`crit story --pr 4269 --skip-llm --no-open` を実行すると別の review file
+（`~/.crit/reviews/9a7fae97b015/review.json`）が新規に作られた。`crit status --json` の
+`review_file` がステップ間で変わり、`crit comments --all` はコメント 0 件（先行コメントは
+別ファイルに孤立）。逆に story を先に作った後で `crit comment` を打つと同じ review file に
+書き込まれ、`crit story --refresh` を挟んでもコメントは保持された。よって採用順序は
+**「story スタブ先行」**（`crit story --skip-llm --no-open` → `crit comment` →
+`crit story --refresh`）に決定する。
 
 ## 検証済みの前提
 
