@@ -1,4 +1,4 @@
-# PR レビュー自動化 (`prv` + `/review-pr`) 設計
+# PR レビュー自動化 (`prv` + `/pr-code-review-with-crit`) 設計
 
 ## 背景と目的
 
@@ -20,7 +20,7 @@ story を読んで良し悪しを決める工程は人間の仕事なので、�
 対象:
 
 - dotfiles に fish 関数 `prv` を追加する
-- dotfiles にユーザーレベルのスラッシュコマンド `/review-pr` を追加する（`home/.claude/commands/`）
+- スラッシュコマンド `/pr-code-review-with-crit` を、dotfiles のユーザーレベル（`home/.claude/commands/`）と mento（`.claude/commands/`）の両方に追加する
 
 対象外:
 
@@ -35,10 +35,10 @@ prv                              ← fish 関数 (dotfiles)
  ├─ gh pr list --search "review-requested:@me" → fzf で選択
  ├─ git gtr new <headRef> --track remote --folder review-<num> --yes
  ├─ herdr worktree open --path <WT> --label review-<num> --focus
- └─ herdr agent start → herdr agent prompt "/review-pr <num>"
+ └─ herdr agent start → herdr agent prompt "/pr-code-review-with-crit <num>"
                                     │
                                     ▼
-/review-pr <num>                 ← スラッシュコマンド (dotfiles / ユーザーレベル)
+/pr-code-review-with-crit <num>                 ← スラッシュコマンド (dotfiles / ユーザーレベル)
  ├─ /pr-code-review <num>                       ← 既存スキル、無改変
  ├─ crit story --pr <num> --skip-llm --no-open  ← story スタブを先に作り review file を確定
  ├─ crit comment --json --file <tmp>            ← 指摘を同じ review file に一括登録
@@ -71,7 +71,7 @@ prv [query]
    `git gtr new <headRefName> --track remote --folder review-<番号> --yes` で作る。
 3. **herdr ワークスペース** — `herdr worktree open --cwd $PWD --path <WT_PATH> --label review-<番号> --focus`
 4. **エージェント起動** — `herdr agent start` でペインに Claude を起動し、
-   `herdr agent prompt "/review-pr <番号>"` を投げる。
+   `herdr agent prompt "/pr-code-review-with-crit <番号>"` を投げる。
 
 ### 冪等性
 
@@ -87,11 +87,19 @@ prv [query]
 - herdr サーバが起動していない場合は `prj` と同じ起動待ちロジックを使う。
   この処理は `prj` と `prv` で重複するので `__ensure_herdr_server` に切り出す。
 
-## コンポーネント 2: `/review-pr` (スラッシュコマンド)
+## コンポーネント 2: `/pr-code-review-with-crit` (スラッシュコマンド)
 
-配置: `home/.claude/commands/review-pr.md`（`~/.claude` は dotfiles の `home/.claude` への symlink なので、ユーザーレベルのスラッシュコマンドとして全リポジトリで使える）
+配置: **同じ内容を 2 箇所に置く。**
 
-**mento リポジトリに置いてはいけない。** `prv` が作る worktree は PR の head ブランチをチェックアウトするため、リポジトリ管理下のコマンドファイルはその worktree からは見えない。`develop` にマージしても、それ以前に切られた既存の PR ブランチ（=現在開いている PR のすべて）には反映されないので、この問題は解消しない。
+1. `home/.claude/commands/pr-code-review-with-crit.md`（dotfiles・ユーザーレベル）
+   `~/.claude` は dotfiles の `home/.claude` への symlink なので、全リポジトリ・全 worktree から見える。
+2. `<mento>/.claude/commands/pr-code-review-with-crit.md`（mento・チーム共有）
+
+**mento だけに置くことはできない。** `prv` が作る worktree は PR の head ブランチをチェックアウトするため、リポジトリ管理下のコマンドファイルはその worktree からは見えない。`develop` にマージしても、それ以前に切られた既存の PR ブランチ（=現在開いている PR のすべて）には反映されないので、この問題は解消しない。ユーザーレベルの方が、今開いている PR に対する唯一の供給経路になる。
+
+**dotfiles だけに置くのも選ばなかった。** チームで使えるようにするため mento にも入れる。将来 `develop` から切られた PR では、リポジトリ側のコピーが自然に使われる。
+
+二重管理になるので、**片方を直したらもう片方も直すこと**。コマンドファイル自身の冒頭にもその注意書きを入れてある。
 
 worktree の中で実行される前提であることは変わらない。`/pr-code-review` が `backend/mento-backend/CLAUDE.md` などリポジトリ相対のガイドラインを読むため、cwd が mento のチェックアウト内であることが必須条件になる。ユーザーレベルに置くとどのリポジトリからでも起動できてしまうので、コマンド側の先頭で次を検査して弾く。
 
@@ -180,18 +188,21 @@ review file は `~/.crit/reviews/495449ca40c8/review.json` に書かれ、続け
 
 代わりに以下を手動で確認する。
 
-1. `prv` で PR を選び、worktree が `review-<番号>` で作られ、herdr ワークスペースが開き、Claude に `/review-pr <番号>` が渡ること
+1. `prv` で PR を選び、worktree が `review-<番号>` で作られ、herdr ワークスペースが開き、Claude に `/pr-code-review-with-crit <番号>` が渡ること
 2. 同じ PR に対して `prv` を再実行し、worktree が二重に作られないこと
-3. `/review-pr` が最後まで走り、crit のブラウザに **story と一次レビューのコメントの両方**が出ること
+3. `/pr-code-review-with-crit` が最後まで走り、crit のブラウザに **story と一次レビューのコメントの両方**が出ること
 4. ブラウザで足したコメントが `crit push <番号>` で GitHub PR に載ること
 5. mento 以外のリポジトリで `prv` を実行し、そのリポジトリの PR が候補に出ること
 
 ## 判断の記録
 
 - **`prv` を mento 専用にするか汎用にするか** → 汎用にする。`gh` が cwd からリポジトリを解決するので追加コストがない。
-  ただし `/review-pr` は mento 専用（origin と PR の head ブランチを検査して弾く）なので、
+  ただし `/pr-code-review-with-crit` は mento 専用（origin と PR の head ブランチを検査して弾く）なので、
   他リポジトリでは worktree を開いてコマンドを投入した時点で、コマンド側の検査に引っかかって止まる。これは許容する。
-- **`/review-pr` をどこに置くか** → mento ではなく dotfiles のユーザーレベル（`home/.claude/commands/`）。
-  `prv` の worktree は PR の head ブランチをチェックアウトするので、リポジトリ管理下に置くと
-  既存のどの PR からも見えない。詳細はコンポーネント 2 の配置を参照。
+- **`/pr-code-review-with-crit` をどこに置くか** → dotfiles のユーザーレベルと mento の両方。
+  `prv` の worktree は PR の head ブランチをチェックアウトするので、mento だけに置くと
+  既存のどの PR からも見えない。一方でチーム共有もしたいので mento にも入れる。
+  二重管理は許容する。詳細はコンポーネント 2 の配置を参照。
+- **コマンド名** → `pr-code-review-with-crit`。mento の既存スキル `pr-code-review` と紛れず、
+  crit を使う点が名前に出る。当初は `/review-pr` だった。
 - **Draft PR を候補に含めるか** → 含める。fzf の一覧に `[Draft]` を出して判断は人間に任せる。
