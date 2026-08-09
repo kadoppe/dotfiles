@@ -218,7 +218,7 @@ function prv -d "pick a review-requested PR, create a worktree, and start a revi
   set STARTED 0
   set START_OUT ""
   for i in (seq 25)
-    set START_OUT (herdr agent start $WT_NAME --kind claude --pane $PANE_ID 2>&1)
+    set START_OUT (herdr agent start $WT_NAME --kind claude --pane $PANE_ID -- --dangerously-skip-permissions 2>&1)
     if test $status -eq 0
       set STARTED 1
       break
