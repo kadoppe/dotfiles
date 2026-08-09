@@ -138,6 +138,52 @@ function wtn -d "create a worktree with git gtr and open it as a herdr workspace
   herdr worktree open --cwd $PWD --path $WT_PATH > /dev/null
 end
 
+function prv -d "pick a review-requested PR, create a worktree, and start a review agent"
+  if test (count $argv) -gt 0
+    set prvflag --query "$argv"
+  end
+
+  set PR_JSON (gh pr list --search "review-requested:@me" --json number,title,author,headRefName,isDraft --limit 50)
+  if test $status -ne 0
+    echo "prv: gh pr list に失敗しました（git リポジトリの中で実行していますか？）" >&2
+    return 1
+  end
+
+  set PR_LINES (echo $PR_JSON | jq -r '.[] | "\(.number)\t\(if .isDraft then "[Draft] " else "" end)\(.title) (@\(.author.login))"')
+  if test -z "$PR_LINES"
+    echo "prv: レビュー依頼はありません"
+    return 0
+  end
+
+  set SELECTED (printf '%s\n' $PR_LINES | fzf --delimiter \t --with-nth 2.. $prvflag)
+  if test -z "$SELECTED"
+    return 0
+  end
+
+  set PR_NUM (string split -f1 \t $SELECTED)
+  set HEAD_REF (echo $PR_JSON | jq -r --argjson n $PR_NUM '.[] | select(.number == $n) | .headRefName')
+  set WT_NAME review-$PR_NUM
+
+  set WT_PATH (git gtr go $WT_NAME 2>/dev/null)
+  if test -z "$WT_PATH"
+    echo "prv: worktree $WT_NAME を作成します ($HEAD_REF)"
+    git gtr new $HEAD_REF --track remote --folder $WT_NAME --yes; or return
+    set WT_PATH (git gtr go $WT_NAME); or return
+  else
+    echo "prv: 既存の worktree $WT_NAME を開きます"
+  end
+
+  __ensure_herdr_server; or return
+
+  set OPEN_JSON (herdr worktree open --cwd $PWD --path $WT_PATH --label $WT_NAME --focus); or return
+  set WS_ID (echo $OPEN_JSON | jq -r '.result.workspace.workspace_id')
+  set TAB_ID (echo $OPEN_JSON | jq -r '.result.workspace.active_tab_id')
+  set PANE_ID (herdr pane list --workspace $WS_ID | jq -r --arg t $TAB_ID '.result.panes[] | select(.tab_id == $t) | .pane_id' | head -1)
+
+  herdr agent start $WT_NAME --kind claude --pane $PANE_ID > /dev/null; or return
+  herdr agent prompt $WT_NAME "/review-pr $PR_NUM" > /dev/null
+end
+
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
