@@ -178,7 +178,15 @@ function prv -d "pick a review-requested PR, create a worktree, and start a revi
   set OPEN_JSON (herdr worktree open --cwd $PWD --path $WT_PATH --label $WT_NAME --focus); or return
   set WS_ID (echo $OPEN_JSON | jq -r '.result.workspace.workspace_id')
   set TAB_ID (echo $OPEN_JSON | jq -r '.result.workspace.active_tab_id')
-  set PANE_ID (herdr pane list --workspace $WS_ID | jq -r --arg t $TAB_ID '.result.panes[] | select(.tab_id == $t) | .pane_id' | head -1)
+
+  set EXISTING_PANE (herdr agent list | jq -r --arg ws $WS_ID '.result.agents[] | select(.workspace_id == $ws) | .pane_id' | head -1)
+  if test -n "$EXISTING_PANE"
+    herdr agent focus $EXISTING_PANE > /dev/null
+    echo "prv: レビューエージェントは既に起動しています"
+    return 0
+  end
+
+  set PANE_ID (herdr pane list --workspace $WS_ID | jq -r --arg t $TAB_ID '.result.panes[] | select(.tab_id == $t and .agent == null) | .pane_id' | head -1)
 
   herdr agent start $WT_NAME --kind claude --pane $PANE_ID > /dev/null; or return
   herdr agent prompt $WT_NAME "/review-pr $PR_NUM" > /dev/null
