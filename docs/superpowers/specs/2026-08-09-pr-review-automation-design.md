@@ -20,7 +20,7 @@ story を読んで良し悪しを決める工程は人間の仕事なので、�
 対象:
 
 - dotfiles に fish 関数 `prv` を追加する
-- mento リポジトリにスラッシュコマンド `/review-pr` を追加する
+- dotfiles にユーザーレベルのスラッシュコマンド `/review-pr` を追加する（`home/.claude/commands/`）
 
 対象外:
 
@@ -38,11 +38,12 @@ prv                              ← fish 関数 (dotfiles)
  └─ herdr agent start → herdr agent prompt "/review-pr <num>"
                                     │
                                     ▼
-/review-pr <num>                 ← スラッシュコマンド (mento)
+/review-pr <num>                 ← スラッシュコマンド (dotfiles / ユーザーレベル)
  ├─ /pr-code-review <num>                       ← 既存スキル、無改変
  ├─ crit story --pr <num> --skip-llm --no-open  ← story スタブを先に作り review file を確定
  ├─ crit comment --json --file <tmp>            ← 指摘を同じ review file に一括登録
- └─ /crit-story --refresh                       ← story 本体を生成・ingest、ブラウザが開く
+ └─ crit story --pr <num> --story-file <tmp> --refresh
+                                                ← story 本体を生成・ingest、ブラウザが開く
                                     │
                                     ▼
                        人間が最終レビュー → crit push <num>
@@ -88,9 +89,16 @@ prv [query]
 
 ## コンポーネント 2: `/review-pr` (スラッシュコマンド)
 
-配置: `<mento>/.claude/commands/review-pr.md`
+配置: `home/.claude/commands/review-pr.md`（`~/.claude` は dotfiles の `home/.claude` への symlink なので、ユーザーレベルのスラッシュコマンドとして全リポジトリで使える）
 
-worktree の中で実行される前提。`/pr-code-review` が `backend/mento-backend/CLAUDE.md` などリポジトリ相対のガイドラインを読むため、cwd が worktree 内であることが必須条件になる。
+**mento リポジトリに置いてはいけない。** `prv` が作る worktree は PR の head ブランチをチェックアウトするため、リポジトリ管理下のコマンドファイルはその worktree からは見えない。`develop` にマージしても、それ以前に切られた既存の PR ブランチ（=現在開いている PR のすべて）には反映されないので、この問題は解消しない。
+
+worktree の中で実行される前提であることは変わらない。`/pr-code-review` が `backend/mento-backend/CLAUDE.md` などリポジトリ相対のガイドラインを読むため、cwd が mento のチェックアウト内であることが必須条件になる。ユーザーレベルに置くとどのリポジトリからでも起動できてしまうので、コマンド側の先頭で次を検査して弾く。
+
+- origin の URL が `ugokuinc/mento` であること
+- カレントブランチが `gh pr view <番号> --json headRefName` の結果と一致すること
+
+ディレクトリ名（`mento-worktrees/review-<番号>`）では判定しない。`crit comment` は cwd とブランチから review を解決するため、ディレクトリ名が合っていてもブランチが差し替わっていれば別の review file に書き込まれてしまう。
 
 ### 手順
 
@@ -106,9 +114,14 @@ worktree の中で実行される前提。`/pr-code-review` が `backend/mento-b
    - ファイル全体の指摘 → `{"path": ..., "body": ...}`
    - 全体所感 → `{"body": ..., "scope": "review"}`
    - 本文が複数行になるため、stdin パイプではなく必ず `--file` を使う
-4. **story 本体の生成** — `crit:crit-story` スキルを `--refresh` 付きで起動し、スタブを実体に置き換えて
-   ingest する。ブラウザが開く。
+4. **story 本体の生成** — `crit story --guide` でスキーマを、`crit story --pr <番号> --prep <tmp>` で
+   prep を得て、エージェント自身が story JSON（`prologue` / `chapters` / `support` のみ）を書き、
+   `crit story --pr <番号> --story-file <tmp> --refresh` で ingest する。ブラウザが開く。
    `~/.crit.config.json` に `agent_cmd` を設定していないため、CLI 単体の `crit story` 自動生成には依存しない。
+   **`crit:crit-story` スキルには委譲しない。** あのスキルの手順は `crit story --prep` / `crit story --story-file`
+   を `--pr` も `--refresh` も付けずに実行するため、diff スコープが cwd/ブランチから再解決され、
+   手順 2 のスタブとは別の review file に story が入って手順 3 のコメントが孤立する
+   （下記「review file のスコープ問題」で防ごうとしている事象そのもの）。
 5. **引き継ぎ** — ブラウザで最終レビューし、追記したコメントを
    `crit push <番号>` で GitHub PR に反映する、と案内して終了する。
 
@@ -121,7 +134,7 @@ worktree の中で実行される前提。`/pr-code-review` が `backend/mento-b
 
 1. `crit story --pr <番号> --skip-llm --no-open` で review をスタブ生成する
 2. `crit comment --json --file <tmp>` でコメントを載せる
-3. `crit story --refresh` で story 本体を生成する
+3. `crit story --pr <番号> --story-file <tmp> --refresh` で story 本体を ingest する
 
 **実測結果（2026-08-09、`review-4269` worktree で検証）**: `crit comment` を先に実行すると
 review file は `~/.crit/reviews/495449ca40c8/review.json` に書かれ、続けて
@@ -130,8 +143,8 @@ review file は `~/.crit/reviews/495449ca40c8/review.json` に書かれ、続け
 `review_file` がステップ間で変わり、`crit comments --all` はコメント 0 件（先行コメントは
 別ファイルに孤立）。逆に story を先に作った後で `crit comment` を打つと同じ review file に
 書き込まれ、`crit story --refresh` を挟んでもコメントは保持された。よって採用順序は
-**「story スタブ先行」**（`crit story --skip-llm --no-open` → `crit comment` →
-`crit story --refresh`）に決定する。
+**「story スタブ先行」**（`crit story --pr --skip-llm --no-open` → `crit comment` →
+`crit story --pr --story-file --refresh`）に決定する。
 
 **運用上の注意（実測中に確認した crit の挙動）**:
 
@@ -176,5 +189,9 @@ review file は `~/.crit/reviews/495449ca40c8/review.json` に書かれ、続け
 ## 判断の記録
 
 - **`prv` を mento 専用にするか汎用にするか** → 汎用にする。`gh` が cwd からリポジトリを解決するので追加コストがない。
-  ただし `/review-pr` は mento にしか無いので、他リポジトリでは worktree を開いた時点で止まる。これは許容する。
+  ただし `/review-pr` は mento 専用（origin と PR の head ブランチを検査して弾く）なので、
+  他リポジトリでは worktree を開いてコマンドを投入した時点で、コマンド側の検査に引っかかって止まる。これは許容する。
+- **`/review-pr` をどこに置くか** → mento ではなく dotfiles のユーザーレベル（`home/.claude/commands/`）。
+  `prv` の worktree は PR の head ブランチをチェックアウトするので、リポジトリ管理下に置くと
+  既存のどの PR からも見えない。詳細はコンポーネント 2 の配置を参照。
 - **Draft PR を候補に含めるか** → 含める。fzf の一覧に `[Draft]` を出して判断は人間に任せる。
