@@ -38,7 +38,7 @@ prv                              ← fish 関数 (dotfiles)
  └─ herdr agent start → herdr agent prompt "/pr-code-review-with-crit <num>"
                                     │
                                     ▼
-/pr-code-review-with-crit <num>                 ← スラッシュコマンド (dotfiles / ユーザーレベル)
+/pr-code-review-with-crit <num>                 ← スラッシュコマンド (dotfiles ユーザーレベル + mento)
  ├─ /pr-code-review <num>                       ← 既存スキル、無改変
  ├─ crit story --pr <num> --skip-llm --no-open  ← story スタブを先に作り review file を確定
  ├─ crit comment --json --file <tmp>            ← 指摘を同じ review file に一括登録
@@ -89,7 +89,7 @@ prv [query]
 
 ## コンポーネント 2: `/pr-code-review-with-crit` (スラッシュコマンド)
 
-配置: **同じ内容を 2 箇所に置く。**
+配置: **ほぼ同じ内容を 2 箇所に置く。**
 
 1. `home/.claude/commands/pr-code-review-with-crit.md`（dotfiles・ユーザーレベル）
    `~/.claude` は dotfiles の `home/.claude` への symlink なので、全リポジトリ・全 worktree から見える。
@@ -99,7 +99,7 @@ prv [query]
 
 **dotfiles だけに置くのも選ばなかった。** チームで使えるようにするため mento にも入れる。将来 `develop` から切られた PR では、リポジトリ側のコピーが自然に使われる。
 
-二重管理になるので、**片方を直したらもう片方も直すこと**。コマンドファイル自身の冒頭にもその注意書きを入れてある。
+二重管理になるので、**手順を直したらもう片方も直すこと**。差分は意図的に 2 箇所だけに留めてある: dotfiles 側の冒頭にある同期の注意書き（mento 側には置かない。チームには関係のない事情なので）と、ステップ0 の書き出し（実行場所の前提の説明）。それ以外は同一に保つ。
 
 worktree の中で実行される前提であることは変わらない。`/pr-code-review` が `backend/mento-backend/CLAUDE.md` などリポジトリ相対のガイドラインを読むため、cwd が mento のチェックアウト内であることが必須条件になる。ユーザーレベルに置くとどのリポジトリからでも起動できてしまうので、コマンド側の先頭で次を検査して弾く。
 

@@ -11,11 +11,11 @@ description: レビュー依頼された PR の一次レビューを実行し、
 - origin の URL: !`git remote get-url origin`
 - PR の head ブランチ: !`gh pr view $ARGUMENTS --json headRefName -q .headRefName`
 
-> **このファイルは 2 箇所に同じ内容で置かれている。**
-> dotfiles の `home/.claude/commands/pr-code-review-with-crit.md`（ユーザーレベル）と、
-> mento の `.claude/commands/pr-code-review-with-crit.md`（チーム共有）。
-> `prv` の worktree は PR の head ブランチをチェックアウトするため、リポジトリ側だけに置くと
-> マージ前に切られた PR からは見えない。片方を直したらもう片方も直すこと。
+> **このファイルは mento の `.claude/commands/pr-code-review-with-crit.md` にも置かれている。**
+> `prv` の worktree は PR の head ブランチをチェックアウトするため、mento 側だけに置くと
+> マージ前に切られた PR からは見えない。だからユーザーレベルにも要る。
+> **手順を直したらもう片方も直すこと。** 差分はこの引用ブロックと、直下のステップ0 の
+> 書き出し（実行場所の前提の説明）だけ。それ以外は同じ内容に保つ。
 
 ## Your task
 
