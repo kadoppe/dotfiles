@@ -39,9 +39,10 @@ prv                              ← fish 関数 (dotfiles)
                                     │
                                     ▼
 /review-pr <num>                 ← スラッシュコマンド (mento)
- ├─ /pr-code-review <num>        ← 既存スキル、無改変
- ├─ crit comment --json --file <tmp>   ← 指摘を crit に一括登録
- └─ /crit-story                  ← story を生成・ingest、ブラウザが開く
+ ├─ /pr-code-review <num>                       ← 既存スキル、無改変
+ ├─ crit story --pr <num> --skip-llm --no-open  ← story スタブを先に作り review file を確定
+ ├─ crit comment --json --file <tmp>            ← 指摘を同じ review file に一括登録
+ └─ /crit-story --refresh                       ← story 本体を生成・ingest、ブラウザが開く
                                     │
                                     ▼
                        人間が最終レビュー → crit push <num>
@@ -95,25 +96,28 @@ worktree の中で実行される前提。`/pr-code-review` が `backend/mento-b
 
 1. **一次レビュー** — 既存の `pr-code-review` スキルを PR 番号付きで実行する。
    このスキルはレビュー結果を構造化テキストで返す。
-2. **crit への登録** — 指摘を crit のコメント JSON に変換し、Write ツールで一時ファイルに書いてから
+2. **story スタブの生成** — `crit story --pr <番号> --skip-llm --no-open` を先に実行し、review file を確定させる。
+   `crit comment` は cwd とブランチから review を解決するのに対し `crit story --pr` は diff スコープから
+   新しい review file を作るため、後続の `crit comment` を同じファイルに書き込ませるにはこの手順が
+   必ず先に必要になる（根拠は下記「review file のスコープ問題」の実測結果）。
+3. **crit への登録** — 指摘を crit のコメント JSON に変換し、Write ツールで一時ファイルに書いてから
    `crit comment --json --file <tmp> --author 'Claude Code'` で一括投入する。
    - 行単位の指摘 → `{"file": ..., "line": ..., "body": ...}`
    - ファイル全体の指摘 → `{"path": ..., "body": ...}`
    - 全体所感 → `{"body": ..., "scope": "review"}`
    - 本文が複数行になるため、stdin パイプではなく必ず `--file` を使う
-3. **story の生成** — `crit:crit-story` スキルを起動する。
-   story JSON を書いて ingest し、ブラウザが開く。
+4. **story 本体の生成** — `crit:crit-story` スキルを `--refresh` 付きで起動し、スタブを実体に置き換えて
+   ingest する。ブラウザが開く。
    `~/.crit.config.json` に `agent_cmd` を設定していないため、CLI 単体の `crit story` 自動生成には依存しない。
-4. **引き継ぎ** — ブラウザで最終レビューし、追記したコメントを
+5. **引き継ぎ** — ブラウザで最終レビューし、追記したコメントを
    `crit push <番号>` で GitHub PR に反映する、と案内して終了する。
 
 ### review file のスコープ問題
 
 `crit comment` は cwd とブランチから review を解決し、`crit story` は診断対象の diff スコープから review を作る。
-この 2 つが別の review file になるとコメントが story 側に出てこない。
-
-ステップ 2 の直後に `crit status --json` で解決先を確認し、ステップ 3 の結果と一致することを検証する。
-一致しない場合は順序を次のように入れ替える:
+この 2 つが別の review file になるとコメントが story 側に出てこない。実測の結果、順序を入れ替えないと
+必ず食い違うことが分かったため、コンポーネント 2 の手順 2〜4 は次の順序で固定する（コメント先行を
+実行時の条件分岐で判定する設計ではない）:
 
 1. `crit story --pr <番号> --skip-llm --no-open` で review をスタブ生成する
 2. `crit comment --json --file <tmp>` でコメントを載せる
@@ -128,6 +132,18 @@ review file は `~/.crit/reviews/495449ca40c8/review.json` に書かれ、続け
 書き込まれ、`crit story --refresh` を挟んでもコメントは保持された。よって採用順序は
 **「story スタブ先行」**（`crit story --skip-llm --no-open` → `crit comment` →
 `crit story --refresh`）に決定する。
+
+**運用上の注意（実測中に確認した crit の挙動）**:
+
+- `crit story --refresh` の実行時に `daemon returned 422 Unprocessable Entity` という
+  daemon 通知失敗が発生した。ファイル自体は書き込まれていたが、daemon 起動中は
+  in-memory state とディスクの内容がズレることがある。`--refresh` の直後は必ず
+  `crit status --json` で `review_file` がステップ 1 と同じパスであること・
+  `review_file_exists: true` であることを確認する。
+- `crit story --clear` / `crit comment --clear` は、daemon が起動中だと
+  「Cleared ...」という成功メッセージを返すのにディスクの内容が更新されない事象が
+  あった。クリア操作の成否はこのメッセージを信用せず、`crit comments --all`
+  （必要なら対象の review file を直接読む）で確認する。
 
 ## 検証済みの前提
 
