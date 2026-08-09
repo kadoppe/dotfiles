@@ -79,6 +79,25 @@ set -x RIPGREP_CONFIG_PATH $HOME/.ripgreprc
 # 1password
 set -x SSH_AUTH_SOCK $HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
+function __ensure_herdr_server -d "start the herdr server if it is not running"
+  if herdr status server 2> /dev/null | grep -q "status: running"
+    return 0
+  end
+
+  herdr server > /dev/null 2>&1 &
+  disown
+
+  for i in (seq 30)
+    if herdr status server 2> /dev/null | grep -q "status: running"
+      return 0
+    end
+    sleep 0.2
+  end
+
+  echo "herdr サーバの起動に失敗しました" >&2
+  return 1
+end
+
 # see also: https://blog.abekoh.dev/posts/prj-command
 function prj -d "start project"
   if test (count $argv) -gt 0
@@ -94,14 +113,7 @@ function prj -d "start project"
   set PRJ_NAME (basename (dirname $PRJ_PATH))/(basename $PRJ_PATH)
 
   # the herdr CLI doesn't auto-start the server
-  if not herdr status server 2> /dev/null | grep -q "status: running"
-    herdr server > /dev/null 2>&1 &
-    disown
-    for i in (seq 30)
-      herdr status server 2> /dev/null | grep -q "status: running" && break
-      sleep 0.2
-    end
-  end
+  __ensure_herdr_server; or return
 
   set WS_ID (herdr workspace list | jq -r --arg l "$PRJ_NAME" '.result.workspaces[] | select(.label == $l) | .workspace_id')
   if test -z "$WS_ID"
