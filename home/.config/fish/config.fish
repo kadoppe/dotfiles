@@ -155,7 +155,8 @@ function prv -d "pick a review-requested PR, create a worktree, and start a revi
     return 0
   end
 
-  set SELECTED (printf '%s\n' $PR_LINES | fzf --delimiter \t --with-nth 2.. $prvflag)
+  # 番号を隠さない（表示にも検索にも使うため）。選択後は tab 区切りの 1 列目から取り出す
+  set SELECTED (printf '%s\n' $PR_LINES | fzf --delimiter \t $prvflag)
   if test -z "$SELECTED"
     return 0
   end
