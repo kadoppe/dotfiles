@@ -42,11 +42,13 @@ prv                              ← fish 関数 (dotfiles)
  ├─ /pr-code-review <num>                       ← 既存スキル、無改変
  ├─ crit story --pr <num> --skip-llm --no-open  ← story スタブを先に作り review file を確定
  ├─ crit comment --json --file <tmp>            ← 指摘を同じ review file に一括登録
- └─ crit story --pr <num> --story-file <tmp> --refresh
-                                                ← story 本体を生成・ingest、ブラウザが開く
+ ├─ crit story --pr <num> --story-file <tmp> --refresh
+ │                                              ← story 本体を生成・ingest、ブラウザが開く
+ └─ crit --pr <num>                             ← Finish Review を待つ。押されたら人のコメントに
+                                                   返信し、また crit --pr で次のラウンドへ（繰り返し）
                                     │
                                     ▼
-                       人間が最終レビュー → crit push <num>
+                       人間が crit push <num>（手動。コマンドからは push しない）
 ```
 
 ## コンポーネント 1: `prv` (fish 関数)
