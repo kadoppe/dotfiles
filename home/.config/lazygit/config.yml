@@ -5,7 +5,7 @@ customCommands:
     command: "sh -c 'aicommit2 --auto-select'"
     output: terminal
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never
+      command: delta --dark --paging=never
 promptToReturnFromSubprocess: false
