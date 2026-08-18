@@ -143,15 +143,29 @@ function prv -d "pick a review-requested PR, create a worktree, and start a revi
     set prvflag --query "$argv"
   end
 
-  set PR_JSON (gh pr list --search "review-requested:@me" --json number,title,author,headRefName,isDraft --limit 50)
+  set PR_REQ (gh pr list --search "review-requested:@me" --json number,title,author,headRefName,isDraft --limit 50)
   if test $status -ne 0
     echo "prv: gh pr list に失敗しました（git リポジトリの中で実行していますか？）" >&2
     return 1
   end
 
-  set PR_LINES (echo $PR_JSON | jq -r '.[] | "\(.number)\t\(if .isDraft then "[Draft] " else "" end)\(.title) (@\(.author.login))"')
+  # GitHub は自分がレビューを投稿した時点でレビュー依頼を解除するので、
+  # review-requested だけだと「返信して相手の反応を待っている PR」を拾い直せない
+  set PR_DONE (gh pr list --search "reviewed-by:@me is:open -author:@me" --json number,title,author,headRefName,isDraft --limit 50)
+  if test $status -ne 0
+    echo "prv: gh pr list に失敗しました（git リポジトリの中で実行していますか？）" >&2
+    return 1
+  end
+
+  # 番号で重複を排除する。両方に出る（レビュー後に再依頼された）ものは未レビュー扱いにして先頭へ寄せる
+  set PR_JSON (jq -n --argjson req "$PR_REQ" --argjson done "$PR_DONE" '
+    ([$req[] | . + {reviewed: false}] + [$done[] | . + {reviewed: true}])
+    | group_by(.number) | map(min_by(.reviewed))
+    | sort_by(.reviewed, -.number)')
+
+  set PR_LINES (echo $PR_JSON | jq -r '.[] | "\(.number)\t\(if .reviewed then "[レビュー済] " else "[未レビュー] " end)\(if .isDraft then "[Draft] " else "" end)\(.title) (@\(.author.login))"')
   if test -z "$PR_LINES"
-    echo "prv: レビュー依頼はありません"
+    echo "prv: 対象の PR はありません"
     return 0
   end
 
