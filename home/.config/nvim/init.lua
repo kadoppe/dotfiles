@@ -43,6 +43,32 @@ vim.opt.wrap = true
 
 vim.opt.undofile = true
 
+local close_deleted_buffers = vim.api.nvim_create_augroup("CloseDeletedBuffers", { clear = true })
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost" }, {
+  group = close_deleted_buffers,
+  callback = function(args)
+    vim.b[args.buf].was_backed_by_file = true
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
+  group = close_deleted_buffers,
+  callback = function()
+    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+      local path = vim.api.nvim_buf_get_name(bufnr)
+      local is_deleted_file = vim.api.nvim_buf_is_loaded(bufnr)
+        and vim.bo[bufnr].buftype == ""
+        and vim.b[bufnr].was_backed_by_file
+        and vim.uv.fs_stat(path) == nil
+
+      if is_deleted_file then
+        vim.api.nvim_buf_delete(bufnr, { force = true })
+      end
+    end
+  end,
+})
+
 -- colorscheme
 vim.opt.termguicolors = true
 
