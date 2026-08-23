@@ -64,6 +64,12 @@ fish_add_path /opt/homebrew/opt/mysql-client@8.4/bin
 # starship
 starship init fish | source
 
+# Install with: herdr plugin install qu8n/herdr-automatic-rename --yes
+# Keep Herdr tab names in sync as commands start.
+for plugin_hook in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.fish
+  test -r "$plugin_hook"; and source "$plugin_hook"; and break
+end
+
 # fzf
 fzf --fish | source
 function fish_user_key_bindings
