@@ -55,7 +55,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 /opt/homebrew/bin/mise activate fish | source
 fish_add_path --prepend --move ~/.local/share/mise/shims
 # direnv
-eval (direnv hook fish)
+direnv hook fish | source
 
 # mysql-client
 # fish_add_path /opt/homebrew/opt/mysql-client/bin
